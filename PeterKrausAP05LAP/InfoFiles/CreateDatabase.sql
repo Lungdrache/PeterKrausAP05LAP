@@ -1,3 +1,8 @@
+DROP DATABASE StockGamesDatabase
+GO
+
+
+
 CREATE DATABASE StockGamesDatabase
 GO
 
@@ -56,7 +61,7 @@ CREATE TABLE "Product"(
 	"Id"			INT NOT NULL,
 	"ProductName"	NVARCHAR(80) NOT NULL,
 	"NetUnitPrice"	DECIMAL(19,4) NOT NULL,
-	"ImagePath"		NVARCHAR(200) NOT NULL,
+	"TrailerPath"	NVARCHAR(200) NOT NULL,
 	"Description"	NVARCHAR(200),
 	"ManufactureId" INT NOT NULL,
 	"CategoryId"	INT NOT NULL,
@@ -67,6 +72,17 @@ CREATE TABLE "Product"(
 	
 	CONSTRAINT "FK_CategoryProductId" FOREIGN KEY ("CategoryId")
 	REFERENCES "Category"("Id")
+);
+GO
+
+CREATE TABLE "ProductImages"(
+	"Id"			INT NOT NULL,
+	"ProductId"		INT NOT NULL,
+	"ImagePath"		NVARCHAR(200) NOT NULL
+	PRIMARY KEY("Id"),
+
+	CONSTRAINT "FK_ProductId" FOREIGN KEY ("ProductId")
+	REFERENCES "Product"("Id")
 );
 GO
 
