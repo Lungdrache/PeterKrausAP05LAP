@@ -26,5 +26,26 @@ namespace PeterKrausAP05LAP.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        [ActionName("Importer")]
+        public ActionResult ImporterGet()
+        {
+            ViewBag.Result = "Want to import Files?";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ActionName("Importer")]
+        public ActionResult ImporterPost()
+        {
+
+            ViewBag.Result = "Everything was Importet";
+
+
+
+            return View();
+        }
     }
 }
