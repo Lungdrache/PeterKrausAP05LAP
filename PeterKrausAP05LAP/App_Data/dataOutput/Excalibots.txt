@@ -1,0 +1,8 @@
+Excalibots
+Free
+Excalibots is a 3D isometric hack-n-slash game, in which you play as Percy, the sword obsessed knight. Fight off hordes of enemies in order to collect quirky, powerful swords and defend the kingdom!
+DigiPen Institute of Technology
+Action
+19
+/Excalibots/0.png|/Excalibots/1.png|/Excalibots/2.png|/Excalibots/3.png|/Excalibots/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256790575/movie_max_vp9.webm?t=1593247628|

@@ -1,0 +1,8 @@
+Pipe Mania
+3,99
+Pipe Mania is a fast-paced puzzle game in which players lay down a set of pipes on a tiled grid in order to keep the Flooze - a constant flowing substance that speeds up with progression - moving through the pipes as long as possible without overflowing
+Strategy First
+Strategy
+19
+/Pipe Mania/0.png|/Pipe Mania/1.png|/Pipe Mania/2.png|/Pipe Mania/3.png|/Pipe Mania/4.png|/Pipe Mania/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256795101/movie_max_vp9.webm?t=1597163506|

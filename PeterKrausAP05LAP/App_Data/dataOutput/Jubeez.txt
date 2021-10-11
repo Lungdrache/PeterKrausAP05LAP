@@ -1,0 +1,8 @@
+Jubeez
+0,79
+Jubeez is an innovative and unique take on the match-3 genre. Try to form groups of Jubeez while moving around the board, but be careful not to corner yourself! The faster you play the more score you earn. Can you become the best Jubeez player in the world and rank at the top of the leaderboards?
+TheDollarGameStore
+Casual
+19
+/Jubeez/0.png|/Jubeez/1.png|/Jubeez/2.png|/Jubeez/3.png|/Jubeez/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256790222/movie_max_vp9.webm?t=1593447486|http://cdn.akamai.steamstatic.com/steam/apps/256791374/movie_max_vp9.webm?t=1593533418|

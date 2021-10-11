@@ -1,0 +1,8 @@
+Andromedum
+1,99
+Andromedum is a VR novel with stereoscopic environments and audio narration. HTC Vive motion controllers are required!
+Imbanova Entertainment Inc.
+Casual
+19
+/Andromedum/0.png|/Andromedum/1.png|/Andromedum/2.png|/Andromedum/3.png|/Andromedum/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256662841/movie_max.webm?t=1460690782|

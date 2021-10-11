@@ -1,0 +1,8 @@
+Exception
+1,49
+When an old woman's computer system is taken over by a virus bent on total annihilation, you assume control of an ordinary software program transformed into an elite combat machine. Retake the system and build your character into a formidable instrument of retribution.
+Traxmaster Software
+Action
+19
+/Exception/0.png|/Exception/1.png|/Exception/2.png|/Exception/3.png|/Exception/4.png|/Exception/5.png|/Exception/6.png|/Exception/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256757518/movie_max.webm?t=1564327660|http://cdn.akamai.steamstatic.com/steam/apps/256748662/movie_max.webm?t=1562457158|

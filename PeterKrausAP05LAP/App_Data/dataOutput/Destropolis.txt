@@ -1,0 +1,8 @@
+Destropolis
+4,99
+Destropolis is a top-down shooter game with a fully destructible environment, hundreds of enemies and nuclear explosions. Fight a countless swarm of enemies. Tear them to pieces with bullets, lasers and explosions. Destroy as many of them as you can before they overwhelm you...
+Games Incubator
+Action
+19
+/Destropolis/0.png|/Destropolis/1.png|/Destropolis/2.png|/Destropolis/4.png|/Destropolis/5.png|/Destropolis/6.png|/Destropolis/7.png|/Destropolis/8.png|/Destropolis/9.png|/Destropolis/10.png|/Destropolis/11.png|/Destropolis/12.png|/Destropolis/13.png|/Destropolis/14.png|/Destropolis/15.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792302/movie_max_vp9.webm?t=1594326819|http://cdn.akamai.steamstatic.com/steam/apps/256784756/movie_max_vp9.webm?t=1589443502|

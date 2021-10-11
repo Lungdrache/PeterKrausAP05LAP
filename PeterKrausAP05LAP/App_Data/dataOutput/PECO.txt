@@ -1,0 +1,8 @@
+PECO
+2,39
+An action-puzzle game that guides the player to the goal by considering where the stage is projected with the camera.(Google Translation)
+RootSerious
+Action
+19
+/PECO/0.png|/PECO/1.png|/PECO/2.png|/PECO/3.png|/PECO/4.png|/PECO/5.png|/PECO/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256797757/movie_max_vp9.webm?t=1599752194|

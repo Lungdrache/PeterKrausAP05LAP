@@ -1,0 +1,8 @@
+Moirs
+3,99
+《Moirs》is a 7 Keys rhythm game, step into the world of music and enjoy the journey!
+XVVX STUDIO
+Action
+19
+/Moirs/0.png|/Moirs/1.png|/Moirs/2.png|/Moirs/3.png|/Moirs/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256788477/movie_max_vp9.webm?t=1595169560|http://cdn.akamai.steamstatic.com/steam/apps/256788484/movie_max_vp9.webm?t=1592198001|

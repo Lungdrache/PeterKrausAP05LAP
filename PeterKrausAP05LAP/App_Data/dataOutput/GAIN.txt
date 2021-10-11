@@ -1,0 +1,8 @@
+GAIN
+4,99
+The job is simple: Dont die! GAIN is an arcade style stealth game with perma-death. Freeze guards, slow time and collect the documents in seven frustrating levels without dying. Classic stealth game with no saves. Once you die, its back to the beginning....
+Worldgame entertainment 
+Action
+19
+/GAIN/0.png|/GAIN/1.png|/GAIN/2.png|/GAIN/3.png|/GAIN/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256665006/movie_max.webm?t=1464906376|

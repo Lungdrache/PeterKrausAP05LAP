@@ -1,0 +1,8 @@
+ReverieTale
+5,69
+VR Hack&amp;Slash Game - Slice and dice your enemies with a sword Run up and down the field and use your skills to annihilate the enemies!
+Argus
+Action
+19
+/ReverieTale/0.png|/ReverieTale/1.png|/ReverieTale/2.png|/ReverieTale/3.png|/ReverieTale/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792434/movie_max_vp9.webm?t=1594956977|

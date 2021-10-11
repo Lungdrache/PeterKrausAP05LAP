@@ -1,0 +1,8 @@
+RITE
+3,99
+RITE is a high-speed, precision platformer where you must conquer a series of challenging trials, a rite of passage for every Nim.
+Pond Games Pty Ltd
+Action
+19
+/RITE/0.png|/RITE/1.png|/RITE/2.png|/RITE/3.png|/RITE/4.png|/RITE/5.png|/RITE/6.png|/RITE/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256788490/movie_max_vp9.webm?t=1591843085|

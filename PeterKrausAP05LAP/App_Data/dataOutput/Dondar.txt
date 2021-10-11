@@ -1,0 +1,8 @@
+Dondar
+9,--
+Dondar - a high-speed platformer with puzzles coins and elements and a match of 3 elements.
+Dnovel
+Action
+19
+/Dondar/0.png|/Dondar/1.png|/Dondar/2.png|/Dondar/3.png|/Dondar/4.png|/Dondar/5.png|/Dondar/6.png|/Dondar/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793468/movie_max_vp9.webm?t=1595337873|http://cdn.akamai.steamstatic.com/steam/apps/256793467/movie_max_vp9.webm?t=1595337882|http://cdn.akamai.steamstatic.com/steam/apps/256792356/movie_max_vp9.webm?t=1594750128|

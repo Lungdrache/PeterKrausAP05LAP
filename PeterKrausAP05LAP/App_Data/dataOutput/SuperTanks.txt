@@ -1,0 +1,8 @@
+SuperTanks
+2,39
+Battle against friends using tanks and their weapons. Find bonuses on map and use them to your adventage. All tanks can use bullets, lasers, bombs, temporary speed or special sphere where bullets are slower. Game can be streamed on Twitch and other streaming platforms.
+Marokw
+Action
+19
+/SuperTanks/0.png|/SuperTanks/1.png|/SuperTanks/2.png|/SuperTanks/3.png|/SuperTanks/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793227/movie_max_vp9.webm?t=1597814111|

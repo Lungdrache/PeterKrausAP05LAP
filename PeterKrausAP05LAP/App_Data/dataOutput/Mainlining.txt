@@ -1,0 +1,8 @@
+Mainlining
+10,79
+After MI7 has been hacked, your primary goal is to bring a cyber-criminal network to justice. Played entirely from within the environment of your computer's desktop, Mainlining is a thrilling point and click hacking adventure that features a gripping narrative which will have you hooked from the very first case.
+Merge Games
+Adventure
+19
+/Mainlining/0.png|/Mainlining/1.png|/Mainlining/2.png|/Mainlining/3.png|/Mainlining/4.png|/Mainlining/5.png|/Mainlining/6.png|/Mainlining/7.png|/Mainlining/8.png|/Mainlining/9.png|/Mainlining/10.png|/Mainlining/11.png|/Mainlining/12.png|/Mainlining/13.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256677987/movie_max.webm?t=1484575461|

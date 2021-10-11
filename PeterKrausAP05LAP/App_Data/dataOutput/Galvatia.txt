@@ -1,0 +1,8 @@
+Galvatia
+20,99
+Galvatia is a PC game where you are an invisible conservationist for animals. It contains 5-enviroments such as a European meadow, a mixed forest, an American rainforest, an African savannah and an ocean.
+Dev.studio
+Simulation
+19
+/Galvatia/0.png|/Galvatia/1.png|/Galvatia/2.png|/Galvatia/3.png|/Galvatia/4.png|/Galvatia/5.png|/Galvatia/6.png|/Galvatia/7.png|/Galvatia/8.png|/Galvatia/9.png|/Galvatia/10.png|/Galvatia/11.png|/Galvatia/12.png|/Galvatia/13.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256791394/movie_max_vp9.webm?t=1594226686|

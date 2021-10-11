@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.IO;
 using System.Web.Mvc;
 
 namespace PeterKrausAP05LAP.Controllers
@@ -40,9 +39,53 @@ namespace PeterKrausAP05LAP.Controllers
         [ActionName("Importer")]
         public ActionResult ImporterPost()
         {
+            // gets the FolderPath
+            string programmPath = Server.MapPath("~/App_Data");
+            // counts the errors which was made
+            int errorCount = 0;
+            // counts all importet files
+            int fileCount = 0;
 
-            ViewBag.Result = "Everything was Importet";
 
+            // checks if the Import folder even Exists
+            if (Directory.Exists(programmPath + "/dataOutput") && Directory.Exists(programmPath + "/AssetFiles"))
+            {
+                string[] allFiles = Directory.GetFiles(programmPath + "/dataOutput");
+
+                foreach (string filePath in allFiles)
+                {
+
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        fileCount++;
+                    }
+                    else
+                    {
+                        errorCount++;
+                    }
+
+
+
+                }
+                ViewBag.Result = "All Work is Done";
+                ViewBag.Errors = errorCount;
+                ViewBag.Files = fileCount;
+
+
+
+
+
+
+
+
+            }
+            else
+            {
+                ViewBag.Result = "Can't find the folder \"dataOutput\" and \"AssetFiles\"";
+                ViewBag.Errors = 0;
+                ViewBag.Files = 0;
+
+            }
 
 
             return View();

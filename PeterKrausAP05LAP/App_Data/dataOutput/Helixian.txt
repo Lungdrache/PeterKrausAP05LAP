@@ -1,0 +1,8 @@
+Helixian
+1,59
+Helixian is a top down space shooter akin to games like Galaga with intense boss fights and bullet hell like stages
+N/A
+Indie
+19
+/Helixian/0.png|/Helixian/1.png|/Helixian/2.png|/Helixian/3.png|/Helixian/4.png|/Helixian/5.png|/Helixian/6.png|/Helixian/7.png|/Helixian/8.png|/Helixian/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793967/movie_max_vp9.webm?t=1600123691|

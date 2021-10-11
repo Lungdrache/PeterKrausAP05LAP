@@ -1,0 +1,8 @@
+Elli
+2,39
+A whimsical hand-crafted single-player adventure. Discover a delightful world, inhabited by the playful and usually helpful Mandragora. Collect gems and and hidden coins and exchange them for a variety of robes, staffs and hats. Simple pick up and play controls, suitable for kids and big kids!
+BandanaKid Games
+Adventure
+19
+/Elli/0.png|/Elli/1.png|/Elli/2.png|/Elli/3.png|/Elli/4.png|/Elli/5.png|/Elli/6.png|/Elli/7.png|/Elli/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256788351/movie_max_vp9.webm?t=1592045644|

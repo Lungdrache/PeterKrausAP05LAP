@@ -1,0 +1,8 @@
+Android
+3,99
+Android is a 2D platformer very similar to Brøderbund’s classic Lode Runner.
+jmApp
+Action
+19
+/Android/0.png|/Android/1.png|/Android/2.png|/Android/3.png|/Android/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794851/movie_max_vp9.webm?t=1603787463|

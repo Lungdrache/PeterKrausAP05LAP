@@ -1,0 +1,8 @@
+DriftZ
+1,99
+In a world where drift is your only weapon of defense against Zombie invasion, you have been recruited for your skill. You are the only hope for your community.
+Studio Inward
+Action
+19
+/DriftZ/0.png|/DriftZ/1.png|/DriftZ/2.png|/DriftZ/3.png|/DriftZ/4.png|/DriftZ/5.png|/DriftZ/6.png|/DriftZ/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256785558/movie_max_vp9.webm?t=1589879170|

@@ -1,0 +1,8 @@
+Gunnhildr
+16,79
+Gunnhildr is a narrative shooter set in a Norse-inspired sci-fi world. Defy the gods and give Niflheim new life through fast paced first person combat in an ever-changing world full of powers and stories to uncover.
+RatDog Games LLC
+Action
+19
+/Gunnhildr/0.png|/Gunnhildr/1.png|/Gunnhildr/2.png|/Gunnhildr/3.png|/Gunnhildr/4.png|/Gunnhildr/5.png|/Gunnhildr/6.png|/Gunnhildr/7.png|/Gunnhildr/8.png|/Gunnhildr/9.png|/Gunnhildr/10.png|/Gunnhildr/11.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793370/movie_max_vp9.webm?t=1605633420|http://cdn.akamai.steamstatic.com/steam/apps/256809843/movie_max_vp9.webm?t=1605626608|

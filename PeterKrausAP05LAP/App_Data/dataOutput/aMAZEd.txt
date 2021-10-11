@@ -1,0 +1,8 @@
+aMAZEd
+9,99
+aMAZEd is an atmospheric first-person exploration adventure game with elements of action and horror. Lost in a labyrinth, prey to others. Find as many items and clues to escape it and enjoy escalating difficulty in both exploration and action aspects of the game.
+Venushja Games
+Indie
+19
+/aMAZEd/0.png|/aMAZEd/1.png|/aMAZEd/2.png|/aMAZEd/3.png|/aMAZEd/4.png|/aMAZEd/5.png|/aMAZEd/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794980/movie_max_vp9.webm?t=1598486152|http://cdn.akamai.steamstatic.com/steam/apps/256798640/movie_max_vp9.webm?t=1598486160|

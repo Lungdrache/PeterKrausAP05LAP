@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ac1bd431b60940abbb8f35e2b17f777e" Name="Diagram1">
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Customer" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Manufacturer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Order" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.OrderLine" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Product" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.ProductImages" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.sysdiagrams" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_CategoryProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_CustomerOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_ManufacturedProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_OrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_ProductOrderId" ManuallyRouted="false" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_ProductId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

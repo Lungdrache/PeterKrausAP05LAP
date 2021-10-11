@@ -1,0 +1,8 @@
+RoboBlitz
+9,99
+RoboBlitz&trade; is a humorous, physics-based action game full of inventive gizmos, weapons, characters, and environments. Players take on the role of Blitz, a multi-talented robot who must activate an aging Space Cannon to save his world from a band of maladjusted space pirates.
+Naked Sky Entertainment
+Action
+19
+/RoboBlitz/0.png|/RoboBlitz/1.png|/RoboBlitz/2.png|/RoboBlitz/3.png|/RoboBlitz/4.png|
+

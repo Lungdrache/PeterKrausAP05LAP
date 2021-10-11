@@ -1,0 +1,8 @@
+Spinodrum
+Free
+Spinodrum is a lightweight 3d drum simulator working on pc which allows users to play drums as a 3d drummer on keyboard with optimum key settings.
+Ali Efe IRALI
+Casual
+19
+/Spinodrum/0.png|/Spinodrum/1.png|/Spinodrum/2.png|/Spinodrum/3.png|/Spinodrum/4.png|/Spinodrum/5.png|/Spinodrum/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256795483/movie_max_vp9.webm?t=1596670767|http://cdn.akamai.steamstatic.com/steam/apps/256795737/movie_max_vp9.webm?t=1596844130|

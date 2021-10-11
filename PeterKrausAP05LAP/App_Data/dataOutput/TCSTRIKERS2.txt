@@ -1,0 +1,8 @@
+TCSTRIKERS2
+3,99
+Touhou-like 2D shooting!!! Chubby protagonist!! Orthodox and easy to understand operation!
+Project Anthem
+Action
+19
+/TCSTRIKERS2/0.png|/TCSTRIKERS2/1.png|/TCSTRIKERS2/2.png|/TCSTRIKERS2/3.png|/TCSTRIKERS2/4.png|/TCSTRIKERS2/5.png|/TCSTRIKERS2/6.png|/TCSTRIKERS2/7.png|/TCSTRIKERS2/8.png|/TCSTRIKERS2/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256801377/movie_max_vp9.webm?t=1603972351|

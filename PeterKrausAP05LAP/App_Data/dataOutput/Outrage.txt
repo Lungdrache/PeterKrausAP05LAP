@@ -1,0 +1,8 @@
+Outrage
+3,99
+Outrage is a short cyberpunk dungeon crawler. You manage a team of vigilantes and must undertake various missions in the city to strengthen your team and your cause in order to bring a powerful enemy to justice.
+New Reality Games
+Adventure
+19
+/Outrage/0.png|/Outrage/1.png|/Outrage/2.png|/Outrage/3.png|/Outrage/4.png|/Outrage/5.png|/Outrage/6.png|/Outrage/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256662227/movie_max.webm?t=1459543973|

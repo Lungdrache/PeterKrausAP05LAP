@@ -1,0 +1,8 @@
+Bluevolution
+1,59
+An incredible asteroid assault is about to begin! Take command of the planet's defenses and prevent extinction in this planetary Tower Defense game.
+Johan Bägerfeldt
+Strategy
+19
+/Bluevolution/0.png|/Bluevolution/1.png|/Bluevolution/2.png|/Bluevolution/3.png|/Bluevolution/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256785250/movie_max_vp9.webm?t=1590581115|

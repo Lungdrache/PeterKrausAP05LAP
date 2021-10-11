@@ -1,0 +1,8 @@
+MeSnakeman
+3,29
+Mechanisms known and liked from the classic Snake and much more.
+Tomasz Sobczak
+Casual
+19
+/MeSnakeman/0.png|/MeSnakeman/1.png|/MeSnakeman/2.png|/MeSnakeman/3.png|/MeSnakeman/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793266/movie_max_vp9.webm?t=1595780057|

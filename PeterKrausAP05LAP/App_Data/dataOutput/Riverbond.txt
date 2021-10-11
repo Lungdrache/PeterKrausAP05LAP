@@ -1,0 +1,8 @@
+Riverbond
+21,99
+Riverbond is a ‘shoot-and-slash’ dungeon crawler with solo and couch co-op play, set in a stunning voxel world.
+Cococucumber
+Action
+19
+/Riverbond/0.png|/Riverbond/1.png|/Riverbond/2.png|/Riverbond/3.png|/Riverbond/4.png|/Riverbond/5.png|/Riverbond/6.png|/Riverbond/7.png|/Riverbond/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256753001/movie_max.webm?t=1560136244|http://cdn.akamai.steamstatic.com/steam/apps/256750217/movie_max.webm?t=1559799784|

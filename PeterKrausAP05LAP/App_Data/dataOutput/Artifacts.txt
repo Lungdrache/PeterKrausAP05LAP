@@ -1,0 +1,8 @@
+Artifacts
+3,29
+Become Strong And Reclaim What You Lost! Artifacts is a 2D adventure platformer set in an ancient interconnected kingdom littered with powerful relics. Collect synergistic artifacts to challenge the mighty, corrupted foes that lurk beneath the ground.
+Self Published
+Action
+19
+/Artifacts/0.png|/Artifacts/1.png|/Artifacts/2.png|/Artifacts/3.png|/Artifacts/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256791881/movie_max_vp9.webm?t=1593990968|

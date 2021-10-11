@@ -1,0 +1,8 @@
+Verdungo
+1,87
+King Verdungo has been taken hostage and it's up to you to rescue him. Travel across a diverse world to make your way back home, hopefully you arrive in time to save him before he meets an untimely demise.
+Wolfs Moon Studios
+Adventure
+19
+/Verdungo/0.png|/Verdungo/1.png|/Verdungo/2.png|/Verdungo/3.png|/Verdungo/4.png|/Verdungo/5.png|/Verdungo/6.png|/Verdungo/7.png|/Verdungo/8.png|/Verdungo/9.png|/Verdungo/10.png|/Verdungo/11.png|/Verdungo/12.png|/Verdungo/13.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256797983/movie_max_vp9.webm?t=1598286467|

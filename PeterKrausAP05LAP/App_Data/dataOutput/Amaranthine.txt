@@ -1,0 +1,8 @@
+Amaranthine
+2,49
+Amaranthine - is a dynamic horizontal scrolling shooter with elements of procedural generation. Travel through warp to the distant frozen planet that sent a distress signal.
+Roman Kozhukhov
+Action
+19
+/Amaranthine/0.png|/Amaranthine/1.png|/Amaranthine/2.png|/Amaranthine/3.png|/Amaranthine/4.png|/Amaranthine/5.png|/Amaranthine/6.png|/Amaranthine/7.png|/Amaranthine/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256662359/movie_max.webm?t=1459484129|

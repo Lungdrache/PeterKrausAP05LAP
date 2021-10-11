@@ -1,0 +1,8 @@
+PlayFortress
+19,99
+PlayFortress is a castle building game where the player controls characters such as the Lord, Master Mason and Engineer, using them to construct elaborate castle fortifications and settlements whilst managing their economy.
+PlayFortress
+Indie
+19
+/PlayFortress/0.png|/PlayFortress/1.png|/PlayFortress/2.png|/PlayFortress/3.png|/PlayFortress/4.png|/PlayFortress/5.png|/PlayFortress/6.png|/PlayFortress/7.png|/PlayFortress/8.png|/PlayFortress/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256673263/movie_max.webm?t=1478197975|

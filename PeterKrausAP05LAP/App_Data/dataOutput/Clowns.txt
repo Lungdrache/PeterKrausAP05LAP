@@ -1,0 +1,8 @@
+Clowns
+1,12
+Clowns-2d shooter with platformer elements, where the player protects the circus tent from the incoming wave of mad clowns, picking up unique weapons and bonuses that will help in passing the levels and the final meeting with a huge clown. Feature of game: - Complexity - Pixel-Art - Unique weapon
+Big Black Bear
+Indie
+19
+/Clowns/0.png|/Clowns/1.png|/Clowns/2.png|/Clowns/3.png|/Clowns/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794896/movie_max_vp9.webm?t=1596648024|

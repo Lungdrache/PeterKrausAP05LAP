@@ -1,0 +1,8 @@
+VERGJORN
+Free
+Vergjorn is a citybuilding strategy game. Vergjorn takes place in the Viking era, where you build your city, grow your population and go raiding for treasure. You have to build ships, train vikings and forge weapons to be able to conquer foreign lands.
+Crystal Clear Entertainment SB
+Casual
+19
+/VERGJORN/0.png|/VERGJORN/1.png|/VERGJORN/2.png|/VERGJORN/3.png|/VERGJORN/4.png|/VERGJORN/5.png|/VERGJORN/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256787857/movie_max_vp9.webm?t=1591900627|

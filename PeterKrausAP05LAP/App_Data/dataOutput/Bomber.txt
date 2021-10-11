@@ -1,0 +1,8 @@
+Bomber
+4,99
+Bomber - a funny time killer game with 20 levels
+Games For Pleasure
+Action
+19
+/Bomber/0.png|/Bomber/1.png|/Bomber/2.png|/Bomber/3.png|/Bomber/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256791323/movie_max_vp9.webm?t=1593514414|http://cdn.akamai.steamstatic.com/steam/apps/256789657/movie_max_vp9.webm?t=1593514423|

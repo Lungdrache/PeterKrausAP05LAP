@@ -1,0 +1,8 @@
+CityRunner
+3,99
+Stay alive in CityRunner as you take to the streets of the city, a challenging Near Future Sci-Fi based Platform-Style Runner game. Set the highscore by collecting pickups and powerups and staying alive as long as possible to gain the high-score.
+InScienceGames
+Casual
+19
+/CityRunner/0.png|/CityRunner/1.png|/CityRunner/2.png|/CityRunner/3.png|/CityRunner/4.png|/CityRunner/5.png|/CityRunner/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256787201/movie_max_vp9.webm?t=1591698085|

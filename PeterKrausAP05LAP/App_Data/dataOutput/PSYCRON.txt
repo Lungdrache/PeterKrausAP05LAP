@@ -1,0 +1,8 @@
+PSYCRON
+5,69
+A fast-paced 2D handcrafted metroidvania with strange sci-fi environments. Something is roaming the halls, watching your every move.
+Mothware
+Action
+19
+/PSYCRON/0.png|/PSYCRON/1.png|/PSYCRON/2.png|/PSYCRON/3.png|/PSYCRON/4.png|/PSYCRON/5.png|/PSYCRON/6.png|/PSYCRON/7.png|/PSYCRON/8.png|/PSYCRON/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256828845/movie_max_vp9.webm?t=1618077017|

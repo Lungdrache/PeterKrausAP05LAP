@@ -1,0 +1,8 @@
+Chroma
+Free
+Set out on a mission to stop the attacks of the tyrannical machines. Fight your way through a dystopian city and stop them. You are the city's only hope...
+SnowCube I/S
+Action
+19
+/Chroma/0.png|/Chroma/1.png|/Chroma/2.png|/Chroma/3.png|/Chroma/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256807189/movie_max_vp9.webm?t=1604991857|

@@ -1,0 +1,8 @@
+Trenchlore
+8,19
+Enter Daqul, a vast oceanic trench teeming with alien lifeforms. Dive your way through various biomes, meeting strange creatures and dangerous enemies... all the way to the very bottom.
+Cameron Downey
+Adventure
+19
+/Trenchlore/0.png|/Trenchlore/1.png|/Trenchlore/2.png|/Trenchlore/3.png|/Trenchlore/4.png|/Trenchlore/5.png|/Trenchlore/6.png|/Trenchlore/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256796436/movie_max_vp9.webm?t=1597355738|http://cdn.akamai.steamstatic.com/steam/apps/256794621/movie_max_vp9.webm?t=1596125456|

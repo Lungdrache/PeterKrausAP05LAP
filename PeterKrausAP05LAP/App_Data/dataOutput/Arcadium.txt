@@ -1,0 +1,8 @@
+Arcadium
+0,79
+Arcadium is an action packed brickbreaker game where you destroy bricks, enemies and bosses using your ball and powerups. Fast reflexes, aiming and avoiding simple misstakes is required for beating this game, choose between three difficulty settings to adjust the challenge.
+Gedor Games
+Action
+19
+/Arcadium/0.png|/Arcadium/1.png|/Arcadium/2.png|/Arcadium/3.png|/Arcadium/4.png|/Arcadium/5.png|/Arcadium/6.png|/Arcadium/7.png|/Arcadium/8.png|/Arcadium/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256787568/movie_max_vp9.webm?t=1594370614|

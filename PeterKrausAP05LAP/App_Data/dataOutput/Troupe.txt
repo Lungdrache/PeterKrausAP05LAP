@@ -1,0 +1,8 @@
+Troupe
+3,99
+Find your way in Troupe! An adventure plaforming game inside a castle filled with traps and evil beings. Explore the secrets of the castle while searching for your not-so-fond-of troupe and realize that happiness is not always so simple, even if you're officially a clown.
+Spiral Digit
+Action
+19
+/Troupe/0.png|/Troupe/1.png|/Troupe/2.png|/Troupe/3.png|/Troupe/4.png|/Troupe/5.png|/Troupe/6.png|/Troupe/7.png|/Troupe/8.png|/Troupe/9.png|/Troupe/10.png|/Troupe/11.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256839103/movie_max_vp9.webm?t=1623950609|

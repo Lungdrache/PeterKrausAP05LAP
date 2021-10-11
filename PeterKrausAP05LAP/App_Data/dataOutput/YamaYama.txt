@@ -1,0 +1,8 @@
+YamaYama
+9,99
+YamaYama is a whacky party game where you fight in all sorts of mini-games on your way to victory. The game utilises the FatSuit mechanic, where characters blow out and push other players. Play it at a party or with your family, anyone can learn!
+Lumenox ehf
+Action
+19
+/YamaYama/0.png|/YamaYama/1.png|/YamaYama/2.png|/YamaYama/3.png|/YamaYama/4.png|/YamaYama/5.png|/YamaYama/6.png|/YamaYama/7.png|/YamaYama/8.png|/YamaYama/9.png|/YamaYama/10.png|/YamaYama/11.png|
+

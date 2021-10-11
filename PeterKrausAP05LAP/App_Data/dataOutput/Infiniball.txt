@@ -1,0 +1,8 @@
+Infiniball
+3,99
+Infiniball is a simple yet addictive marble based game.
+Ammonite Design Studios Ltd
+Action
+19
+/Infiniball/0.png|/Infiniball/1.png|/Infiniball/2.png|/Infiniball/3.png|/Infiniball/4.png|/Infiniball/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256774187/movie_max.webm?t=1581004743|

@@ -1,0 +1,8 @@
+Gurobu
+1,59
+&quot;GUROBU&quot; is a story-driven, 2D horror game about haunted apartments, ghosts of the past, and a murder mystery.
+Aiaz Marx
+Adventure
+19
+/Gurobu/0.png|/Gurobu/1.png|/Gurobu/2.png|/Gurobu/3.png|/Gurobu/4.png|/Gurobu/5.png|/Gurobu/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794510/movie_max_vp9.webm?t=1596173866|

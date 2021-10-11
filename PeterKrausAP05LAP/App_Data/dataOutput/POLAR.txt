@@ -1,0 +1,8 @@
+POLAR
+1,55
+Are you a target? or not?The target mode, one of the polar game modes, brings a different perspective to survival.If you are a good player, you can survive in a minute without dying.
+Mzg Games
+Action
+19
+/POLAR/0.png|/POLAR/1.png|/POLAR/2.png|/POLAR/3.png|/POLAR/4.png|/POLAR/5.png|/POLAR/6.png|/POLAR/7.png|/POLAR/8.png|/POLAR/9.png|/POLAR/10.png|/POLAR/11.png|/POLAR/12.png|/POLAR/13.png|/POLAR/14.png|/POLAR/15.png|/POLAR/16.png|/POLAR/17.png|/POLAR/18.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256819850/movie_max_vp9.webm?t=1611731595|

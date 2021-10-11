@@ -1,0 +1,8 @@
+Nokori
+0,79
+Nokori is a game where you raise a hero then you go explore with said hero.
+Heartomics
+Casual
+19
+/Nokori/0.png|/Nokori/1.png|/Nokori/2.png|/Nokori/3.png|/Nokori/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256661905/movie_max.webm?t=1458842787|

@@ -1,0 +1,8 @@
+Bor
+1,59
+Play with Bor the Viking through 4 worlds! Unlock all the secret levels and save his 60 (60!!!!) wives in this colorful old-school platform.
+Dracoders
+Action
+19
+/Bor/0.png|/Bor/1.png|/Bor/2.png|/Bor/3.png|/Bor/4.png|/Bor/5.png|/Bor/6.png|/Bor/7.png|/Bor/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792926/movie_max_vp9.webm?t=1596480495|

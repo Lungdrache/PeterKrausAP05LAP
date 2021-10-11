@@ -1,0 +1,8 @@
+LightWalk
+4,99
+A 2D Puzzle Platformer about navigating mazes of lasers. The objective of each level is to get to the goal block, and a variety of laser types and gadgets make each challenge unique. Includes a level editor!
+Timeless Games
+Indie
+19
+/LightWalk/0.png|/LightWalk/1.png|/LightWalk/2.png|/LightWalk/3.png|/LightWalk/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256663396/movie_max.webm?t=1461388508|

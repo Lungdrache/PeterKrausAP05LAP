@@ -1,0 +1,8 @@
+ANARCHY
+Free
+ANARCHY is an escape / survivor games. Horde of robots, climbing, traps and many other things will try to kill you. It is one of the toughest games on steam right now.
+NewProjekt
+Action
+19
+/ANARCHY/0.png|/ANARCHY/1.png|/ANARCHY/2.png|/ANARCHY/3.png|/ANARCHY/4.png|/ANARCHY/5.png|/ANARCHY/6.png|/ANARCHY/7.png|/ANARCHY/8.png|/ANARCHY/9.png|/ANARCHY/10.png|/ANARCHY/11.png|/ANARCHY/12.png|/ANARCHY/13.png|/ANARCHY/14.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256818089/movie_max_vp9.webm?t=1610558683|

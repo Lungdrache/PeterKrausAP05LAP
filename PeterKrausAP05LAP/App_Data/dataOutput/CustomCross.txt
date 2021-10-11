@@ -1,0 +1,8 @@
+CustomCross
+6,59
+CustomCross is a utility that enables you to display an image anywhere on your windows desktop, overlaying any windowed or borderless applications. Use it to add a custom crosshair to your favorite FPS or to add custom visual elements to your screen!
+stvco
+Utilities
+19
+/CustomCross/0.png|/CustomCross/1.png|/CustomCross/2.png|/CustomCross/3.png|/CustomCross/4.png|/CustomCross/5.png|/CustomCross/6.png|
+

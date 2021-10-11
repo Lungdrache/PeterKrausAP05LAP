@@ -1,0 +1,8 @@
+Grandpurrents
+4,99
+Grandpurrents is a rogue-lite game with action-RPG elements where you must go out in search for your cats. The player will find themselves in multiple dungeons fighting unique enemies and bosses. Saving cats will let you use their power for your next adventure!
+N/A
+Action
+19
+/Grandpurrents/0.png|/Grandpurrents/1.png|/Grandpurrents/2.png|/Grandpurrents/3.png|/Grandpurrents/4.png|/Grandpurrents/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792994/movie_max_vp9.webm?t=1595064457|

@@ -1,0 +1,8 @@
+RollingSky
+8,99
+Rolling Sky is a ball running game that combines rhythm and fun.
+Rising Win Tech. CO., LTD
+Action
+19
+/RollingSky/0.png|/RollingSky/1.png|/RollingSky/2.png|/RollingSky/3.png|/RollingSky/4.png|/RollingSky/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256774131/movie_max.webm?t=1580883881|

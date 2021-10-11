@@ -1,0 +1,8 @@
+Starshot
+5,69
+Starshot is a difficult space shoot-em-up with rogue-like elements and randomly generated levels. Will you be able to upgrade your ship and pilot it to safety, or be destroyed in your search for stardust inside the automated production facility?
+HugeMallard
+Action
+19
+/Starshot/0.png|/Starshot/1.png|/Starshot/2.png|/Starshot/3.png|/Starshot/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794875/movie_max_vp9.webm?t=1596519507|http://cdn.akamai.steamstatic.com/steam/apps/256796475/movie_max_vp9.webm?t=1597389462|http://cdn.akamai.steamstatic.com/steam/apps/256793742/movie_max_vp9.webm?t=1596514817|

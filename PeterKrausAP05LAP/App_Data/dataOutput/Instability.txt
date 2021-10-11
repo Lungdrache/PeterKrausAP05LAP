@@ -1,0 +1,8 @@
+Instability
+Free
+A cross-platform competitive multiplayer real time strategy game. Build your base to destroy your enemy!
+Perpetual Motion Software
+Action
+19
+/Instability/0.png|/Instability/1.png|/Instability/2.png|/Instability/3.png|/Instability/4.png|/Instability/5.png|
+/Instability/256792192.wbm|

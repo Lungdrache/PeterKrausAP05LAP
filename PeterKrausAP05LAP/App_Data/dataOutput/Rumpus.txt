@@ -1,0 +1,8 @@
+Rumpus
+14,99
+Rumpus is a live-coding playground for room-scale VR.
+Luke Iannini
+Animation & Modeling
+19
+/Rumpus/0.png|/Rumpus/1.png|/Rumpus/2.png|/Rumpus/3.png|/Rumpus/4.png|/Rumpus/5.png|/Rumpus/6.png|/Rumpus/7.png|/Rumpus/8.png|/Rumpus/9.png|/Rumpus/10.png|/Rumpus/11.png|/Rumpus/12.png|/Rumpus/13.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256666394/movie_max.webm?t=1467611939|

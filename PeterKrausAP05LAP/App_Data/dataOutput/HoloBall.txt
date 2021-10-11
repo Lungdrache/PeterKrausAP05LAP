@@ -1,0 +1,8 @@
+HoloBall
+7,49
+HoloBall plunges players into an action-sports arcade arena inspired by one of the most iconic games of all time. Use your paddles to hit, smash and curve the HoloBall past your opponent to score. Learn and master skillshots to outmatch your increasingly difficult opponents.
+TreeFortress Games
+Action
+19
+/HoloBall/0.png|/HoloBall/1.png|/HoloBall/2.png|/HoloBall/3.png|/HoloBall/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256674026/movie_max.webm?t=1478283289|

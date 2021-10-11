@@ -1,0 +1,8 @@
+HEXONEX
+1,59
+A casual hex-based puzzle game. Match tiles by color across 108 puzzles, and beat your high scores to unlock new color schemes and music to customize your experience!
+MooCow Games
+Casual
+19
+/HEXONEX/0.png|/HEXONEX/1.png|/HEXONEX/2.png|/HEXONEX/3.png|/HEXONEX/4.png|/HEXONEX/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794312/movie_max_vp9.webm?t=1596062408|

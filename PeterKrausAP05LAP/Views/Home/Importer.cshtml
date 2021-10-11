@@ -10,10 +10,35 @@
 <body>
     <div>
         <h1>@ViewBag.Result</h1>
-    <form method="post" action="Importer">
-        <button>Upload me!</button>
+        <form method="post" action="Importer">
+            <button>Upload me!</button>
 
-    </form>
+
+        </form>
+        @if (@ViewBag.Result != "Want to import Files?")
+        {
+
+        <div class="col-md-2">
+
+            <ul class="list-group list-group-flush  list-group-horizontal">
+                @if (ViewBag.Errors != 0)
+                {
+                    <li class="list-group-item text-left d-inline-block">
+                        Errors:
+                        <span class="badge badge-primary badge-pill">
+                            @ViewBag.Errors
+                        </span>
+                    </li>
+                }
+                <li class="list-group-item text-left d-inline-block">
+                    Files:
+                    <span class="badge badge-primary badge-pill">
+                        @ViewBag.Files
+                    </span>
+                </li>
+            </ul>
+        </div>
+        }
     </div>
 </body>
 </html>

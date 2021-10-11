@@ -1,0 +1,8 @@
+Monolight
+Free
+MONOLIGHT is 2D plat-former puzzle adventure game. Using tiny lantern, go through the maze.
+bit paradigm
+Adventure
+19
+/Monolight/0.png|/Monolight/1.png|/Monolight/2.png|/Monolight/3.png|/Monolight/4.png|/Monolight/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256787466/movie_max_vp9.webm?t=1592290722|

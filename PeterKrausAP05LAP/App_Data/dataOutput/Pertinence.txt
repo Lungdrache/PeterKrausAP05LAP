@@ -1,0 +1,8 @@
+Pertinence
+3,99
+Pertinence is a top-down adventure with minimalist graphics that explores various puzzle and action mechanics. The goal of the game is to freely explore rooms in a grid layout while collecting as many &quot;alloy&quot; as possible. These will unlock new areas and abilities.
+Not Magic
+Action
+19
+/Pertinence/0.png|/Pertinence/1.png|/Pertinence/2.png|/Pertinence/3.png|/Pertinence/4.png|/Pertinence/5.png|/Pertinence/6.png|/Pertinence/7.png|/Pertinence/8.png|/Pertinence/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256661854/movie_max.webm?t=1458624786|

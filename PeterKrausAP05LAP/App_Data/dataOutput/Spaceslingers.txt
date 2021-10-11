@@ -1,0 +1,8 @@
+Spaceslingers
+6,99
+Spaceslingers is a mind-bending gravity-based game, where the only obstacles between you and your goal are the most powerful celestial objects in the known universe!
+RefresherTowel
+Action
+19
+/Spaceslingers/0.png|/Spaceslingers/1.png|/Spaceslingers/2.png|/Spaceslingers/3.png|/Spaceslingers/4.png|/Spaceslingers/5.png|/Spaceslingers/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792966/movie_max_vp9.webm?t=1600749235|

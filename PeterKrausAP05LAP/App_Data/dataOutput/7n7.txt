@@ -1,0 +1,8 @@
+7n7
+1,59
+7n7 is a 2D, bullet-hell platformer, set in a world inspired by World War 1. Unlock new weapons and find a clever way to destroy 14 bosses that you may find on your path. Experience the story in non-combat levels with plenty of NPCs and the main character.
+Igor Urbanik
+Action
+19
+/7n7/0.png|/7n7/1.png|/7n7/2.png|/7n7/3.png|/7n7/4.png|/7n7/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256792512/movie_max_vp9.webm?t=1594742182|

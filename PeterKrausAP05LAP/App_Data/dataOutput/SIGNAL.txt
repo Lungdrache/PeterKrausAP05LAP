@@ -1,0 +1,8 @@
+SIGNAL
+1,59
+A game in the genre of horror that tells you the story of the main character named John who works on the space station Atlant. You will find a leisurely gameplay with elements of small puzzles and story narration through the onboard crew records. Welcome to the space station Atlant!
+RPavel
+Indie
+19
+/SIGNAL/0.png|/SIGNAL/1.png|/SIGNAL/2.png|/SIGNAL/3.png|/SIGNAL/4.png|/SIGNAL/5.png|/SIGNAL/6.png|/SIGNAL/7.png|/SIGNAL/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256791458/movie_max_vp9.webm?t=1594141917|

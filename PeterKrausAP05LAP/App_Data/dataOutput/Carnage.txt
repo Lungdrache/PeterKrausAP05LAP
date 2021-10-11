@@ -1,0 +1,8 @@
+Carnage
+Free
+Carnage is a multiplayer vehicle creation/destruction-based game where players must try to dominate an arena with their personalised carnage vehicle. With an array of weapons to suite any playstyle, only your enemies can stop you now.
+Carnage Games
+Action
+19
+/Carnage/0.png|/Carnage/1.png|/Carnage/2.png|/Carnage/3.png|/Carnage/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256797191/movie_max_vp9.webm?t=1597703290|

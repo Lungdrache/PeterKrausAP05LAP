@@ -1,0 +1,8 @@
+VReakout
+7,99
+VReakout is a modern re-imagining of the classic brick breaker genre with a virtual reality twist designed for the HTC Vive VR System.
+Animate Objects
+Action
+19
+/VReakout/0.png|/VReakout/1.png|/VReakout/2.png|/VReakout/3.png|/VReakout/4.png|/VReakout/5.png|/VReakout/6.png|/VReakout/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256666946/movie_max.webm?t=1469217505|http://cdn.akamai.steamstatic.com/steam/apps/256667387/movie_max.webm?t=1469142985|

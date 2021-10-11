@@ -1,0 +1,8 @@
+Phaser
+2,39
+Phaser presents a unique take on the 2D-platformer formula by allowing you to take control of each level. By learning the power of color-switching, you will be able to phase in and out challenging obstacles from your path, find new and creative ways to victory, and avoid otherwise certain death.
+Refraction Games
+Adventure
+19
+/Phaser/0.png|/Phaser/1.png|/Phaser/2.png|/Phaser/3.png|/Phaser/4.png|/Phaser/5.png|/Phaser/6.png|/Phaser/7.png|/Phaser/8.png|/Phaser/9.png|/Phaser/10.png|/Phaser/11.png|/Phaser/12.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256801520/movie_max_vp9.webm?t=1600456136|http://cdn.akamai.steamstatic.com/steam/apps/256787366/movie_max_vp9.webm?t=1591645937|

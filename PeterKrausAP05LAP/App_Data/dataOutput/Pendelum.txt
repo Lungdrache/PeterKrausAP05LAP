@@ -1,0 +1,8 @@
+Pendelum
+4,99
+Pendelum is a physics-based puzzle platformer with a pendulum that requires patience, skill and creativity.Use only gravity and external influences to reach the goal, create your own puzzles, compare your performance with others and above all - DON'T RAGE!
+thelaumix productions
+Casual
+19
+/Pendelum/0.png|/Pendelum/1.png|/Pendelum/2.png|/Pendelum/3.png|/Pendelum/4.png|/Pendelum/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256793688/movie_max_vp9.webm?t=1595890747|http://cdn.akamai.steamstatic.com/steam/apps/256793689/movie_max_vp9.webm?t=1595890755|

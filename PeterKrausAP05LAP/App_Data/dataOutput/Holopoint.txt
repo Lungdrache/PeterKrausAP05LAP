@@ -1,0 +1,8 @@
+Holopoint
+14,99
+Holopoint is pure archery madness. Fight your way through waves of responsive targets, samurai, and highly dangerous ninjas - all while drawing, nocking, and shooting your arrows as quickly as possible.
+Alzan Studios, LLC
+Action
+19
+/Holopoint/0.png|/Holopoint/1.png|/Holopoint/2.png|/Holopoint/3.png|/Holopoint/4.png|/Holopoint/5.png|/Holopoint/6.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256662738/movie_max.webm?t=1482277444|

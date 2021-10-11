@@ -1,0 +1,8 @@
+PULSAR
+0,79
+casual game where it takes reasoning and analysis to find the way to the goal.
+Bruno Esteves
+Casual
+19
+/PULSAR/0.png|/PULSAR/1.png|/PULSAR/2.png|/PULSAR/3.png|/PULSAR/4.png|/PULSAR/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256801881/movie_max_vp9.webm?t=1600719633|http://cdn.akamai.steamstatic.com/steam/apps/256794609/movie_max_vp9.webm?t=1596210720|

@@ -1,0 +1,8 @@
+Edgar
+4,99
+Edgar&quot; is a 2D hardcore platformer game which you'll play as Edgar through challenging levels looking for your missing girlfriend Eve.
+Lucas Parise
+Action
+19
+/Edgar/0.png|/Edgar/1.png|/Edgar/2.png|/Edgar/3.png|/Edgar/4.png|/Edgar/5.png|/Edgar/6.png|/Edgar/7.png|/Edgar/8.png|/Edgar/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256661881/movie_max.webm?t=1458330094|

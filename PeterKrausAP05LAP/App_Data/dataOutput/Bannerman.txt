@@ -1,0 +1,8 @@
+Bannerman
+8,19
+Bannerman is a gritty and atmospheric medieval action/adventure with a bleak narrative and focus on historically accurate, challenging skill-based swordfighting!
+Armitage Games
+Action
+19
+/Bannerman/0.png|/Bannerman/1.png|/Bannerman/2.png|/Bannerman/3.png|/Bannerman/4.png|/Bannerman/5.png|/Bannerman/6.png|/Bannerman/7.png|/Bannerman/8.png|/Bannerman/9.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256688141/movie_max.webm?t=1498356238|

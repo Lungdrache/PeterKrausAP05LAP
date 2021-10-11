@@ -1,0 +1,8 @@
+HopBound
+1,59
+A meaningful story-driven psychological horror action platformer game with nostalgic charm.
+AppSir, Inc.
+Action
+19
+/HopBound/0.png|/HopBound/1.png|/HopBound/2.png|/HopBound/3.png|/HopBound/4.png|/HopBound/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256786409/movie_max_vp9.webm?t=1590539599|

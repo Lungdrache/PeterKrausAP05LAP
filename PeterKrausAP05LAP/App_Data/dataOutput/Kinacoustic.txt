@@ -1,0 +1,8 @@
+Kinacoustic
+8,19
+Kinacoustic is a music composition game and a new musical experience. You can control the elements of music by bouncing melodic Drops onto colored Note Lines that you place. In doing this, you can create basic or complex songs - your own composition or a cover.
+Maithonis Studios
+Casual
+19
+/Kinacoustic/0.png|/Kinacoustic/1.png|/Kinacoustic/2.png|/Kinacoustic/3.png|/Kinacoustic/4.png|/Kinacoustic/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256673509/movie_max.webm?t=1477678243|

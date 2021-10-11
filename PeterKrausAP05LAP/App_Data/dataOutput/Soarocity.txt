@@ -1,0 +1,8 @@
+Soarocity
+12,49
+An exciting 2d platformer with a painterly art style and unique rotation mechanic.
+Teaklab
+Action
+19
+/Soarocity/0.png|/Soarocity/1.png|/Soarocity/2.png|/Soarocity/3.png|/Soarocity/4.png|/Soarocity/5.png|/Soarocity/6.png|/Soarocity/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256794533/movie_max_vp9.webm?t=1597330154|

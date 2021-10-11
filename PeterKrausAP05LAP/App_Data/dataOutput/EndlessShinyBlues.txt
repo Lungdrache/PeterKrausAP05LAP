@@ -1,0 +1,8 @@
+EndlessShinyBlues
+2,39
+在一个平平无奇的春日午后，叛逆的少年闯入了繁忙城市中某个安宁的角落。仿佛是飞鸟从无数的海砂中拾起一粒那样——翘课的少年与翘班的大姐姐相遇了。
+YouthAndLove
+Indie
+19
+/EndlessShinyBlues/0.png|/EndlessShinyBlues/1.png|/EndlessShinyBlues/2.png|/EndlessShinyBlues/3.png|/EndlessShinyBlues/4.png|/EndlessShinyBlues/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256799074/movie_max_vp9.webm?t=1601903180|

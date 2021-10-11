@@ -1,0 +1,8 @@
+SpiritSphere DX
+8,19
+SpiritSphere is a local multiplayer game that draws inspiration from classics like Zelda and Windjammers and mashes it together with the nostalgic feel of playing air hockey at your local arcade.
+Eendhoorn Games
+Action
+19
+/SpiritSphere DX/0.png|/SpiritSphere DX/1.png|/SpiritSphere DX/2.png|/SpiritSphere DX/3.png|/SpiritSphere DX/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256753921/movie_max.webm?t=1561387245|http://cdn.akamai.steamstatic.com/steam/apps/256753674/movie_max.webm?t=1561387256|

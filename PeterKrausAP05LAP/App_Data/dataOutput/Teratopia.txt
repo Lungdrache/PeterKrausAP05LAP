@@ -1,0 +1,8 @@
+Teratopia
+12,49
+Rid the land of evil invaders and rescue your friends in this colorful 3D action brawler!
+Eastasiasoft Limited
+Action
+19
+/Teratopia/0.png|/Teratopia/1.png|/Teratopia/2.png|/Teratopia/3.png|/Teratopia/4.png|/Teratopia/5.png|/Teratopia/6.png|/Teratopia/7.png|/Teratopia/8.png|/Teratopia/9.png|/Teratopia/10.png|/Teratopia/11.png|/Teratopia/12.png|/Teratopia/13.png|/Teratopia/14.png|/Teratopia/15.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256799761/movie_max_vp9.webm?t=1603711500|

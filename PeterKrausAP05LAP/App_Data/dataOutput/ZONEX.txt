@@ -1,0 +1,8 @@
+ZONEX
+0,79
+ZONEX is a 3D realtime dynamic effects showcase with both PC and VR support.
+Showbit Entertainment
+Action
+19
+/ZONEX/0.png|/ZONEX/1.png|/ZONEX/2.png|/ZONEX/3.png|/ZONEX/4.png|/ZONEX/5.png|/ZONEX/6.png|/ZONEX/7.png|/ZONEX/8.png|/ZONEX/9.png|/ZONEX/10.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256787527/movie_max_vp9.webm?t=1592365300|

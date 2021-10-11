@@ -1,0 +1,8 @@
+KHIO
+8,19
+Explore and fight through the desolate frozen wilderness of KHIO and discover the true reason you were sent here.
+Necavare
+Action
+19
+/KHIO/0.png|/KHIO/1.png|/KHIO/2.png|/KHIO/3.png|/KHIO/4.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256791516/movie_max_vp9.webm?t=1594399088|

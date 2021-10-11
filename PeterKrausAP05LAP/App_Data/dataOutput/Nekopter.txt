@@ -1,0 +1,8 @@
+Nekopter
+Free
+Vous incarnerez un petit chat tout mignon ayant pour seul but de retrouver le sommeil ! Malgré sa faible condition physique, il n'est pas du genre très tendre avec ces abominables créatures le dérangeant sur ses lieux de repos préférés !
+Wampy
+Action
+19
+/Nekopter/0.png|/Nekopter/1.png|/Nekopter/2.png|/Nekopter/3.png|/Nekopter/4.png|/Nekopter/5.png|/Nekopter/6.png|/Nekopter/7.png|/Nekopter/8.png|/Nekopter/9.png|/Nekopter/10.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256788107/movie_max_vp9.webm?t=1593520144|http://cdn.akamai.steamstatic.com/steam/apps/256789186/movie_max_vp9.webm?t=1593520154|

@@ -1,0 +1,8 @@
+Azalea
+1,19
+A short, cute puzzle action-adventure through the tense and dangerous Forbidden Forest.
+Rad Codex
+Action
+19
+/Azalea/0.png|/Azalea/1.png|/Azalea/2.png|/Azalea/3.png|/Azalea/4.png|/Azalea/5.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256800101/movie_max_vp9.webm?t=1603745718|

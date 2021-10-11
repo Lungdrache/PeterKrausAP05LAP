@@ -1,0 +1,8 @@
+ProjectTeo
+9,99
+ProjectTeo is a platformer with moving between dangerous saws and collecting keys.
+FreeAnimals_Software
+Action
+19
+/ProjectTeo/0.png|/ProjectTeo/1.png|/ProjectTeo/2.png|/ProjectTeo/3.png|/ProjectTeo/4.png|/ProjectTeo/5.png|/ProjectTeo/6.png|/ProjectTeo/7.png|/ProjectTeo/8.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256795282/movie_max_vp9.webm?t=1596784714|

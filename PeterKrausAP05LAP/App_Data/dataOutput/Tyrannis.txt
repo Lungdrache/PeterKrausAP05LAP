@@ -1,0 +1,8 @@
+Tyrannis
+8,19
+Tyrannis is an asymmetric, turn-based strategy game that pits overstretched armies of mercenaries against small rebel groups across an American dystopia.
+cGh ONE
+Strategy
+19
+/Tyrannis/0.png|/Tyrannis/1.png|/Tyrannis/2.png|/Tyrannis/3.png|/Tyrannis/4.png|/Tyrannis/5.png|/Tyrannis/6.png|/Tyrannis/7.png|
+http://cdn.akamai.steamstatic.com/steam/apps/256840318/movie_max_vp9.webm?t=1624537170|http://cdn.akamai.steamstatic.com/steam/apps/256793750/movie_max_vp9.webm?t=1624537176|http://cdn.akamai.steamstatic.com/steam/apps/256790125/movie_max_vp9.webm?t=1592825057|
