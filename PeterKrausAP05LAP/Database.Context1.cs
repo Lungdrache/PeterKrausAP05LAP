@@ -32,5 +32,6 @@ namespace PeterKrausAP05LAP
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductImages> ProductImages { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

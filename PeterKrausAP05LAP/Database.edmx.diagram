@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="StockGamesDatabaseModel.OrderLine" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="StockGamesDatabaseModel.Product" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="StockGamesDatabaseModel.ProductImages" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="StockGamesDatabaseModel.sysdiagrams" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="StockGamesDatabaseModel.FK_CategoryProductId" ManuallyRouted="false" />
         <AssociationConnector Association="StockGamesDatabaseModel.FK_CustomerOrderId" ManuallyRouted="false" />
         <AssociationConnector Association="StockGamesDatabaseModel.FK_ManufacturedProductId" ManuallyRouted="false" />
