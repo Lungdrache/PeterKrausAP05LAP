@@ -29,6 +29,44 @@ namespace PeterKrausAP05LAP.Controllers
             return View();
         }
 
+
+        // Import Stuff
+        [HttpGet]
+        [ActionName("ShopPage")]
+        public ActionResult ShopIndex()
+        {
+            List<VM_Product> someProducts = new List<VM_Product>();
+            List<Product> importedProducts = context.Product.Take(50).ToList();
+
+            foreach (Product product in importedProducts)
+            {
+                VM_Product toExport = new VM_Product();
+
+                toExport.ProductName = product.ProductName;
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+
+                foreach (ProductImages image in productImages)
+                {
+                    if ( Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        toExport.HeaderImgPath = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                        break;
+                    }
+                }
+                toExport.ShortDescription = product.Description;
+                someProducts.Add(toExport);
+            }
+
+
+            return View(someProducts);
+        }
+
+
+
+
+
+        #region Only need For Import Products
+        // Import Stuff
         [HttpGet]
         [ActionName("Importer")]
         public ActionResult ImporterGet()
@@ -91,6 +129,9 @@ namespace PeterKrausAP05LAP.Controllers
                                     newImages.Add(new ProductImages() { ImagePath = image });
                                 }
                             }
+                            // add header Image to database
+                            string path = imagepaths[0].Replace(Path.GetFileName(imagepaths[0]), "");
+                            newImages.Add(new ProductImages() { ImagePath = path + "headerimage.png" });
                         }
 
                         if (allLines.Length >= 6)
@@ -201,5 +242,7 @@ namespace PeterKrausAP05LAP.Controllers
 
             return View();
         }
+
+        #endregion
     }
 }

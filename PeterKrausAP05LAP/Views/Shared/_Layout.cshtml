@@ -22,9 +22,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Laden", "ShopPage", "Home")</li>
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Import Files", "Importer", "Home")</li>
+                    <li>@Html.ActionLink("Login", "LoginPage", "Home")</li>
+                    
+                    @* This Line was Only used for Importing new Lines *@
+                    @*<li>@Html.ActionLink("Import Files", "Importer", "Home")</li>*@
                 </ul>
             </div>
         </div>

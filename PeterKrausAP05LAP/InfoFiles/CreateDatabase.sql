@@ -97,4 +97,5 @@ CREATE TABLE "OrderLine"(
 GO
 
 
-
+SELECT ImagePath
+FROM ProductImages
