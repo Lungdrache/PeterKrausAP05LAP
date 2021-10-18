@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Registratur";
+}
+<h3>Registratur</h3>
+<div class="jumbotron">
+    <form method="post" action="/Account/Registratur">
+        <div class="form-group">
+            <label>Email address</label>
+            <input name="email" type="email" class="form-control" placeholder="E-Mail" required>
+            <label>Passwort</label>
+            <input name="password" type="password" class="form-control" placeholder="Passwort" required>
+        </div>
+        <div class="form-inline">
+            <label>Vorname</label>
+            <input name="fname" type="text" class="form-control" placeholder="Max" required>
+            <label>Nachname</label>
+            <input name="lname" type="text" class="form-control" placeholder="Mustermann" required>
+        </div>
+        <div class="form-inline">
+            <label>Titel</label>
+            <input name="title" type="text" class="form-control" placeholder="Titel">
+            <label>Adresse</label>
+            <input name="adress" type="text" class="form-control" placeholder="Straße">
+        </div>
+        <div class="form-inline">
+            <label>Postleitzahl</label>
+            <input name="PLZ" type="number" class="form-control" placeholder="0000" required>
+            <label>Ort</label>
+            <input name="Ort" type="text" class="form-control" placeholder="Ort" required>
+        </div>
+        <button>Registratur</button>
+    </form>
+</div>
