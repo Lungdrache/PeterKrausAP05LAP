@@ -44,10 +44,13 @@ namespace PeterKrausAP05LAP.Controllers
             // mail Sending doesn't work atm
             // MailManager.SendEmail($"<br/><br/>Hello {fname} {lname}<br/><br/> You succefully registered to our Website!", $"Welcome {lname} to Stockgames",email);
 
+            TempData["Registratur"] = "";
+            
+
             context.Customer.Add(newCustomer);
             context.SaveChanges();
 
-            return View();
+            return RedirectToAction("Index","Home");
         }
 
         // GET: Account/Details/5

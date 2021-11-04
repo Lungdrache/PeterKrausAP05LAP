@@ -1,14 +1,49 @@
-﻿<!DOCTYPE html>
+﻿@Page
+@using PeterKrausAP05LAP.Tools;
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meine ASP.NET-Anwendung</title>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/toastr.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
+    @section scripts
+{
+        @if (ViewBag["Alltoasts"] != null)
+        {
+
+            @foreach (ToastMessage toast in ViewBag["Alltoasts"])
+            {
+            <script>
+            $(document).ready(function () {
+
+                if ('@toast.Type.ToString()' == "success") {
+                    toastr.success('@toast.Message', '@toast.Title');
+                }
+                else if ('@toast.Type.ToString()' == "warning") {
+                    toastr.warning('@toast.Message', '@toast.Title');
+                }
+                else if ('@toast.Type.ToString()' == "error") {
+                    toastr.error('@toast.Message', '@toast.Title');
+                }
+                else if ('@toast.Type.ToString()' == "info") {
+                    toastr.info('@toast.Message', '@toast.Title');
+                }
+});
+            </script>
+        }
+    }
+    }
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,14 +61,14 @@
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                    
+
                     @* This Line was Only used for Importing new Lines *@
                     @*<li>@Html.ActionLink("Import Files", "Importer", "Home")</li>*@
                 </ul>
             </div>
         </div>
     </div>
-    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -44,6 +79,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/toastr.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

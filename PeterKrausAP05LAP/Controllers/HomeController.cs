@@ -4,6 +4,7 @@ using System.IO;
 using System.Web.Mvc;
 using System.Linq;
 using System.Text.RegularExpressions;
+using PeterKrausAP05LAP.Tools;
 
 namespace PeterKrausAP05LAP.Controllers
 {
@@ -12,6 +13,10 @@ namespace PeterKrausAP05LAP.Controllers
         StockGamesDatabaseEntities context = new StockGamesDatabaseEntities();
         public ActionResult Index()
         {
+            List<ToastMessage> toastMessages = new List<ToastMessage>();
+            toastMessages.Add(new ToastMessage("Hello", "This is a test", Toasttype.info));
+            toastMessages.Add(new ToastMessage("I have Apples", "This is a warning", Toasttype.warning));
+            ViewBag.Alltoasts = toastMessages;
             return View();
         }
 
