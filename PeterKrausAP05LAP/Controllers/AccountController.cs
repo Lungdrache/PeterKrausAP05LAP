@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using PeterKrausAP05LAP.Models;
+using PeterKrausAP05LAP.Tools;
 
 namespace PeterKrausAP05LAP.Controllers
 {
@@ -30,10 +31,12 @@ namespace PeterKrausAP05LAP.Controllers
 
         [HttpGet]
         [ActionName("Registratur")]
-        public ActionResult RegistraturGet()
+        public ActionResult RegistraturGet(bool wantToLogIn = true)
         {
 
-            return View();
+            // wenn wantToLogIn false ist dann wird dem User
+            // nur angezeigt das er sich Eingeloggt hat
+            return View(wantToLogIn);
         }
         [HttpPost]
         [ActionName("Registratur")]
@@ -45,12 +48,33 @@ namespace PeterKrausAP05LAP.Controllers
             // MailManager.SendEmail($"<br/><br/>Hello {fname} {lname}<br/><br/> You succefully registered to our Website!", $"Welcome {lname} to Stockgames",email);
 
             TempData["Registratur"] = "";
-            
 
-            context.Customer.Add(newCustomer);
-            context.SaveChanges();
+            if (!context.Customer.Any(x => x.Email == email))
+            {
+                context.Customer.Add(newCustomer);
+                context.SaveChanges();
+                List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Erledigt",
+                        "Benutzer wurde erstellt",
+                        Toasttype.success)
+                };
+                ViewBag.toasts = toastMessages;
+                return View(false);
+            }
+            else
+            {
+                List<ToastMessage> toastMessages = new List<ToastMessage> { 
+                    new ToastMessage(
+                        "Fehler bei der Registrierung", 
+                        email + " besitzt schon einen Account", 
+                        Toasttype.error)
+                };
+                ViewBag.toasts = toastMessages;
+                return View(true);
+            }
 
-            return RedirectToAction("Index","Home");
+
         }
 
         // GET: Account/Details/5

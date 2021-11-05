@@ -8,21 +8,25 @@ using PeterKrausAP05LAP.Tools;
 
 namespace PeterKrausAP05LAP.Controllers
 {
+    // to make a Toast!
+    //List<ToastMessage>
+    //toastMessages = new List<ToastMessage>();
+    //toastMessages.Add(new ToastMessage("Hello", "This is a test", Toasttype.info));
+    //toastMessages.Add(new ToastMessage("I have Apples", "This is a warning", Toasttype.warning));
+    //ViewBag.toasts = toastMessages;
+
     public class HomeController : Controller
     {
         StockGamesDatabaseEntities context = new StockGamesDatabaseEntities();
+
         public ActionResult Index()
         {
-            List<ToastMessage> toastMessages = new List<ToastMessage>();
-            toastMessages.Add(new ToastMessage("Hello", "This is a test", Toasttype.info));
-            toastMessages.Add(new ToastMessage("I have Apples", "This is a warning", Toasttype.warning));
-            ViewBag.Alltoasts = toastMessages;
+
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }

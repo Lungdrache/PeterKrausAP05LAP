@@ -1,7 +1,4 @@
-﻿@Page
-@using PeterKrausAP05LAP.Tools;
-
-
+﻿@using PeterKrausAP05LAP.Tools;
 
 <!DOCTYPE html>
 <html>
@@ -13,36 +10,70 @@
     @Styles.Render("~/Content/css")
     <link href="~/Content/toastr.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
 
-    @section scripts
-{
-        @if (ViewBag["Alltoasts"] != null)
+    @*List<ToastMessage>
+        toastMessages = new List<ToastMessage>
+            ();
+            toastMessages.Add(new ToastMessage("Hello", "This is a test", Toasttype.info));
+            toastMessages.Add(new ToastMessage("I have Apples", "This is a warning", Toasttype.warning));
+            ViewBag.toasts = toastMessages;*@
+
+    @{
+        List<ToastMessage> allToasts = new List<ToastMessage> {
+        new ToastMessage("test", "passt", Toasttype.info),
+        new ToastMessage("test", "passt", Toasttype.warning),
+        new ToastMessage("test", "passt", Toasttype.error),
+        new ToastMessage("test", "passt", Toasttype.success)
+    };
+        if (ViewBag.toasts != null)
         {
-
-            @foreach (ToastMessage toast in ViewBag["Alltoasts"])
-            {
-            <script>
-            $(document).ready(function () {
-
-                if ('@toast.Type.ToString()' == "success") {
-                    toastr.success('@toast.Message', '@toast.Title');
-                }
-                else if ('@toast.Type.ToString()' == "warning") {
-                    toastr.warning('@toast.Message', '@toast.Title');
-                }
-                else if ('@toast.Type.ToString()' == "error") {
-                    toastr.error('@toast.Message', '@toast.Title');
-                }
-                else if ('@toast.Type.ToString()' == "info") {
-                    toastr.info('@toast.Message', '@toast.Title');
-                }
-});
-            </script>
+            allToasts = ViewBag.toasts;
+        }
+        else
+        {
+            allToasts = null;
         }
     }
+
+
+
+    <script type="text/javascript">
+    function myFunction(toastType, titel, message) {
+
+        if (toastType == "success") {
+        toastr.success(message, titel);
+
+        } else if (toastType == "error") {
+        toastr.error(message, titel);
+
+        } else if (toastType == "info") {
+        toastr.info(message, titel);
+
+        } else if (toastType == "warning") {
+        toastr.warning(message, titel);
+
+        } else {
+
+        }
     }
+
+window.onload = function () {
+    @if (ViewBag.toasts != null)
+    {
+        foreach (ToastMessage item in allToasts)
+        {
+    <text>myFunction("@item.Type.ToString()", "@item.Title", "@item.Message");</text>
+        }
+    }
+};
+
+
+    </script>
+
+
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -61,6 +92,7 @@
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Register", "Registratur", "Account")</li>
 
                     @* This Line was Only used for Importing new Lines *@
                     @*<li>@Html.ActionLink("Import Files", "Importer", "Home")</li>*@
