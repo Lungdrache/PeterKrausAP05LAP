@@ -31,11 +31,39 @@
         if (ViewBag.toasts != null)
         {
             allToasts = ViewBag.toasts;
+
         }
         else
         {
-            allToasts = null;
+            allToasts = new List<ToastMessage>();
         }
+        // if the User Want to Login he will be informed
+            bool userLoggedIn = false;
+            if (TempData.ContainsKey("justLoggedIn"))
+            {
+                userLoggedIn = (bool)TempData["justLoggedIn"];
+            }
+            if (userLoggedIn)
+            {
+                string email = (string)TempData["userEmail"];
+                allToasts.Add( new ToastMessage(
+                        "WIllkommen zurück " + email + "!",
+                        "Sie wurden erfolgreich eingeloggt",
+                        Toasttype.success));
+            }
+        // if the User Want to Logout he will be informed
+            bool userLoggedOut = false;
+            if (TempData.ContainsKey("justLoggedOut"))
+            {
+                userLoggedOut = (bool)TempData["justLoggedOut"];
+            }
+            if (userLoggedOut)
+            {
+                allToasts.Add( new ToastMessage(
+                        "Aufwiedersehen",
+                        "Sie wurden erfolgreich ausgeloggt!",
+                        Toasttype.success));
+            }
     }
 
 
@@ -61,13 +89,10 @@
     }
 
 window.onload = function () {
-    @if (ViewBag.toasts != null)
-    {
-        foreach (ToastMessage item in allToasts)
+        @foreach (ToastMessage item in allToasts)
         {
     <text>myFunction("@item.Type.ToString()", "@item.Title", "@item.Message");</text>
         }
-    }
 };
 
 
@@ -91,9 +116,16 @@ window.onload = function () {
                     <li>@Html.ActionLink("Laden", "ShopPage", "Home")</li>
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
-                    <li>@Html.ActionLink("Register", "Registratur", "Account")</li>
 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout","Logout","Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Register", "Registratur", "Account")</li>
+                    }
                     @* This Line was Only used for Importing new Lines *@
                     @*<li>@Html.ActionLink("Import Files", "Importer", "Home")</li>*@
                 </ul>

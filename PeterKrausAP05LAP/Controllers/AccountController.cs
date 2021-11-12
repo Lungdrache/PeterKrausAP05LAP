@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using PeterKrausAP05LAP.Models;
 using PeterKrausAP05LAP.Tools;
 
@@ -13,21 +14,104 @@ namespace PeterKrausAP05LAP.Controllers
     {
         public static StockGamesDatabaseEntities context = new StockGamesDatabaseEntities();
 
+
+        #region Login
+
         [HttpGet]
         [ActionName("Login")]
         public ActionResult LoginPageGet()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
         [ActionName("Login")]
         public ActionResult LoginPagePost(string email, string password)
         {
-            
+            if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+            {
 
-            return View();
+
+            Customer customer = context.Customer.Where(x => x.Email == email).FirstOrDefault();
+
+            var hashedPassword = SecureManager.GenerateHash(password, customer.Salt);
+
+                if (customer.PWHash == hashedPassword.hash)
+                {
+                    List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "WIllkommen zurück " + email + "!",
+                        "Sie wurden erfolgreich eingeloggt",
+                        Toasttype.success)
+                };
+                    ViewBag.toasts = toastMessages;
+                }
+                else
+                {
+                    List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Fehler",
+                        "Email oder Passwort ist falsch",
+                        Toasttype.error)
+                };
+                    ViewBag.toasts = toastMessages;
+
+                }
+
+                if (customer.PWHash == hashedPassword.hash)
+                {
+                    AuthenticateUser(email);
+                    TempData["justLoggedIn"] = true;
+                    TempData["userEmail"] = customer.Email;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Fehler",
+                        "Email oder Passwort ist falsch",
+                        Toasttype.error)
+                };
+                ViewBag.toasts = toastMessages;
+                return View();
+            }
+
         }
+        #endregion
+
+        #region Logout
+
+        [HttpGet]
+        [ActionName("Logout")]
+        public ActionResult GetLogout()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                DeAuthenticateUser();
+                TempData["justLoggedOut"] = true;
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+        #endregion
+
+        #region Registratur
 
         [HttpGet]
         [ActionName("Registratur")]
@@ -76,77 +160,48 @@ namespace PeterKrausAP05LAP.Controllers
 
 
         }
+        #endregion
 
-        // GET: Account/Details/5
-        public ActionResult Details(int id)
+        #region Authentication
+
+        [NonAction]
+        public void AuthenticateUser(string email)
         {
-            return View();
+
+            string name = email;
+            DateTime now = DateTime.Now;
+            bool rememberMe = true;
+            string userData = "";
+
+
+
+            var ticket = new FormsAuthenticationTicket(
+                0,
+                name,
+                now,
+                now.AddMinutes(30),
+                rememberMe,
+                userData
+                );
+
+            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+
+            var cookie = new HttpCookie(
+                ".ASPXAUTH",
+                encryptedTicket);
+
+            Response.Cookies.Add(cookie);
+
         }
-
-        // GET: Account/Create
-        public ActionResult Create()
+        [NonAction]
+        public void DeAuthenticateUser()
         {
-            return View();
-        }
-
-        // POST: Account/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            if (Request.Cookies[".ASPXAUTH"] != null)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Account/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Account/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                Response.Cookies[".ASPXAUTH"].Expires = DateTime.Now.AddDays(-1);
             }
         }
+        #endregion
 
-        // GET: Account/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Account/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

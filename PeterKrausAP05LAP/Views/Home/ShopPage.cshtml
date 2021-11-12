@@ -1,23 +1,25 @@
 ﻿@model List<VM_Product>
 
 <div class="row">
-    @foreach (VM_Product product in Model)
-    {
-        <div class="col-4">
-            <div class="card border-primary rounded-0" style="width: 18rem;">
-                <h1>@product.ProductName</h1>
-                <img class="card-img-top" src="@product.HeaderImgPath" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">@product.ProductName</h5>
-                    <p class="card-text">@product.ShortDescription</p>
-                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+    <div class="container-fluid padding">
+        <div class="card-deck">
+            @foreach (VM_Product product in Model)
+            {
+                <div class="card col-md-8" style="width: 18rem;">
+                    <h1>@product.ProductName</h1>
+                    <img class="card-img-top" src="@product.HeaderImgPath" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <p class="card-text">@product.ShortDescription</p>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-info" >more..</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
+            }
         </div>
-    }
+    </div>
 </div>
 
 
