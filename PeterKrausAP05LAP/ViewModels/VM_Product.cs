@@ -7,6 +7,14 @@ namespace PeterKrausAP05LAP
 {
     public class VM_Product
     {
+		private int _id;
+
+		public int Id
+		{
+			get { return _id; }
+			set { _id = value; }
+		}
+
 		private string _productName;
 
 		public string ProductName
@@ -34,8 +42,9 @@ namespace PeterKrausAP05LAP
 		{
 
 		}
-		public VM_Product(string name, string headerImgPath,string shortDescription)
+		public VM_Product(int id, string name, string headerImgPath,string shortDescription)
 		{
+			Id = id;
 			ProductName = name;
 			HeaderImgPath = headerImgPath;
 			ShortDescription = shortDescription;

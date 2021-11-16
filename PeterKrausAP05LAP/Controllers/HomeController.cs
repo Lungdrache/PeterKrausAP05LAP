@@ -4,6 +4,7 @@ using System.IO;
 using System.Web.Mvc;
 using System.Linq;
 using System.Text.RegularExpressions;
+using PeterKrausAP05LAP.ViewModels;
 using PeterKrausAP05LAP.Tools;
 
 namespace PeterKrausAP05LAP.Controllers
@@ -49,8 +50,11 @@ namespace PeterKrausAP05LAP.Controllers
 
             foreach (Product product in importedProducts)
             {
+                
                 VM_Product toExport = new VM_Product();
 
+
+                toExport.Id = product.Id;
                 toExport.ProductName = product.ProductName;
                 List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
 
@@ -70,6 +74,45 @@ namespace PeterKrausAP05LAP.Controllers
             return View(someProducts);
         }
 
+        [HttpGet]
+        [ActionName("ProductDetail")]
+        public ActionResult ProductDetailGet(int id)
+        {
+            VM_ProductDetail product = new VM_ProductDetail();
+            Product dBProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
+            Category dBCategory = context.Category.Where(x => x.Id == dBProduct.CategoryId).FirstOrDefault();
+            Manufacturer dBManufacturer = context.Manufacturer.Where(x => x.Id == dBProduct.ManufactureId).FirstOrDefault();
+
+            product.Id = id;
+            product.productName = dBProduct.ProductName;
+
+
+            List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+            product.imagePaths = new List<string>();
+
+            foreach (ProductImages image in productImages)
+            {
+                if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                {
+                    product.imageHeaderPath = "../../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                }
+                else
+                {
+                    product.imagePaths.Add("../../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                }
+            }
+
+            product.manufactureId = dBProduct.ManufactureId;
+            product.categoryId = dBProduct.CategoryId;
+            product.videoPath = dBProduct.TrailerPath;
+            product.manufactureName = context.Manufacturer.Where(x => x.Id == product.manufactureId).FirstOrDefault().Name;
+            product.categoryName = context.Category.Where(x => x.Id == product.categoryId).FirstOrDefault().Name;
+
+
+
+
+            return View(product);
+        }
 
 
 
