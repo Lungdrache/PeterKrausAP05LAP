@@ -1677,6 +1677,7 @@
     <Content Include="App_Data\dataOutput\Zodiakalik.txt" />
     <Content Include="App_Data\dataOutput\ZONEX.txt" />
     <Content Include="App_Data\dataOutput\ZRoll.txt" />
+    <Content Include="connections.config" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
