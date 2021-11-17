@@ -1,0 +1,30 @@
+﻿
+.header-text {
+    position: absolute;
+    top: 85%;
+    left: 3%;
+    z-index: 1;
+}
+
+.img-center {
+    background: #3A6F9A;
+    vertical-align: middle;
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.trailer-content{
+    height:50%;
+}
+
+.fill{
+    height:100%;
+    width:100%;
+}
+.header-container{
+    height:50%;
+}

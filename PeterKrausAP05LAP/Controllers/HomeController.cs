@@ -76,14 +76,19 @@ namespace PeterKrausAP05LAP.Controllers
 
         [HttpGet]
         [ActionName("ProductDetail")]
-        public ActionResult ProductDetailGet(int id)
+        public ActionResult ProductDetailGet(int? id)
         {
+            if (id == null)
+            {
+                id = 2;
+            }
+
             VM_ProductDetail product = new VM_ProductDetail();
             Product dBProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
             Category dBCategory = context.Category.Where(x => x.Id == dBProduct.CategoryId).FirstOrDefault();
             Manufacturer dBManufacturer = context.Manufacturer.Where(x => x.Id == dBProduct.ManufactureId).FirstOrDefault();
 
-            product.Id = id;
+            product.Id = id.Value;
             product.productName = dBProduct.ProductName;
 
 
