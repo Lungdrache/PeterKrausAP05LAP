@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -3092,6 +3093,7 @@
   <ItemGroup>
     <Folder Include="App_Data\AssetFiles\NoGame\" />
     <Folder Include="Images\NoGame\" />
+    <Folder Include="Views\Shop\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
