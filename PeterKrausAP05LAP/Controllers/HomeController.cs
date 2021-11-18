@@ -112,7 +112,9 @@ namespace PeterKrausAP05LAP.Controllers
             product.videoPath = dBProduct.TrailerPath;
             product.manufactureName = context.Manufacturer.Where(x => x.Id == product.manufactureId).FirstOrDefault().Name;
             product.categoryName = context.Category.Where(x => x.Id == product.categoryId).FirstOrDefault().Name;
-
+            product.price = dBProduct.NetUnitPrice;
+            product.tax = dBCategory.TaxRate;
+            product.description = dBProduct.Description;
 
 
 
@@ -247,6 +249,9 @@ namespace PeterKrausAP05LAP.Controllers
 
                         newProduct.ProductName = allLines[0];
                         newProduct.NetUnitPrice = (allLines[1].ToLower() != "free")?decimal.Parse(Regex.Replace(allLines[1], "[^0-9^,^.]", "")) : 0;
+
+                        newProduct.NetUnitPrice = (newProduct.NetUnitPrice / 120) * 100;
+
                         newProduct.Description = allLines[2];
 
                         newProduct.ManufactureId = newManufacturer.Id;

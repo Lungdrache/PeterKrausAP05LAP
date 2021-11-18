@@ -4,9 +4,9 @@
     ViewBag.Title = "ProductDetail";
 }
 <!-- Header Areal BEGINN -->
-<div class="container-fluid col-md-12 form-group form-inline header-container">
+<div class="container-fluid col-md-12 form-group form-inline img-container">
 
-    <img class="img-center fill" 
+    <img class="img-center trailer-content" 
          src="@Url.Content(Model.imageHeaderPath)" 
          alt="Header Img @Model.productName"/>
     <div class="header-text">
@@ -23,8 +23,8 @@
     <div class="container-fluid">
 
         <!-- Video BEGINN -->
-        <div class="col-md-6 trailer-content">
-            <video tag="video" class="fill" controls="controls" autoplay>
+        <div class="col-md-6">
+            <video tag="video" class="trailer-content" controls="controls" autoplay>
                 <source src="@Url.Content(Model.videoPath)" type="video/webm" />
             </video>
         </div>
@@ -33,21 +33,31 @@
         <!-- Slider BEGINN -->
         <div class=" col-md-6" >
 
-            <div id="myCarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+            <div 
+                 id="myCarousel" 
+                 class="carousel slide" 
+                 data-interval="3000" 
+                 data-ride="carousel">
 
-                <div class="carousel-inner trailer-content">
+                <div class="carousel-inner">
                     @for (int i = 0; i < Model.imagePaths.Count; i++)
                     {
                         if (i == 0)
                         {
                             <div class="item active">
-                                <img class="fill" src="@Model.imagePaths[i]" alt="Game image @i">
+                                <div>
+                                    <img src="@Model.imagePaths[i]"
+                                         class="carousel-img"
+                                         alt="Game image @i">
+                                </div>
                             </div>
                         }
                         else
                         {
-                            <div class="item trailer-content">
-                                <img class="fill" src="@Model.imagePaths[i]" alt="Game image @i">
+                            <div class="item">
+                                <img src="@Model.imagePaths[i]"
+                                     class="carousel-img"
+                                     alt="Game image @i">
                             </div>
                         }
                     }
@@ -69,21 +79,54 @@
 <!-- Trailer Areal END --> 
 <!-- Body BEGINN --> 
 <div class="row">
-    <h4>@Model.productName</h4>
 
+    <div class="col-md-6">
+        <h4>@Model.description</h4>
+
+    </div>
+<div class="col-md-6">
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.productName)
+            Preis:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.productName)
+            @{
+                string preisOutput = "";
+                if (Model.price == 0)
+                {
+                    preisOutput = "Kostenlos";
+                }
+                else
+                {
+                    preisOutput = Math.Round((Model.price + ((Model.price / 100) * Model.tax)), 2) + "€ inkl. " + Math.Round(Model.tax,0) + "% mwst";
+                }
+            }
+            @preisOutput
+        </dd>
+
+        <dt>
+            Kategorie:
+        </dt>
+
+        <dd>
+            @Model.categoryName
+        </dd>
+
+        <dt>
+            Hersteller:
+        </dt>
+
+        <dd>
+            @Model.manufactureName
         </dd>
 
     </dl>
     <p>
         @Html.ActionLink("Zurück zum Shop", "ShopPage")
     </p>
+</div>
+
 </div>
 <!-- Body END --> 
 

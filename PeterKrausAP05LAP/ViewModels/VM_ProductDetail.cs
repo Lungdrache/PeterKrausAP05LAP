@@ -10,6 +10,7 @@ namespace PeterKrausAP05LAP.ViewModels
         public int Id { get; set; }
         public string productName { get; set; }
         public decimal price { get; set; }
+        public decimal tax { get; set; }
         public string manufactureName { get; set; }
         public int manufactureId { get; set; }
         public string categoryName { get; set; }
