@@ -3084,16 +3084,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Importer.cshtml" />
-    <Content Include="Views\Home\ShopPage.cshtml" />
+    <Content Include="Views\Shop\ShopPage.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Registratur.cshtml" />
     <Content Include="Views\Account\Logout.cshtml" />
-    <Content Include="Views\Home\ProductDetail.cshtml" />
+    <Content Include="Views\Shop\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\AssetFiles\NoGame\" />
     <Folder Include="Images\NoGame\" />
-    <Folder Include="Views\Shop\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

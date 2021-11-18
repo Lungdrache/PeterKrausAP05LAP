@@ -16,8 +16,8 @@
 <body>
 
     @*List<ToastMessage>
-        toastMessages = new List<ToastMessage>
-            ();
+        toastMessages = new List<ToastMessage>();
+
             toastMessages.Add(new ToastMessage("Hello", "This is a test", Toasttype.info));
             toastMessages.Add(new ToastMessage("I have Apples", "This is a warning", Toasttype.warning));
             ViewBag.toasts = toastMessages;*@
@@ -39,32 +39,32 @@
             allToasts = new List<ToastMessage>();
         }
         // if the User Want to Login he will be informed
-            bool userLoggedIn = false;
-            if (TempData.ContainsKey("justLoggedIn"))
-            {
-                userLoggedIn = (bool)TempData["justLoggedIn"];
-            }
-            if (userLoggedIn)
-            {
-                string email = (string)TempData["userEmail"];
-                allToasts.Add( new ToastMessage(
-                        "WIllkommen zurück " + email + "!",
-                        "Sie wurden erfolgreich eingeloggt",
-                        Toasttype.success));
-            }
+        bool userLoggedIn = false;
+        if (TempData.ContainsKey("justLoggedIn"))
+        {
+            userLoggedIn = (bool)TempData["justLoggedIn"];
+        }
+        if (userLoggedIn)
+        {
+            string email = (string)TempData["userEmail"];
+            allToasts.Add( new ToastMessage(
+                    "WIllkommen zurück " + email + "!",
+                    "Sie wurden erfolgreich eingeloggt",
+                    Toasttype.success));
+        }
         // if the User Want to Logout he will be informed
-            bool userLoggedOut = false;
-            if (TempData.ContainsKey("justLoggedOut"))
-            {
-                userLoggedOut = (bool)TempData["justLoggedOut"];
-            }
-            if (userLoggedOut)
-            {
-                allToasts.Add( new ToastMessage(
-                        "Aufwiedersehen",
-                        "Sie wurden erfolgreich ausgeloggt!",
-                        Toasttype.success));
-            }
+        bool userLoggedOut = false;
+        if (TempData.ContainsKey("justLoggedOut"))
+        {
+            userLoggedOut = (bool)TempData["justLoggedOut"];
+        }
+        if (userLoggedOut)
+        {
+            allToasts.Add( new ToastMessage(
+                    "Aufwiedersehen",
+                    "Sie wurden erfolgreich ausgeloggt!",
+                    Toasttype.success));
+        }
     }
 
 
@@ -114,7 +114,7 @@ window.onload = function () {
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Laden", "ShopPage", "Home")</li>
+                    <li>@Html.ActionLink("Laden", "ShopPage", "Shop")</li>
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
 

@@ -48,7 +48,6 @@ namespace PeterKrausAP05LAP.Controllers
                 someProducts.Add(toExport);
             }
 
-
             return View(someProducts);
         }
 
