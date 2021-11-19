@@ -15,11 +15,31 @@ namespace PeterKrausAP05LAP
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Customer(
+            string title, string firstName, string lastName, string eMail,
+            string street, string zip, string city, string password)
+        {
+
+            Title = title;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = eMail;
+            Street = street;
+            Zip = zip;
+            City = city;
+
+            var securefiles = SecureManager.GenerateHash(password);
+            Salt = securefiles.salt;
+            PWHash = securefiles.hash;
+
+            this.Order = new HashSet<Order>();
+        }
         public Customer()
         {
             this.Order = new HashSet<Order>();
         }
-    
+
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
