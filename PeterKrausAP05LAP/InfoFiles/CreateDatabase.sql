@@ -84,6 +84,7 @@ CREATE TABLE "OrderLine"(
 	"Id"			INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	"OrderId"		INT NOT NULL,
 	"ProductId"		INT NOT NULL,
+	"IsActive"		BIT NOT NULL,
 	"Amount"		DECIMAL(19,4),
 	"NetUnitPrice"	DECIMAL(19,4),
 	"TaxRate"		DECIMAL(19,4)

@@ -23,22 +23,26 @@ namespace PeterKrausAP05LAP.Controllers
         [ActionName("ShopCart")]
         public ActionResult ShopCartGet()
         {
-            return View(cartProducts);
-        }
-        [HttpPost]
-        [ActionName("ShopCart")]
-        public ActionResult ShopCartEdit(int id)
-        {
             List<VM_ProductDetail> products = new List<VM_ProductDetail>();
-
-
 
             return View(products);
         }
 
 
 
+        [HttpPost]
+        [ActionName("ShopCart")]
+        public ActionResult ShopCartEdit(int id)
+        {
+            Product selectedProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
 
+
+            return View(selectedProduct);
+        }
+
+
+
+        // User.Identity.IsAuthenticated
         [HttpGet]
         [ActionName("ShopPage")]
         public ActionResult ShopIndex()

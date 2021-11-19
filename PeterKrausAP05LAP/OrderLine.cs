@@ -20,6 +20,7 @@ namespace PeterKrausAP05LAP
         public Nullable<decimal> Amount { get; set; }
         public Nullable<decimal> NetUnitPrice { get; set; }
         public Nullable<decimal> TaxRate { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }

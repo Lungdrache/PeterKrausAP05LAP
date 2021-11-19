@@ -57,6 +57,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OrderId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Amount" Type="decimal" Precision="19" Scale="4" />
           <Property Name="NetUnitPrice" Type="decimal" Precision="19" Scale="4" />
           <Property Name="TaxRate" Type="decimal" Precision="19" Scale="4" />
@@ -252,6 +253,7 @@
           <Property Name="TaxRate" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderId" FromRole="OrderLine" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_ProductOrderId" FromRole="OrderLine" ToRole="Product" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -441,6 +443,7 @@
           <EntitySetMapping Name="OrderLine">
             <EntityTypeMapping TypeName="StockGamesDatabaseModel.OrderLine">
               <MappingFragment StoreEntitySet="OrderLine">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
