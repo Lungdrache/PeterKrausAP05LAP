@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@Model[i].ProductName</h5>
                     <p class="card-text">@Model[i].ShortDescription</p>
-                    <a href="@Url.Action("ProductDetail", "Home",new {id = Model[i].Id})" class="btn btn-info">more..</a>
+                    <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i].Id})" class="btn btn-info">more..</a>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@Model[i + 1].ProductName</h5>
                         <p class="card-text">@Model[i + 1].ShortDescription</p>
-                        <a href="@Url.Action("ProductDetail", "Home",new {id = Model[i+1].Id})" class="btn btn-info">more..</a>
+                        <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i+1].Id})" class="btn btn-info">more..</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@Model[i + 2].ProductName</h5>
                         <p class="card-text">@Model[i + 2].ShortDescription</p>
-                        <a href="@Url.Action("ProductDetail", "Home",new {id = Model[i+2].Id})" class="btn btn-info">more..</a>
+                        <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i+2].Id})" class="btn btn-info">more..</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>

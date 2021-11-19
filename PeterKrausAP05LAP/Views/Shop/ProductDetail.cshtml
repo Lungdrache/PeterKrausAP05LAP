@@ -6,9 +6,9 @@
 <!-- Header Areal BEGINN -->
 <div class="container-fluid col-md-12 form-group form-inline img-container">
 
-    <img class="img-center trailer-content" 
-         src="@Url.Content(Model.imageHeaderPath)" 
-         alt="Header Img @Model.productName"/>
+    <img class="img-center trailer-content"
+         src="@Url.Content(Model.imageHeaderPath)"
+         alt="Header Img @Model.productName" />
     <div class="header-text">
         <h1 style="background-color:lightgray;opacity:0.8;padding-left:10px;padding-right:10px">
             @Model.productName
@@ -17,8 +17,7 @@
 
 </div>
 <!-- Header Areal END -->
- 
-<!-- Trailer Areal BEGINN --> 
+<!-- Trailer Areal BEGINN -->
 <div class="row form-group ">
     <div class="container-fluid">
 
@@ -29,14 +28,12 @@
             </video>
         </div>
         <!-- Video END -->
-
         <!-- Slider BEGINN -->
-        <div class=" col-md-6" >
+        <div class=" col-md-6">
 
-            <div 
-                 id="myCarousel" 
-                 class="carousel slide" 
-                 data-interval="3000" 
+            <div id="myCarousel"
+                 class="carousel slide"
+                 data-interval="3000"
                  data-ride="carousel">
 
                 <div class="carousel-inner">
@@ -45,20 +42,18 @@
                         if (i == 0)
                         {
                             <div class="item active">
-                                <div>
                                     <img src="@Model.imagePaths[i]"
                                          class="carousel-img"
                                          alt="Game image @i">
                                 </div>
-                            </div>
                         }
                         else
                         {
-                            <div class="item">
-                                <img src="@Model.imagePaths[i]"
-                                     class="carousel-img"
-                                     alt="Game image @i">
-                            </div>
+                <div class="item">
+                    <img src="@Model.imagePaths[i]"
+                         class="carousel-img"
+                         alt="Game image @i">
+                </div>
                         }
                     }
 
@@ -71,64 +66,64 @@
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div> 
+            </div>
         </div>
         <!-- Slider END -->
     </div>
 </div>
-<!-- Trailer Areal END --> 
-<!-- Body BEGINN --> 
+<!-- Trailer Areal END -->
+<!-- Body BEGINN -->
 <div class="row">
 
     <div class="col-md-6">
         <h4>@Model.description</h4>
 
     </div>
-<div class="col-md-6">
-    <dl class="dl-horizontal">
-        <dt>
-            Preis:
-        </dt>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                Preis:
+            </dt>
 
-        <dd>
-            @{
-                string preisOutput = "";
-                if (Model.price == 0)
-                {
-                    preisOutput = "Kostenlos";
+            <dd>
+                @{
+                    string preisOutput = "";
+                    if (Model.price == 0)
+                    {
+                        preisOutput = "Kostenlos";
+                    }
+                    else
+                    {
+                        preisOutput = Math.Round((Model.price + ((Model.price / 100) * Model.tax)), 2) + "€ inkl. " + Math.Round(Model.tax, 0) + "% mwst";
+                    }
                 }
-                else
-                {
-                    preisOutput = Math.Round((Model.price + ((Model.price / 100) * Model.tax)), 2) + "€ inkl. " + Math.Round(Model.tax,0) + "% mwst";
-                }
-            }
-            @preisOutput
-        </dd>
+                @preisOutput
+            </dd>
 
-        <dt>
-            Kategorie:
-        </dt>
+            <dt>
+                Kategorie:
+            </dt>
 
-        <dd>
-            @Model.categoryName
-        </dd>
+            <dd>
+                @Model.categoryName
+            </dd>
 
-        <dt>
-            Hersteller:
-        </dt>
+            <dt>
+                Hersteller:
+            </dt>
 
-        <dd>
-            @Model.manufactureName
-        </dd>
+            <dd>
+                @Model.manufactureName
+            </dd>
 
-    </dl>
-    <p>
-        @Html.ActionLink("Zurück zum Shop", "ShopPage")
-    </p>
-</div>
+        </dl>
+        <p>
+            @Html.ActionLink("Zurück zum Shop", "ShopPage")
+        </p>
+    </div>
 
 </div>
-<!-- Body END --> 
+<!-- Body END -->
 
 <script>
     // mute the video before autoplay
