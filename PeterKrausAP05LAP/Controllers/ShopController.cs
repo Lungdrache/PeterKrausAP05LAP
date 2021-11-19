@@ -18,7 +18,27 @@ namespace PeterKrausAP05LAP.Controllers
         {
             return View();
         }
-        // Import Stuff
+
+        [HttpGet]
+        [ActionName("ShopCart")]
+        public ActionResult ShopCartGet()
+        {
+            return View(cartProducts);
+        }
+        [HttpPost]
+        [ActionName("ShopCart")]
+        public ActionResult ShopCartEdit(int id)
+        {
+            List<VM_ProductDetail> products = new List<VM_ProductDetail>();
+
+
+
+            return View(products);
+        }
+
+
+
+
         [HttpGet]
         [ActionName("ShopPage")]
         public ActionResult ShopIndex()

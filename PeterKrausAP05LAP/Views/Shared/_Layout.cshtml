@@ -120,15 +120,19 @@ window.onload = function () {
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Logout","Logout","Account")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     }
                     else
                     {
                         <li>@Html.ActionLink("Login", "Login", "Account")</li>
                         <li>@Html.ActionLink("Register", "Registratur", "Account")</li>
                     }
+
                     @* This Line was Only used for Importing new Lines *@
                     @*<li>@Html.ActionLink("Import Files", "Importer", "Home")</li>*@
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Cart", "ShopCart", "Shop")</li>
                 </ul>
             </div>
         </div>
