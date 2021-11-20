@@ -14,6 +14,20 @@ namespace PeterKrausAP05LAP
     
     public partial class OrderLine
     {
+        public OrderLine(Order order, Product product, decimal tax)
+        {
+            OrderId = order.Id;
+            ProductId = product.Id;
+            Amount = 1m;
+            NetUnitPrice = product.NetUnitPrice;
+            TaxRate = tax;
+            IsActive = true;
+            
+        }
+        public OrderLine()
+        {
+        }
+
         public int Id { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
@@ -24,5 +38,8 @@ namespace PeterKrausAP05LAP
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
+        
     }
+
+    
 }

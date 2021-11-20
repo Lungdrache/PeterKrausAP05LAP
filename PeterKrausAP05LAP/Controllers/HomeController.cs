@@ -38,6 +38,12 @@ namespace PeterKrausAP05LAP.Controllers
 
             return View();
         }
+        public ActionResult AGB()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
 
 
 
@@ -46,13 +52,72 @@ namespace PeterKrausAP05LAP.Controllers
         // Import Stuff
         [HttpGet]
         [ActionName("Importer")]
-        public ActionResult ImporterGet()
+        public ActionResult ImporterGet(string title = "",int errors = 0,int files = 0)
         {
             ViewBag.Result = "Want to import Files?";
+
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                ViewBag.Result = title;
+                ViewBag.Errors = errors;
+                ViewBag.Files = files;
+            }
 
             return View();
         }
 
+        [HttpPost]
+        [ActionName("Clearer")]
+        public ActionResult OrderClearer()
+        {
+            List<Order> allOrders = context.Order.ToList();
+            List<OrderLine> allOrderLines = context.OrderLine.ToList();
+            int orderCount = allOrders.Count;
+            int fileCount = 0;
+            int errorCount = 0;
+
+            foreach (OrderLine orderLine in allOrderLines)
+            {
+                try
+                {
+                    context.OrderLine.Remove(orderLine);
+                    context.SaveChanges();
+                    fileCount++;
+                }
+                catch (Exception)
+                {
+                    errorCount++;
+                }
+            }
+
+            foreach (Order order in allOrders)
+            {
+                try
+                {
+                    context.Order.Remove(order);
+                    context.SaveChanges();
+                    fileCount++;
+                }
+                catch (Exception)
+                {
+                    errorCount++;
+                }
+            }
+
+
+
+            ViewBag.Result = (errorCount == 0)?"Cleared all Orders":"Cleared Orders with Problems";
+            ViewBag.Errors = errorCount;
+            ViewBag.Files = fileCount;
+
+            return RedirectToAction("Importer",
+                new
+                {
+                    title = (errorCount == 0) ? "Cleared all Orders" : "Cleared Orders with Problems",
+                    errors = errorCount,
+                    files = fileCount
+                });
+        }
         [HttpPost]
         [ActionName("Importer")]
         public ActionResult ImporterPost()

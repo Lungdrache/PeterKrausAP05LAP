@@ -1,4 +1,5 @@
-﻿using PeterKrausAP05LAP.ViewModels;
+﻿using PeterKrausAP05LAP.Tools;
+using PeterKrausAP05LAP.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +26,15 @@ namespace PeterKrausAP05LAP.Controllers
         {
             List<VM_ProductDetail> products = new List<VM_ProductDetail>();
 
+            if (User.Identity.IsAuthenticated)
+            {
+                // check Database for ShopItems
+            }
+            else
+            {
+                // check Session for ShopItems
+            }
+
             return View(products);
         }
 
@@ -45,8 +55,44 @@ namespace PeterKrausAP05LAP.Controllers
         // User.Identity.IsAuthenticated
         [HttpGet]
         [ActionName("ShopPage")]
-        public ActionResult ShopIndex()
+        public ActionResult ShopIndex(int? addCart)
         {
+            if (addCart != null)
+            {
+                Product addedProduct = context.Product.Where(x => x.Id == addCart).FirstOrDefault();
+                Category productCategory = context.Category.Where(x => x.Id == addedProduct.CategoryId).FirstOrDefault();
+                Order newOrder = new Order();
+
+                int orderID = 0;
+                if (Session["OrderID"] == null)
+                {
+                    Customer loggedinUser = (Customer)Session["loggedInCustomer"];
+                    newOrder = new Order(loggedinUser, 0);
+                    newOrder = context.Order.Add(newOrder);
+                    context.SaveChanges();
+                    Session["OrderID"] = newOrder.Id;
+
+                }
+                else
+                {
+                    orderID = (int)Session["OrderID"];
+                    newOrder = context.Order.Where(x => x.Id == orderID).FirstOrDefault();
+                }
+                
+
+                List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Hinzugefügt zum Warenkorb",
+                        addedProduct.ProductName + " wurde in ihren Warenkorb hinzugefügt.",
+                        Toasttype.error)
+                };
+                ViewBag.toasts = toastMessages;
+
+
+
+                OrderLine newItem = new OrderLine(newOrder, addedProduct, productCategory.TaxRate);
+            }
+
             List<VM_Product> someProducts = new List<VM_Product>();
             List<Product> importedProducts = context.Product.Take(50).ToList();
 

@@ -15,29 +15,34 @@
 
 
         </form>
+        <form method="post" action="Clearer">
+            <button>Clear Orders!</button>
+
+
+        </form>
         @if (@ViewBag.Result != "Want to import Files?")
         {
 
-        <div class="col-md-2">
+            <div class="col-md-2">
 
-            <ul class="list-group list-group-flush  list-group-horizontal">
-                @if (ViewBag.Errors != 0)
-                {
+                <ul class="list-group list-group-flush  list-group-horizontal">
+                    @if (ViewBag.Errors != 0)
+                    {
+                        <li class="list-group-item text-left d-inline-block">
+                            Errors:
+                            <span class="badge badge-primary badge-pill">
+                                @ViewBag.Errors
+                            </span>
+                        </li>
+                    }
                     <li class="list-group-item text-left d-inline-block">
-                        Errors:
+                        Files:
                         <span class="badge badge-primary badge-pill">
-                            @ViewBag.Errors
+                            @ViewBag.Files
                         </span>
                     </li>
-                }
-                <li class="list-group-item text-left d-inline-block">
-                    Files:
-                    <span class="badge badge-primary badge-pill">
-                        @ViewBag.Files
-                    </span>
-                </li>
-            </ul>
-        </div>
+                </ul>
+            </div>
         }
     </div>
 </body>

@@ -23,6 +23,7 @@ namespace PeterKrausAP05LAP.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -40,6 +41,19 @@ namespace PeterKrausAP05LAP.Controllers
 
 
             Customer customer = context.Customer.Where(x => x.Email == email).FirstOrDefault();
+                if (customer == null)
+                {
+                    List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Fehler",
+                        "User ist nicht registriert",
+                        Toasttype.error)
+                };
+                    ViewBag.toasts = toastMessages;
+                    return View();
+                }
+                else
+                {
 
             var hashedPassword = SecureManager.GenerateHash(password, customer.Salt);
 
@@ -50,7 +64,9 @@ namespace PeterKrausAP05LAP.Controllers
                         "WIllkommen zurück " + email + "!",
                         "Sie wurden erfolgreich eingeloggt",
                         Toasttype.success)
+                    
                 };
+                    Session["loggedInCustomer"] = customer;
                     ViewBag.toasts = toastMessages;
                 }
                 else
@@ -75,6 +91,7 @@ namespace PeterKrausAP05LAP.Controllers
                 else
                 {
                     return View();
+                    }
                 }
             }
             else
@@ -102,6 +119,7 @@ namespace PeterKrausAP05LAP.Controllers
             {
                 DeAuthenticateUser();
                 TempData["justLoggedOut"] = true;
+                Session["loggedInCustomer"] = null;
                 return RedirectToAction("Index", "Home");
             }
             else

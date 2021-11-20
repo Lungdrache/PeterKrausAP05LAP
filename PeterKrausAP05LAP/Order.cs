@@ -19,6 +19,22 @@ namespace PeterKrausAP05LAP
         {
             this.OrderLine = new HashSet<OrderLine>();
         }
+        public Order(Customer kunde, decimal totalPrice)
+        {
+            CustomerId = kunde.Id;
+            PriceTotal = null;
+            DateOrdered = DateTime.Now;
+            Zip = kunde.Zip;
+            City = kunde.City;
+            FirstName = kunde.FirstName;
+            LastName = kunde.LastName;
+            this.OrderLine = new HashSet<OrderLine>();
+            
+        }
+        public void FinishOrder()
+        {
+            PriceTotal = 10;
+        }
     
         public int Id { get; set; }
         public int CustomerId { get; set; }
@@ -28,6 +44,9 @@ namespace PeterKrausAP05LAP
         public string City { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+
+
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
