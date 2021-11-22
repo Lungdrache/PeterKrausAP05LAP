@@ -132,6 +132,13 @@ window.onload = function () {
                     <li>@Html.ActionLink("Import Files", "Importer", "Home")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    @if (Session["loggedInCustomer"] != null)
+                    {
+                        Customer user = (Customer)Session["loggedInCustomer"];
+                        <li class="navbar-text">Hallo, @user.Title @user.FirstName !</li>
+                    }
+
+
                     <li>@Html.ActionLink("Cart", "ShopCart", "Shop")</li>
                 </ul>
             </div>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace PeterKrausAP05LAP.Controllers
 {
@@ -66,7 +67,34 @@ namespace PeterKrausAP05LAP.Controllers
                 int orderID = 0;
                 if (Session["OrderID"] == null)
                 {
-                    Customer loggedinUser = (Customer)Session["loggedInCustomer"];
+                    Customer loggedinUser = new Customer();
+                    if (Session["loggedInCustomer"] == null)
+                    {
+                        AuthenticateUser(loggedinUser.Email);
+                        TempData["justLoggedIn"] = true;
+                        TempData["userEmail"] = loggedinUser.Email;
+                        Random ran = new Random();
+                        string guestName = "GUEST" + ran.Next();
+                        // wenn es sich um einen Gast handelt
+                        loggedinUser = new Customer(
+                            "",
+                            guestName,
+                            "GUEST",
+                            guestName,
+                            "GUEST",
+                            "GUEST",
+                            "GUEST",
+                            "GUEST"
+                            );
+                        context.Customer.Add(loggedinUser);
+                        context.SaveChanges();
+
+                    }
+                    else
+                    {
+                        // wenn jemand eingeloggt ist
+                        loggedinUser = (Customer)Session["loggedInCustomer"];
+                    }
                     newOrder = new Order(loggedinUser, 0);
                     newOrder = context.Order.Add(newOrder);
                     context.SaveChanges();
@@ -84,13 +112,15 @@ namespace PeterKrausAP05LAP.Controllers
                     new ToastMessage(
                         "Hinzugefügt zum Warenkorb",
                         addedProduct.ProductName + " wurde in ihren Warenkorb hinzugefügt.",
-                        Toasttype.error)
+                        Toasttype.info)
                 };
                 ViewBag.toasts = toastMessages;
 
 
 
                 OrderLine newItem = new OrderLine(newOrder, addedProduct, productCategory.TaxRate);
+                context.OrderLine.Add(newItem);
+                context.SaveChanges();
             }
 
             List<VM_Product> someProducts = new List<VM_Product>();
@@ -167,5 +197,47 @@ namespace PeterKrausAP05LAP.Controllers
 
             return View(product);
         }
+
+
+        #region Authentication
+
+        [NonAction]
+        public void AuthenticateUser(string email)
+        {
+
+            string name = email;
+            DateTime now = DateTime.Now;
+            bool rememberMe = true;
+            string userData = "";
+
+
+
+            var ticket = new FormsAuthenticationTicket(
+                0,
+                name,
+                now,
+                now.AddMinutes(30),
+                rememberMe,
+                userData
+                );
+
+            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+
+            var cookie = new HttpCookie(
+                ".ASPXAUTH",
+                encryptedTicket);
+
+            Response.Cookies.Add(cookie);
+
+        }
+        [NonAction]
+        public void DeAuthenticateUser()
+        {
+            if (Request.Cookies[".ASPXAUTH"] != null)
+            {
+                Response.Cookies[".ASPXAUTH"].Expires = DateTime.Now.AddDays(-1);
+            }
+        }
+        #endregion
     }
 }
