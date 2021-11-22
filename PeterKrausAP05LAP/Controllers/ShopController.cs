@@ -27,13 +27,55 @@ namespace PeterKrausAP05LAP.Controllers
         {
             List<VM_ProductDetail> products = new List<VM_ProductDetail>();
 
-            if (User.Identity.IsAuthenticated)
+            if (Session["loggedInCustomer"] != null)
             {
-                // check Database for ShopItems
-            }
-            else
-            {
-                // check Session for ShopItems
+                Customer customer = (Customer)Session["loggedInCustomer"];
+                Order openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+                List<OrderLine> orders = context.OrderLine.Where(x => x.OrderId == openOrder.Id).ToList();
+
+                foreach (OrderLine order in orders)
+                {
+                    Product product = context.Product.Where(x => x.Id == order.ProductId).FirstOrDefault();
+                    Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
+                    Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
+
+
+                    List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                    List<string> allimagePaths = new List<string>();
+                    string headerImages = "";
+                    foreach (ProductImages image in productImages)
+                    {
+                        if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                        {
+                            headerImages = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                        }
+                        else
+                        {
+                            allimagePaths.Add("../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                        }
+                    }
+
+
+                    VM_ProductDetail orderedProduct = new VM_ProductDetail()
+                    {
+                        Id = product.Id,
+                        categoryId = category.Id,
+                        productName = product.ProductName,
+                        price = product.NetUnitPrice,
+                        tax = category.TaxRate,
+                        manufactureName = manufacturer.Name,
+                        manufactureId = manufacturer.Id,
+                        categoryName = category.Name,
+                        description = product.Description,
+                        imagePaths = allimagePaths,
+                        imageHeaderPath = headerImages,
+                        videoPath = product.TrailerPath
+                    };
+
+
+                    products.Add(orderedProduct);
+                }
+
             }
 
             return View(products);
@@ -46,6 +88,10 @@ namespace PeterKrausAP05LAP.Controllers
         public ActionResult ShopCartEdit(int id)
         {
             Product selectedProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
+
+
+
+
 
 
             return View(selectedProduct);
@@ -67,6 +113,7 @@ namespace PeterKrausAP05LAP.Controllers
                 int orderID = 0;
                 if (Session["OrderID"] == null)
                 {
+                    // TODO: working
                     Customer loggedinUser = new Customer();
                     if (Session["loggedInCustomer"] == null)
                     {
@@ -196,6 +243,20 @@ namespace PeterKrausAP05LAP.Controllers
 
 
             return View(product);
+        }
+
+
+        [HttpGet]
+        [ActionName("ProductDelete")]
+        public ActionResult ProductDetaildelete(int? id)
+        {
+            Customer customer = (Customer)Session["loggedInCustomer"];
+            Order order = context.Order.Where(x => x.PriceTotal == null && x.CustomerId == customer.Id).FirstOrDefault();
+            OrderLine toRemove = context.OrderLine.Where(x => x.OrderId == order.Id && x.ProductId == id).FirstOrDefault();
+
+            context.OrderLine.Remove(toRemove);
+            context.SaveChanges();
+            return RedirectToAction("ShopCart");
         }
 
 
