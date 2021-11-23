@@ -118,7 +118,7 @@ window.onload = function () {
                     <li>@Html.ActionLink("Informationen", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated && (bool?)Session["Guest"] != true)
                     {
                         <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     }

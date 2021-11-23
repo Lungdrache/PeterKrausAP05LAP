@@ -29,16 +29,18 @@ namespace PeterKrausAP05LAP.Controllers
 
             if (Session["loggedInCustomer"] != null)
             {
+                // ist der User eingeloggt
                 Customer customer = (Customer)Session["loggedInCustomer"];
+                // Suche seine noch nicht vollendete Bestellung raus
                 Order openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
                 List<OrderLine> orders = context.OrderLine.Where(x => x.OrderId == openOrder.Id).ToList();
 
                 foreach (OrderLine order in orders)
                 {
+                    // Finde die Produkt Daten
                     Product product = context.Product.Where(x => x.Id == order.ProductId).FirstOrDefault();
                     Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
                     Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
-
 
                     List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
                     List<string> allimagePaths = new List<string>();
@@ -55,7 +57,6 @@ namespace PeterKrausAP05LAP.Controllers
                         }
                     }
 
-
                     VM_ProductDetail orderedProduct = new VM_ProductDetail()
                     {
                         Id = product.Id,
@@ -71,7 +72,6 @@ namespace PeterKrausAP05LAP.Controllers
                         imageHeaderPath = headerImages,
                         videoPath = product.TrailerPath
                     };
-
 
                     products.Add(orderedProduct);
                 }
@@ -117,9 +117,6 @@ namespace PeterKrausAP05LAP.Controllers
                     Customer loggedinUser = new Customer();
                     if (Session["loggedInCustomer"] == null)
                     {
-                        AuthenticateUser(loggedinUser.Email);
-                        TempData["justLoggedIn"] = true;
-                        TempData["userEmail"] = loggedinUser.Email;
                         Random ran = new Random();
                         string guestName = "GUEST" + ran.Next();
                         // wenn es sich um einen Gast handelt
@@ -133,8 +130,18 @@ namespace PeterKrausAP05LAP.Controllers
                             "GUEST",
                             "GUEST"
                             );
-                        context.Customer.Add(loggedinUser);
-                        context.SaveChanges();
+
+                        AuthenticateUser(loggedinUser.Email);
+                        TempData["justLoggedIn"] = true;
+                        TempData["userEmail"] = loggedinUser.Email;
+
+                        Session["loggedInCustomer"] = loggedinUser;
+                        Session["Guest"] = true;
+                        using (StockGamesDatabaseEntities dbSetup = new StockGamesDatabaseEntities())
+                        {
+                            dbSetup.Customer.Add(loggedinUser);
+                            dbSetup.SaveChanges();
+                        }
 
                     }
                     else

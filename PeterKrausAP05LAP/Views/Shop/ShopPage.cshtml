@@ -6,7 +6,7 @@
         <div class="row">
 
             <div class="col-md-4">
-                <h1>@Model[i].ProductName</h1>
+                <h2>@Model[i].ProductName</h2>
                 <img class="card-img-top" src="@Model[i].HeaderImgPath" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">@Model[i].ProductName</h5>
@@ -21,7 +21,7 @@
             @if (i + 1 < Model.Count)
             {
                 <div class="col-md-4">
-                    <h1>@Model[i + 1].ProductName</h1>
+                    <h2>@Model[i + 1].ProductName</h2>
                     <img class="card-img-top" src="@Model[i+1].HeaderImgPath" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@Model[i + 1].ProductName</h5>
@@ -37,7 +37,7 @@
             @if (i + 2 < Model.Count)
             {
                 <div class="col-md-4">
-                    <h1>@Model[i + 2].ProductName</h1>
+                    <h2>@Model[i + 2].ProductName</h2>
                     <img class="card-img-top" src="@Model[i+2].HeaderImgPath" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">@Model[i + 2].ProductName</h5>

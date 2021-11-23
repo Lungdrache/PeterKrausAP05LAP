@@ -67,6 +67,60 @@ namespace PeterKrausAP05LAP.Controllers
         }
 
         [HttpPost]
+        [ActionName("RemoveGuests")]
+        public ActionResult RemoveGuests()
+        {
+            // Rufe eine GuestAccount Liste ab
+            List<Customer> guests = context.Customer.Where(x => x.LastName == "GUEST").ToList();
+
+            int files = 0;
+            int errors = 0;
+
+            foreach (Customer guest in guests)
+            {
+                try
+                {
+                    // da ein Guest nur eine bestellung haben kann bevor er zum kunde wird,
+                    // ist nichts anderes notwendig
+
+                    // erfasse alle guestbestellungen
+                    Order guestOrder = context.Order.Where(x => x.CustomerId == guest.Id).FirstOrDefault();
+                    if (guestOrder != null)
+                    {
+                        List<OrderLine> allguestorders = context.OrderLine.Where(x => x.OrderId == guestOrder.Id).ToList();
+
+                        // entfernt alle bestellungen
+                        foreach (var item in allguestorders)
+                        {
+                            context.OrderLine.Remove(item);
+                        }
+
+                        // entfernt die Bestellung
+                        context.Order.Remove(guestOrder);
+                    }
+
+                    // entfernt die GastAccounts
+                    context.Customer.Remove(guest);
+                    context.SaveChanges();
+                    files++;
+                }
+                catch (Exception)
+                {
+                    errors++;
+                }
+            }
+
+            return RedirectToAction("Importer",
+                new
+                {
+                    title = (errors == 0) ? "Cleared all Guests" : "Cleared Guests with Problems",
+                    errors = errors,
+                    files = files
+                });
+
+        }
+
+        [HttpPost]
         [ActionName("Clearer")]
         public ActionResult OrderClearer()
         {

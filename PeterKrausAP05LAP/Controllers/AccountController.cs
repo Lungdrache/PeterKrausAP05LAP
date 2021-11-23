@@ -21,7 +21,7 @@ namespace PeterKrausAP05LAP.Controllers
         [ActionName("Login")]
         public ActionResult LoginPageGet()
         {
-            if (User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated && (bool?)Session["Guest"] != true)
             {
                 
                 return RedirectToAction("Index", "Home");
@@ -38,9 +38,7 @@ namespace PeterKrausAP05LAP.Controllers
         {
             if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
             {
-
-
-            Customer customer = context.Customer.Where(x => x.Email == email).FirstOrDefault();
+                Customer customer = context.Customer.Where(x => x.Email == email).FirstOrDefault();
                 if (customer == null)
                 {
                     List<ToastMessage> toastMessages = new List<ToastMessage> {
@@ -55,18 +53,16 @@ namespace PeterKrausAP05LAP.Controllers
                 else
                 {
 
-            var hashedPassword = SecureManager.GenerateHash(password, customer.Salt);
+                var hashedPassword = SecureManager.GenerateHash(password, customer.Salt);
 
                 if (customer.PWHash == hashedPassword.hash)
-                {
-                    List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    {
+                        List<ToastMessage> toastMessages = new List<ToastMessage> {
                     new ToastMessage(
                         "WIllkommen zurück " + email + "!",
                         "Sie wurden erfolgreich eingeloggt",
-                        Toasttype.success)
-                    
-                };
-                    Session["loggedInCustomer"] = customer;
+                        Toasttype.success)};
+
                     ViewBag.toasts = toastMessages;
                 }
                 else
@@ -83,10 +79,65 @@ namespace PeterKrausAP05LAP.Controllers
 
                 if (customer.PWHash == hashedPassword.hash)
                 {
-                    AuthenticateUser(email);
-                    TempData["justLoggedIn"] = true;
-                    TempData["userEmail"] = customer.Email;
-                    return RedirectToAction("Index", "Home");
+
+
+                        if ((bool?)Session["Guest"] == true)
+                        {
+                            Customer guestCustomer = (Customer)Session["loggedInCustomer"];
+
+                            if (context.Order.Any(x => x.CustomerId == customer.Id && x.PriceTotal == null))
+                            {
+                                // wenn der User der sich eingeloggt hat noch eine bestellung offen hat!
+                                Order openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+                                Order guestOrder = context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault();
+                                List<OrderLine> guestbestellungen = context.OrderLine.Where(x => x.OrderId == guestOrder.Id).ToList();
+
+                                // entfernt die guestbestellungen
+                                foreach (OrderLine item in guestbestellungen)
+                                {
+                                    context.OrderLine.Remove(item);
+                                    context.SaveChanges();
+                                }
+                                // fügt sie dem User hinzu
+                                foreach (OrderLine item in guestbestellungen)
+                                {
+                                    item.OrderId = openOrder.Id;
+                                    context.OrderLine.Add(item);
+                                    context.SaveChanges();
+                                }
+
+                                context.Order.Remove(guestOrder);
+                                context.SaveChanges();
+                            }
+                            else
+                            {
+                                context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().CustomerId = customer.Id;
+                                context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().FirstName = customer.FirstName;
+                                context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().LastName = customer.LastName;
+                                context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().Zip = customer.Zip;
+                                context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().City = customer.City;
+                                context.SaveChanges();
+
+
+                            }
+
+
+                            Session["Guest"] = null;
+                            context.Customer.Attach(guestCustomer);
+                            context.Customer.Remove(guestCustomer);
+                            context.SaveChanges();
+                            DeAuthenticateUser();
+                        }
+
+
+                        AuthenticateUser(email);
+                        TempData["justLoggedIn"] = true;
+                        TempData["userEmail"] = customer.Email;
+                        Session["loggedInCustomer"] = customer;
+
+
+
+                        return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -120,6 +171,7 @@ namespace PeterKrausAP05LAP.Controllers
                 DeAuthenticateUser();
                 TempData["justLoggedOut"] = true;
                 Session["loggedInCustomer"] = null;
+                Session["Guest"] = null;
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -150,19 +202,56 @@ namespace PeterKrausAP05LAP.Controllers
             // MailManager.SendEmail($"<br/><br/>Hello {fname} {lname}<br/><br/> You succefully registered to our Website!", $"Welcome {lname} to Stockgames",email);
 
             TempData["Registratur"] = "";
-
             if (!context.Customer.Any(x => x.Email == email))
             {
-                context.Customer.Add(newCustomer);
-                context.SaveChanges();
-                List<ToastMessage> toastMessages = new List<ToastMessage> {
+                if ((bool?)Session["Guest"] == true)
+                {
+                    context.Customer.Add(newCustomer);
+                    context.SaveChanges();
+
+                    Customer guestCustomer = (Customer)Session["loggedInCustomer"];
+
+                    context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().CustomerId = newCustomer.Id;
+                    context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().FirstName = newCustomer.FirstName;
+                    context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().LastName = newCustomer.LastName;
+                    context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().Zip = newCustomer.Zip;
+                    context.Order.Where(x => x.CustomerId == guestCustomer.Id).FirstOrDefault().City = newCustomer.City;
+                    context.SaveChanges();
+                    // Human @test
+                    context.Customer.Attach(guestCustomer);
+                    context.Customer.Remove(guestCustomer);
+                    context.SaveChanges();
+
+                    List<ToastMessage> toastMessages = new List<ToastMessage> {
                     new ToastMessage(
                         "Erledigt",
                         "Benutzer wurde erstellt",
-                        Toasttype.success)
-                };
-                ViewBag.toasts = toastMessages;
-                return View(false);
+                        Toasttype.success)};
+                    ViewBag.toasts = toastMessages;
+
+                    Session["Guest"] = null;
+
+                    DeAuthenticateUser();
+                    AuthenticateUser(email);
+
+                    TempData["justLoggedIn"] = true;
+                    TempData["userEmail"] = newCustomer.Email;
+                    Session["loggedInCustomer"] = newCustomer;
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    context.Customer.Add(newCustomer);
+                    context.SaveChanges();
+                    List<ToastMessage> toastMessages = new List<ToastMessage> {
+                    new ToastMessage(
+                        "Erledigt",
+                        "Benutzer wurde erstellt",
+                        Toasttype.success)};
+                    ViewBag.toasts = toastMessages;
+                    return View(false);
+                }
             }
             else
             {
