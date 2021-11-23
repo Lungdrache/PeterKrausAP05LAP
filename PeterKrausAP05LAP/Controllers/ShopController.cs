@@ -83,26 +83,12 @@ namespace PeterKrausAP05LAP.Controllers
 
 
 
-        [HttpPost]
-        [ActionName("ShopCart")]
-        public ActionResult ShopCartEdit(int id)
-        {
-            Product selectedProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
-
-
-
-
-
-
-            return View(selectedProduct);
-        }
-
 
 
         // User.Identity.IsAuthenticated
         [HttpGet]
         [ActionName("ShopPage")]
-        public ActionResult ShopIndex(int? addCart)
+        public ActionResult ShopIndex(int? addCart, int? pageSelect)
         {
             if (addCart != null)
             {
@@ -178,7 +164,23 @@ namespace PeterKrausAP05LAP.Controllers
             }
 
             List<VM_Product> someProducts = new List<VM_Product>();
-            List<Product> importedProducts = context.Product.Take(50).ToList();
+
+            int currentPage = (pageSelect == null) ? 1 : pageSelect.Value;
+            int productCount = context.Product.Count();
+            int numberOfPages = (int)Math.Round((float)productCount/25f,0);
+            List<Product> importedProducts = new List<Product>();
+
+            if ((currentPage)*25 > productCount)
+            {
+                int restproducts = productCount - (currentPage - 1) * 25;
+                importedProducts = context.Product.OrderBy(x => x.ProductName).Skip((currentPage - 1) * 25).Take(restproducts).ToList();
+            }
+            else
+            {
+                importedProducts = context.Product.OrderBy(x => x.ProductName).Skip((currentPage - 1) * 25).Take(25).ToList();
+            }
+
+
 
             foreach (Product product in importedProducts)
             {
@@ -201,6 +203,27 @@ namespace PeterKrausAP05LAP.Controllers
                 toExport.ShortDescription = product.Description;
                 someProducts.Add(toExport);
             }
+            VM_ShopView shopView = new VM_ShopView()
+            {
+                PageCount = numberOfPages,
+                PageNumber = currentPage,
+                AllProducts = someProducts};
+
+
+            return View(shopView);
+        }
+
+        [HttpPost]
+        [ActionName("ShopPage")]
+        public ActionResult ShopFilter(string name, int? category, string manufacturer, int? prize)
+        {
+            List<VM_Product> someProducts = new List<VM_Product>();
+
+
+
+
+
+
 
             return View(someProducts);
         }

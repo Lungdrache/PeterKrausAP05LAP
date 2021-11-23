@@ -180,6 +180,7 @@
     <Compile Include="Tools\ToastMessage.cs" />
     <Compile Include="ViewModels\VM_Product.cs" />
     <Compile Include="ViewModels\VM_ProductDetail.cs" />
+    <Compile Include="ViewModels\VM_ShopView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\AssetFiles\7n7\0.png" />

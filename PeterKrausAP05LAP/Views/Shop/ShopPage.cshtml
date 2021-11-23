@@ -1,58 +1,99 @@
-﻿@model List<VM_Product>
+﻿@model PeterKrausAP05LAP.ViewModels.VM_ShopView
 
     <div class="container-fluid">
-        @for (int i = 0; i < Model.Count; i += 3)
+        @for (int i = 0; i < Model.AllProducts.Count; i += 3)
         {
         <div class="row">
 
             <div class="col-md-4">
-                <h2>@Model[i].ProductName</h2>
-                <img class="card-img-top" src="@Model[i].HeaderImgPath" alt="Card image cap">
+                <h2>@Model.AllProducts[i].ProductName</h2>
+                <img class="card-img-top" src="@Model.AllProducts[i].HeaderImgPath" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">@Model[i].ProductName</h5>
-                    <p class="card-text">@Model[i].ShortDescription</p>
-                    <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i].Id})" class="btn btn-info">more..</a>
-                    <a href="@Url.Action("ShopPage", "Shop",new {addCart = Model[i].Id})" class="btn btn-info">addCart</a>
+                    <h5 class="card-title">@Model.AllProducts[i].ProductName</h5>
+                    <p class="card-text">@Model.AllProducts[i].ShortDescription</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i].Id })" class="btn btn-info">more..</a>
+                    <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i].Id })" class="btn btn-info">addCart</a>
                 </div>
             </div>
-            @if (i + 1 < Model.Count)
+            @if (i + 1 < Model.AllProducts.Count)
             {
                 <div class="col-md-4">
-                    <h2>@Model[i + 1].ProductName</h2>
-                    <img class="card-img-top" src="@Model[i+1].HeaderImgPath" alt="Card image cap">
+                    <h2>@Model.AllProducts[i + 1].ProductName</h2>
+                    <img class="card-img-top" src="@Model.AllProducts[i + 1].HeaderImgPath" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">@Model[i + 1].ProductName</h5>
-                        <p class="card-text">@Model[i + 1].ShortDescription</p>
-                        <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i+1].Id})" class="btn btn-info">more..</a>
-                        <a href="@Url.Action("ShopPage", "Shop",new {addCart = Model[i+1].Id})" class="btn btn-info">addCart</a>
+                        <h5 class="card-title">@Model.AllProducts[i + 1].ProductName</h5>
+                        <p class="card-text">@Model.AllProducts[i + 1].ShortDescription</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 1].Id })" class="btn btn-info">more..</a>
+                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 1].Id })" class="btn btn-info">addCart</a>
                     </div>
                 </div>
             }
-            @if (i + 2 < Model.Count)
+            @if (i + 2 < Model.AllProducts.Count)
             {
                 <div class="col-md-4">
-                    <h2>@Model[i + 2].ProductName</h2>
-                    <img class="card-img-top" src="@Model[i+2].HeaderImgPath" alt="Card image cap">
+                    <h2>@Model.AllProducts[i + 2].ProductName</h2>
+                    <img class="card-img-top" src="@Model.AllProducts[i + 2].HeaderImgPath" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">@Model[i + 2].ProductName</h5>
-                        <p class="card-text">@Model[i + 2].ShortDescription</p>
-                        <a href="@Url.Action("ProductDetail", "Shop",new {id = Model[i+2].Id})" class="btn btn-info">more..</a>
-                        <a href="@Url.Action("ShopPage", "Shop",new {addCart = Model[i+2].Id})" class="btn btn-info">addCart</a>
+                        <h5 class="card-title">@Model.AllProducts[i + 2].ProductName</h5>
+                        <p class="card-text">@Model.AllProducts[i + 2].ShortDescription</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 2].Id })" class="btn btn-info">more..</a>
+                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 2].Id })" class="btn btn-info">addCart</a>
                     </div>
                 </div>
             }
 
         </div>
         }
+    <div class="row">
+        @if (Model.PageNumber > 1)
+        {
+            <a class="btn" href="@Url.Action("ShopPage", "Shop", new { pageSelect = (Model.PageNumber - 1) })><</a>
+            }
+            else
+            {
+            <p><</p>
+            }
+
+            @if (Model.PageNumber > 3)
+            {
+                <a class="btn" href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber-2 })>@(Model.PageNumber-2)</a>
+                <a class="btn" href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber-1 })>@(Model.PageNumber-1)</a>
+                }
+                else if (Model.PageNumber > 2)
+                {
+                <a href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber-1 }) class="btn">@(Model.PageNumber-1)</a>
+            }
+
+
+            <p>@Model.PageNumber</p>
+
+            @if (Model.PageNumber < Model.PageCount - 2)
+            {
+                <a href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber+1 }) class="btn">@(Model.PageNumber+1)</a>
+                <a href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber+2 }) class=" btn">@(Model.PageNumber+2)</a>
+            }
+            else if (Model.PageNumber < Model.PageCount - 1)
+            {
+                <a href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber+1 }) class="btn">@(Model.PageNumber+1)</a>
+            }
+
+            @if (Model.PageNumber < Model.PageCount)
+            {
+                <a href="@Url.Action("ShopPage", "Shop",new {pageSelect = Model.PageNumber+1 })" class="btn">></a>
+            }
+            else
+            {
+                <p>></p>
+            }
+
+
+        </div>
     </div>
 
 
