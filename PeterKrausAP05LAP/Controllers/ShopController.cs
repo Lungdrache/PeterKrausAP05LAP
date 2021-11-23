@@ -33,6 +33,7 @@ namespace PeterKrausAP05LAP.Controllers
                 Customer customer = (Customer)Session["loggedInCustomer"];
                 // Suche seine noch nicht vollendete Bestellung raus
                 Order openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+                // TODO: WHAT IF SHOPCART IS EMPTY!
                 List<OrderLine> orders = context.OrderLine.Where(x => x.OrderId == openOrder.Id).ToList();
 
                 foreach (OrderLine order in orders)
