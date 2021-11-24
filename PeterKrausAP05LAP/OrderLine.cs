@@ -11,9 +11,11 @@ namespace PeterKrausAP05LAP
 {
     using System;
     using System.Collections.Generic;
+
     
     public partial class OrderLine
     {
+
         public OrderLine(Order order, Product product, decimal tax)
         {
             OrderId = order.Id;
@@ -22,24 +24,20 @@ namespace PeterKrausAP05LAP
             NetUnitPrice = product.NetUnitPrice;
             TaxRate = tax;
             IsActive = true;
-            
+
         }
         public OrderLine()
         {
         }
-
         public int Id { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public Nullable<decimal> NetUnitPrice { get; set; }
         public Nullable<decimal> TaxRate { get; set; }
-        public bool IsActive { get; set; }
+        public Nullable<bool> IsActive { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
-        
     }
-
-    
 }

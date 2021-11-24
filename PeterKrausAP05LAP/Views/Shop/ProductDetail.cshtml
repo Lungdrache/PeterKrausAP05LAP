@@ -131,7 +131,7 @@
             mehr @Model.categoryName-Games
         </h2>
     </div>
-    @if (Model.sameManufacturer.Count() == 0)
+    @if (Model.sameManufacturer.Count() > 1)
     {
         <div class="col-md-6">
             <h2>
@@ -155,11 +155,17 @@
     <div class="col-md-3">
         <div class="row">
             <h3 class="col-md-10">@item.ProductName</h3>
-            <p class="col-md-2">@item.PageVisits gesehen</p>
         </div>
         <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">@item.ProductName</h5>
+            @if (item.PageVisits == 0)
+            {
+                <h5 class="card-title">wurde noch nicht angeschaut</h5>
+            }
+            else
+            {
+                <h5 class="card-title">wurde schon @item.PageVisits angesehen</h5>
+            }
             <p class="card-text">@item.ShortDescription</p>
         </div>
         <div class="card-footer bottom">
@@ -172,11 +178,17 @@
 <div class="col-md-3">
     <div class="row">
         <h3 class="col-md-10">@item.ProductName</h3>
-        <p class="col-md-2">@item.PageVisits gesehen</p>
     </div>
     <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
     <div class="card-body">
-        <h5 class="card-title">@item.ProductName</h5>
+        @if (item.PageVisits == 0)
+        {
+            <h5 class="card-title">wurde noch nicht angeschaut</h5>
+        }
+        else
+        {
+            <h5 class="card-title">wurde schon @item.PageVisits angesehen</h5>
+        }
         <p class="card-text">@item.ShortDescription</p>
     </div>
     <div class="card-footer bottom">
@@ -189,11 +201,17 @@
         <div class="col-md-3" style="height:100%">
             <div class="row">
                 <h3 class="col-md-10">@item.ProductName</h3>
-                <p class="col-md-2">@item.PageVisits gesehen</p>
             </div>
             <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">@item.ProductName</h5>
+                @if (item.PageVisits == 0)
+                {
+                    <h5 class="card-title">wurde noch nicht angeschaut</h5>
+                }
+                else
+                {
+                    <h5 class="card-title">wurde schon @item.PageVisits angesehen</h5>
+                }
                 <p class="card-text">@item.ShortDescription</p>
             </div>
             <div class="card-footer">

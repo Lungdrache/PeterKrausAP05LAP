@@ -15,10 +15,7 @@ namespace PeterKrausAP05LAP
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.OrderLine = new HashSet<OrderLine>();
-        }
+
         public Order(Customer kunde, decimal totalPrice)
         {
             CustomerId = kunde.Id;
@@ -29,11 +26,11 @@ namespace PeterKrausAP05LAP
             FirstName = kunde.FirstName;
             LastName = kunde.LastName;
             this.OrderLine = new HashSet<OrderLine>();
-            
+
         }
-        public void FinishOrder()
+        public Order()
         {
-            PriceTotal = 10;
+            this.OrderLine = new HashSet<OrderLine>();
         }
     
         public int Id { get; set; }
@@ -44,9 +41,6 @@ namespace PeterKrausAP05LAP
         public string City { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
-
-
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

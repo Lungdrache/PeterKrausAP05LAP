@@ -239,8 +239,9 @@ namespace PeterKrausAP05LAP.Controllers
             }
 
             Product dBProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
-            //Increase Rating
-            context.Product.Where(x => x.Id == id).FirstOrDefault().PageVisits = dBProduct.PageVisits +1;
+            dBProduct.PageVisits = dBProduct.PageVisits + 1;
+            context.SaveChanges();
+
 
             VM_ProductDetail product = new VM_ProductDetail();
             Category dBCategory = context.Category.Where(x => x.Id == dBProduct.CategoryId).FirstOrDefault();
@@ -283,12 +284,11 @@ namespace PeterKrausAP05LAP.Controllers
                 .Take(2)
                 .ToList();
 
-            product.sameManufacturer = GetProducts(sameManufacturer);
 
             // suche alle mit der selben Category heraus
             List<int> sameCategory = context.Product
                 .Where(x => x.CategoryId == product.categoryId && x.Id != product.Id)
-                .OrderByDescending(x => x.ProductName)
+                .OrderBy(x => Guid.NewGuid())
                 .Select(x => x.Id)
                 .Take(2)
                 .ToList();
@@ -320,6 +320,7 @@ namespace PeterKrausAP05LAP.Controllers
                 product.TopGames = new List<VM_Product>();
             }
 
+            product.sameManufacturer = GetProducts(sameManufacturer);
 
 
 
@@ -563,6 +564,7 @@ namespace PeterKrausAP05LAP.Controllers
                     ProductName = product.ProductName,
                     ShortDescription = product.Description,
                     HeaderImgPath = headerImages,
+                    PageVisits = product.PageVisits
                 };
 
                 prodList.Add(orderedProduct);
