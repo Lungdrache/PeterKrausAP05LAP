@@ -221,11 +221,6 @@ namespace PeterKrausAP05LAP.Controllers
             List<VM_Product> someProducts = new List<VM_Product>();
 
 
-
-
-
-
-
             return View(someProducts);
         }
 
@@ -290,6 +285,79 @@ namespace PeterKrausAP05LAP.Controllers
             return RedirectToAction("ShopCart");
         }
 
+        [HttpGet]
+        [ActionName("OrderPdf")]
+        public ActionResult OrderView(Customer customer)
+        {
+            VM_OrderPdf order = new VM_OrderPdf();
+            
+            return View(order);
+        }
+
+        public bool SendMail(string customerEmail, int? orderId)
+        {
+            //var customer = GetCustomerByEmail(customerEmail);
+            //var tempCarttList = GetList();
+
+
+
+            #region otherwayofcreatingpdf
+
+
+
+            //var actionPDF = new Rotativa.ActionAsPdf("OrderPdf")
+            //{
+            // PageSize = Size.A4,
+            // PageOrientation = Rotativa.Options.Orientation.Portrait,
+            // PageMargins = { Left = 1, Right = 1 },
+            // FormsAuthenticationCookieName = FormsAuthentication.FormsCookieName
+            //};
+
+
+
+
+            //var partialPdf = new Rotativa.PartialViewAsPdf("_OrderPdf", tempCarttList)
+            //{
+            // PageSize = Size.A4,
+            // PageOrientation = Rotativa.Options.Orientation.Portrait,
+            // PageMargins = { Left = 1, Right = 1 },
+            // FormsAuthenticationCookieName = FormsAuthentication.FormsCookieName
+            //};
+
+
+
+            #endregion otherwayofcreatingpdf
+
+            
+
+            var partialPdf = new Rotativa.ActionAsPdf("OrderPdf");
+
+
+
+            byte[] invoicePdfData = partialPdf.BuildFile(ControllerContext);
+            string path = Server.MapPath(@"~/InvoicePdf/Rechnung" + "-" + orderId + ".pdf");
+            System.IO.File.WriteAllBytes(path, invoicePdfData);
+
+
+
+            //var message = new MailMessage(@"ITN241552@qualifizierung.at", customerEmail);
+            //message.Subject = $"Deine Bestellung bei uhrenwelt.at (Nr. {orderId})";
+            //message.Body = $"Hallo {customer.FirstName} {customer.LastName}! " +
+            //"\nVielen Dank für deine Bestellung bei uhrenwelt.at." +
+            //"\nIm Anhang findest du deine Rechnung," +
+            //"\nbis zum nächsten mal!" +
+            //"\n" +
+            //"\nDein uhrenwelt.at Team :)";
+            //SmtpClient mailer = new SmtpClient("smtp.office365.com", 587);
+            //message.Attachments.Add(new Attachment(path));
+            //mailer.Credentials = new NetworkCredential("ITN241552@qualifizierung.at", "pw");
+            //mailer.EnableSsl = true;
+            //mailer.Send(message);
+
+
+
+            return true;
+        }
 
         #region Authentication
 
