@@ -19,5 +19,8 @@ namespace PeterKrausAP05LAP.ViewModels
         public List<string> imagePaths { get; set; }
         public string imageHeaderPath { get; set; }
         public string videoPath { get; set; }
+        public List<VM_Product> sameManufacturer { get; set; }
+        public List<VM_Product> sameCategory { get; set; }
+        public List<VM_Product> TopGames { get; set; }
     }
 }

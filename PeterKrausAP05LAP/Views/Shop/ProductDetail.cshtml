@@ -117,9 +117,8 @@
             </dd>
 
         </dl>
-        <p>
-            @Html.ActionLink("Zurück zum Shop", "ShopPage")
-        </p>
+        <a href="@Url.Action("ShopPage", "Shop")" class="btn btn-info">zurück zum Shop</a>
+        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.Id })" class="btn btn-success">zum Warenkorb hinzufügen</a>
     </div>
 
 </div>
