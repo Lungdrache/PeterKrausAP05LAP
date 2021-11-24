@@ -19,6 +19,7 @@ namespace PeterKrausAP05LAP
         {
             this.OrderLine = new HashSet<OrderLine>();
             this.ProductImages = new HashSet<ProductImages>();
+            this.Rating = new HashSet<Rating>();
         }
     
         public int Id { get; set; }
@@ -36,5 +37,7 @@ namespace PeterKrausAP05LAP
         public virtual ICollection<OrderLine> OrderLine { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImages> ProductImages { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rating> Rating { get; set; }
     }
 }

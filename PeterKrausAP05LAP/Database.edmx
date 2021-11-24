@@ -83,6 +83,16 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="ImagePath" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="160" />
+        </EntityType>
         <Association Name="FK_CategoryProductId">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -92,6 +102,18 @@
             </Principal>
             <Dependent Role="Product">
               <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerId">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -155,6 +177,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductRatingId">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="StockGamesDatabaseModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -163,9 +197,14 @@
           <EntitySet Name="OrderLine" EntityType="Self.OrderLine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductImages" EntityType="Self.ProductImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CategoryProductId" Association="Self.FK_CategoryProductId">
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerId" Association="Self.FK_CustomerId">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Rating" EntitySet="Rating" />
           </AssociationSet>
           <AssociationSet Name="FK_CustomerOrderId" Association="Self.FK_CustomerOrderId">
             <End Role="Customer" EntitySet="Customer" />
@@ -186,6 +225,10 @@
           <AssociationSet Name="FK_ProductOrderId" Association="Self.FK_ProductOrderId">
             <End Role="Product" EntitySet="Product" />
             <End Role="OrderLine" EntitySet="OrderLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRatingId" Association="Self.FK_ProductRatingId">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Rating" EntitySet="Rating" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -216,6 +259,7 @@
           <Property Name="PWHash" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Salt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_CustomerOrderId" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Rating" Relationship="StockGamesDatabaseModel.FK_CustomerId" FromRole="Customer" ToRole="Rating" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -272,6 +316,7 @@
           <NavigationProperty Name="OrderLine" Relationship="Self.FK_ProductOrderId" FromRole="Product" ToRole="OrderLine" />
           <NavigationProperty Name="ProductImages" Relationship="Self.FK_ProductId" FromRole="Product" ToRole="ProductImages" />
           <Property Name="PageVisits" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rating" Relationship="StockGamesDatabaseModel.FK_ProductRatingId" FromRole="Product" ToRole="Rating" />
         </EntityType>
         <EntityType Name="ProductImages">
           <Key>
@@ -386,7 +431,52 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductImages" EntitySet="ProductImages" />
           </AssociationSet>
+          <EntitySet Name="Rating" EntityType="StockGamesDatabaseModel.Rating" />
+          <AssociationSet Name="FK_CustomerId" Association="StockGamesDatabaseModel.FK_CustomerId">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductRatingId" Association="StockGamesDatabaseModel.FK_ProductRatingId">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Rate" Type="Int32" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="StockGamesDatabaseModel.FK_CustomerId" FromRole="Rating" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="StockGamesDatabaseModel.FK_ProductRatingId" FromRole="Rating" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_CustomerId">
+          <End Type="StockGamesDatabaseModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="StockGamesDatabaseModel.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductRatingId">
+          <End Type="StockGamesDatabaseModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="StockGamesDatabaseModel.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -475,6 +565,17 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rating">
+            <EntityTypeMapping TypeName="StockGamesDatabaseModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

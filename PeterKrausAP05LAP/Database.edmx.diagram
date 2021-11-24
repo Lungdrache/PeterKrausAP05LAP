@@ -18,6 +18,9 @@
         <AssociationConnector Association="StockGamesDatabaseModel.FK_OrderId" ManuallyRouted="false" />
         <AssociationConnector Association="StockGamesDatabaseModel.FK_ProductOrderId" ManuallyRouted="false" />
         <AssociationConnector Association="StockGamesDatabaseModel.FK_ProductId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="StockGamesDatabaseModel.Rating" Width="1.5" PointX="8.25" PointY="6.125" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_CustomerId" />
+        <AssociationConnector Association="StockGamesDatabaseModel.FK_ProductRatingId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

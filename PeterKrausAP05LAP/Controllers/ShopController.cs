@@ -332,6 +332,17 @@ namespace PeterKrausAP05LAP.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        [ActionName("ProductDetail")]
+        public ActionResult ProductComment(int Rating, int comment)
+        {
+
+
+
+
+
+            return RedirectToAction("ProductDetail");
+        }
 
         [HttpGet]
         [ActionName("ProductDelete")]

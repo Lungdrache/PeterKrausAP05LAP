@@ -223,10 +223,53 @@
 
 
 </div>
-
-
-
 <!-- Addition END -->
+<!-- RatingComment SECTION BEGINN -->
+<div class="row">
+    @if (User.Identity.IsAuthenticated && (bool?)Session["Guest"] != true)
+    {
+
+        <div class="jumbotron">
+            <form action="Shop/ProductDetail" method="post">
+
+
+
+                <button>Press</button>
+            </form>
+
+
+
+
+        </div>
+
+    }
+    else
+    {
+        <div class="jumbotron">
+            <form action="" method="post">
+
+
+                <label>Vorname</label>
+                <input name="fname" type="text" class="form-control" placeholder="Max" required>
+                <label>Nachname</label>
+                <input name="lname" type="text" class="form-control" placeholder="Mustermann" required>
+
+                <button>Press</button>
+            </form>
+
+
+
+
+        </div>
+    }
+
+
+
+
+</div>
+
+
+<!-- RatingComment SECTION END -->
 
 <script>
     // mute the video before autoplay

@@ -15,7 +15,10 @@ namespace PeterKrausAP05LAP
     public partial class Order
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-
+        public Order()
+        {
+            this.OrderLine = new HashSet<OrderLine>();
+        }
         public Order(Customer kunde, decimal totalPrice)
         {
             CustomerId = kunde.Id;
@@ -28,11 +31,7 @@ namespace PeterKrausAP05LAP
             this.OrderLine = new HashSet<OrderLine>();
 
         }
-        public Order()
-        {
-            this.OrderLine = new HashSet<OrderLine>();
-        }
-    
+
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public Nullable<decimal> PriceTotal { get; set; }

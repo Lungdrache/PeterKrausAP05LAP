@@ -180,6 +180,9 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rating.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tools\ToastMessage.cs" />
     <Compile Include="ViewModels\VM_LandingPage.cs" />
     <Compile Include="ViewModels\VM_OrderPdf.cs" />

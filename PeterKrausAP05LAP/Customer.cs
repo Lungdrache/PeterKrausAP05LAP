@@ -34,12 +34,14 @@ namespace PeterKrausAP05LAP
             PWHash = securefiles.hash;
 
             this.Order = new HashSet<Order>();
+            this.Rating = new HashSet<Rating>();
         }
         public Customer()
         {
             this.Order = new HashSet<Order>();
+            this.Rating = new HashSet<Rating>();
         }
-
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
@@ -53,5 +55,7 @@ namespace PeterKrausAP05LAP
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rating> Rating { get; set; }
     }
 }
