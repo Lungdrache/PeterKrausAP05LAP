@@ -203,6 +203,7 @@ namespace PeterKrausAP05LAP.Controllers
                         break;
                     }
                 }
+                toExport.PageVisits = product.PageVisits;
                 toExport.ShortDescription = product.Description;
                 someProducts.Add(toExport);
             }
@@ -230,13 +231,18 @@ namespace PeterKrausAP05LAP.Controllers
         [ActionName("ProductDetail")]
         public ActionResult ProductDetailGet(int? id)
         {
+
+
             if (id == null)
             {
                 id = 2;
             }
 
-            VM_ProductDetail product = new VM_ProductDetail();
             Product dBProduct = context.Product.Where(x => x.Id == id).FirstOrDefault();
+            //Increase Rating
+            context.Product.Where(x => x.Id == id).FirstOrDefault().PageVisits = dBProduct.PageVisits +1;
+
+            VM_ProductDetail product = new VM_ProductDetail();
             Category dBCategory = context.Category.Where(x => x.Id == dBProduct.CategoryId).FirstOrDefault();
             Manufacturer dBManufacturer = context.Manufacturer.Where(x => x.Id == dBProduct.ManufactureId).FirstOrDefault();
 
@@ -267,6 +273,7 @@ namespace PeterKrausAP05LAP.Controllers
             product.price = dBProduct.NetUnitPrice;
             product.tax = dBCategory.TaxRate;
             product.description = dBProduct.Description;
+            product.pageVisits = dBProduct.PageVisits;
 
             // suche alle mit dem Selben Manufacturer heraus
             List<int> sameManufacturer = context.Product

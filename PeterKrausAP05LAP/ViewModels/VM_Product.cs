@@ -36,18 +36,27 @@ namespace PeterKrausAP05LAP
 			get { return _shortDescription; }
 			set { _shortDescription = value; }
 		}
+		private int _pageVisits;
+
+		public int PageVisits
+		{
+			get { return _pageVisits; }
+			set { _pageVisits = value; }
+		}
+
 
 
 		public VM_Product()
 		{
 
 		}
-		public VM_Product(int id, string name, string headerImgPath,string shortDescription)
+		public VM_Product(int id, string name, string headerImgPath,string shortDescription,int pagevisits = 0)
 		{
 			Id = id;
 			ProductName = name;
 			HeaderImgPath = headerImgPath;
 			ShortDescription = shortDescription;
+			PageVisits = pagevisits;
 		}
 
 

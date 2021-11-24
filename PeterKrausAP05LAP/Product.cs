@@ -28,6 +28,7 @@ namespace PeterKrausAP05LAP
         public string Description { get; set; }
         public int ManufactureId { get; set; }
         public int CategoryId { get; set; }
+        public int PageVisits { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }

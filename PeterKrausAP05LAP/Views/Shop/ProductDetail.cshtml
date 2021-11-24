@@ -4,18 +4,18 @@
     ViewBag.Title = "ProductDetail";
 }
 <!-- Header Areal BEGINN -->
-<div class="container-fluid col-md-12 form-group form-inline img-container">
+    <div class="container-fluid col-md-12 form-group form-inline img-container">
 
-    <img class="img-center trailer-content"
-         src="@Url.Content(Model.imageHeaderPath)"
-         alt="Header Img @Model.productName" />
-    <div class="header-text">
-        <h1 style="background-color:lightgray;opacity:0.8;padding-left:10px;padding-right:10px">
-            @Model.productName
-        </h1>
+        <img class="img-center trailer-content"
+             src="@Url.Content(Model.imageHeaderPath)"
+             alt="Header Img @Model.productName" />
+        <div class="header-text">
+            <h1 style="background-color:lightgray;opacity:0.8;padding-left:10px;padding-right:10px">
+                @Model.productName
+            </h1>
+        </div>
+
     </div>
-
-</div>
 <!-- Header Areal END -->
 <!-- Trailer Areal BEGINN -->
 <div class="row form-group ">
@@ -77,6 +77,7 @@
 
     <div class="col-md-6">
         <h4>@Model.description</h4>
+        <p>Dieses Produkt wurde schon @Model.pageVisits angesehen</p>
 
     </div>
     <div class="col-md-6">
@@ -151,36 +152,45 @@
 
     @foreach (VM_Product item in Model.sameManufacturer)
     {
-        <div class="col-md-3">
-            <h3>@item.ProductName</h3>
-            <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.ProductName</h5>
-                <p class="card-text">@item.ShortDescription</p>
-            </div>
-            <div class="card-footer bottom">
-                <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
-            </div>
+    <div class="col-md-3">
+        <div class="row">
+            <h3 class="col-md-10">@item.ProductName</h3>
+            <p class="col-md-2">@item.PageVisits gesehen</p>
         </div>
+        <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@item.ProductName</h5>
+            <p class="card-text">@item.ShortDescription</p>
+        </div>
+        <div class="card-footer bottom">
+            <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
+        </div>
+    </div>
     }
     @foreach (VM_Product item in Model.sameCategory)
     {
-        <div class="col-md-3" >
-            <h3>@item.ProductName</h3>
-            <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.ProductName</h5>
-                <p class="card-text">@item.ShortDescription</p>
-            </div>
-            <div class="card-footer bottom">
-                <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
-            </div>
-        </div>
+<div class="col-md-3">
+    <div class="row">
+        <h3 class="col-md-10">@item.ProductName</h3>
+        <p class="col-md-2">@item.PageVisits gesehen</p>
+    </div>
+    <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@item.ProductName</h5>
+        <p class="card-text">@item.ShortDescription</p>
+    </div>
+    <div class="card-footer bottom">
+        <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
+    </div>
+</div>
     }
     @foreach (VM_Product item in Model.TopGames)
     {
         <div class="col-md-3" style="height:100%">
-            <h3>@item.ProductName</h3>
+            <div class="row">
+                <h3 class="col-md-10">@item.ProductName</h3>
+                <p class="col-md-2">@item.PageVisits gesehen</p>
+            </div>
             <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@item.ProductName</h5>

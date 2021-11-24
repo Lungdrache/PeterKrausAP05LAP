@@ -6,7 +6,10 @@
         <div class="row">
 
             <div class="col-md-4">
-                <h2>@Model.AllProducts[i].ProductName</h2>
+                <div class="row">
+                    <h2 class="col-md-10" >@Model.AllProducts[i].ProductName</h2>
+                    <p class="col-md-2">@Model.AllProducts[i].PageVisits gesehen</p>
+                </div>
                 <img class="card-img-top" src="@Model.AllProducts[i].HeaderImgPath" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">@Model.AllProducts[i].ProductName</h5>
@@ -19,33 +22,39 @@
             </div>
             @if (i + 1 < Model.AllProducts.Count)
             {
-                <div class="col-md-4">
-                    <h2>@Model.AllProducts[i + 1].ProductName</h2>
-                    <img class="card-img-top" src="@Model.AllProducts[i + 1].HeaderImgPath" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@Model.AllProducts[i + 1].ProductName</h5>
-                        <p class="card-text">@Model.AllProducts[i + 1].ShortDescription</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 1].Id })" class="btn btn-info">mehr..</a>
-                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 1].Id })" class="btn btn-info">zum Warenkorb hinzufügen</a>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="row">
+                <h2 class="col-md-10">@Model.AllProducts[i+1].ProductName</h2>
+                <p class="col-md-2">@Model.AllProducts[i+1].PageVisits gesehen</p>
+            </div>
+            <img class="card-img-top" src="@Model.AllProducts[i + 1].HeaderImgPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Model.AllProducts[i + 1].ProductName</h5>
+                <p class="card-text">@Model.AllProducts[i + 1].ShortDescription</p>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 1].Id })" class="btn btn-info">mehr..</a>
+                <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 1].Id })" class="btn btn-info">zum Warenkorb hinzufügen</a>
+            </div>
+        </div>
             }
             @if (i + 2 < Model.AllProducts.Count)
             {
-                <div class="col-md-4">
-                    <h2>@Model.AllProducts[i + 2].ProductName</h2>
-                    <img class="card-img-top" src="@Model.AllProducts[i + 2].HeaderImgPath" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@Model.AllProducts[i + 2].ProductName</h5>
-                        <p class="card-text">@Model.AllProducts[i + 2].ShortDescription</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 2].Id })" class="btn btn-info">mehr..</a>
-                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 2].Id })" class="btn btn-info">zum Warenkorb hinzufügen</a>
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="row">
+                <h2 class="col-md-10">@Model.AllProducts[i+3].ProductName</h2>
+                <p class="col-md-2">@Model.AllProducts[i+3].PageVisits gesehen</p>
+            </div>
+            <img class="card-img-top" src="@Model.AllProducts[i + 2].HeaderImgPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@Model.AllProducts[i + 2].ProductName</h5>
+                <p class="card-text">@Model.AllProducts[i + 2].ShortDescription</p>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 2].Id })" class="btn btn-info">mehr..</a>
+                <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 2].Id })" class="btn btn-info">zum Warenkorb hinzufügen</a>
+            </div>
+        </div>
             }
 
         </div>
