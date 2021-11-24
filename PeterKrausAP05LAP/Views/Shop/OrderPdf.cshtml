@@ -19,132 +19,176 @@
 
         <div class="row">
             <div class="jumbotron">
-                <p class="text-justify font-weight">
-                    <br />Peter Kraus
-                    <br />Gablenzgasse 41/9/3
-                    <br />1150 Wien
-                    <br />@DateTime.Now.ToShortDateString()
-                </p>
+                <div class="container">
 
-
-
-
-
-
+                    <div class="col-md-4">
+                        <p class="font-weight">
+                            Peter Kraus
+                            <br /> Gablenzgasse 41/9/3
+                            <br /> 1150 Wien
+                            <br /> krauspeter1995@yahoo.de
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <p class="font-weight right">
+                            @Model.Kunde.FirstName @Model.Kunde.LastName
+                            <br /> @Model.Kunde.Street
+                            <br /> @Model.Kunde.Zip @Model.Kunde.City
+                            <br /> @Model.Kunde.Email
+                        </p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div>
+                        <p style="text-align:right">
+                            <br />Rechnungsdatum: @DateTime.Now.ToShortDateString()
+                            <br />Lieferdatum: @DateTime.Now.ToShortDateString()
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="jumbotron">
-                <table class="table">
-                    <tr>
-                        <th>
-                            @*ProductImage*@
-                        </th>
-                        <th>
-                            Product Name
-                        </th>
-                        <th>
-                            Netto Preis
-                        </th>
-                        <th>
-                            Tax
-                        </th>
-                        <th>
-                            Brutto Preis
-                        </th>
-                        <th>
-                            Producer
-                        </th>
-                        <th>
-                            Category
-                        </th>
-                        <th></th>
-                    </tr>
+                <div class=" container">
+                    <h2>
+                        Rechnung Nr. @Model.RechnungsNr
+                    </h2>
 
-                    @foreach (var item in Model.OrderedProducts)
-                    {
+                    <h3>
+                        Sehr geehrter @Model.Kunde.Title @Model.Kunde.LastName,
+                    </h3>
+
+                    <p>
+                        Herzlichen Dank für ihr Vertrauen in unsere Produkte. Wir erlauben uns folgende Beträge in Rechnung zu stellen und freuen uns, wenn wir auch in Zukunft etwas für Sie im Sortiment haben.
+                    </p>
+
+                    <table class="table">
                         <tr>
-                            <td height="100px">
-                                <img style="height:100%;width:100%" src="@item.imageHeaderPath" />
+                            <th>
+                                @*ProductImage*@
+                            </th>
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Netto Preis
+                            </th>
+                            <th>
+                                Tax
+                            </th>
+                            <th>
+                                Brutto Preis
+                            </th>
+                            <th>
+                                Producer
+                            </th>
+                            <th>
+                                Category
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model.OrderedProducts)
+                        {
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.productName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.price) €
+                                </td>
+                                <td>
+                                    @(Math.Round(item.tax, 0)) %
+                                </td>
+                                <td>
+                                    @(Math.Round(item.price + ((item.price / 100) * item.tax), 2)) €
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.manufactureName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.categoryName)
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                @*ProductImage*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.productName)
+                                @*ProductName*@
+                                Gesamt:
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.price) €
+                                @*NettoPreis*@
+                                @Math.Round(Model.FullNetPrice, 2) €
                             </td>
                             <td>
-                                @(Math.Round(item.tax, 0)) %
+                                @*Tax*@
+                                @Math.Round(Model.SumTax, 2) €
                             </td>
                             <td>
-                                @(Math.Round(item.price + ((item.price / 100) * item.tax), 2)) €
+                                @*BruttoPreis*@
+                                @Math.Round(Model.FullBrutPrice, 2) €
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.manufactureName)
+                                @*Manufacturer*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.categoryName)
+                                @*Category*@
                             </td>
                             <td>
-                                @Html.ActionLink("details", "ProductDetail", new { id = item.Id }) |
-                                @Html.ActionLink("entfernen", "ProductDelete", new { id = item.Id })
+                                @*ActionLinks*@
                             </td>
                         </tr>
-                    }
-                    <tr>
-                        <td>
-                            @*ProductImage*@
-                        </td>
-                        <td>
-                            @*ProductName*@
-                            Gesamt:
-                        </td>
-                        <td>
-                            @*NettoPreis*@
-                            @{decimal fullnettoCost = 0;
-                                foreach (var item in Model.OrderedProducts)
-                                {
-                                    fullnettoCost += item.price;
-                                }
-                            }
-                            @Math.Round(fullnettoCost, 2) €
-                        </td>
-                        <td>
-                            @*Tax*@
-                            @{decimal fullTaxCost = 0;
-                                foreach (var item in Model.OrderedProducts)
-                                {
-                                    fullTaxCost += (item.price / 100) * item.tax;
-                                }
-                            }
-                            @Math.Round(fullTaxCost, 2) €
-                        </td>
-                        <td>
-                            @*BruttoPreis*@
-                            @{decimal fullBruttoCost = 0;
-                                foreach (var item in Model.OrderedProducts)
-                                {
-                                    fullBruttoCost += item.price + ((item.price / 100) * item.tax);
-                                }
-                            }
-                            @Math.Round(fullBruttoCost, 2) €
-                        </td>
-                        <td>
-                            @*Manufacturer*@
-                        </td>
-                        <td>
-                            @*Category*@
-                        </td>
-                        <td>
-                            @*ActionLinks*@
-                        </td>
-                    </tr>
 
-                </table>
+                    </table>
+
+
+                    <p>
+                        Wir wünschen ihnen eine schöne Unterhaltung mit den Produkten und verbleiben
+                        <br />mit freundlichen Grüßen
+                    </p>
+                    <h2>
+                        StockGames
+                    </h2>
 
 
 
 
+                </div>
+            </div>
+            <div class="container">
 
-
+                <div class="col-md-4">
+                    <pre>
+Peter Kraus
+Gablenzgasse 41/9/3
+1150 Wien
+krauspeter1995@yahoo.de
+                    </pre>
+                </div>
+                <div class="col-md-4">
+                    <pre>
+Tel: +43 660 3892928
+Fax: + 43 660 3892928
+Email: krauspeter1995@yahoo.de
+Web: www.stockgames.com
+                    </pre>
+                </div>
+                <div class="col-md-4">
+                    <pre>
+Musterbank StockgameStadt
+BLZ: 43250
+IBAN: AT611904300234573261
+BIC: RZOOAT2L680
+                    </pre>
+                </div>
             </div>
         </div>
     </div>

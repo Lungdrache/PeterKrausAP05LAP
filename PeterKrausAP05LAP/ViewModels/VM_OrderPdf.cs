@@ -7,6 +7,7 @@ namespace PeterKrausAP05LAP.ViewModels
 {
     public class VM_OrderPdf
     {
+        public int RechnungsNr { get; set; }
         public decimal FullNetPrice { get; set; }
         public decimal SumTax { get; set; } // alle Taxes zusammengerechnet
         public decimal FullBrutPrice { get; set; }

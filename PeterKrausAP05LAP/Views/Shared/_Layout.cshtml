@@ -115,8 +115,7 @@ window.onload = function () {
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Startseite", "Index", "Home")</li>
                     <li>@Html.ActionLink("Laden", "ShopPage", "Shop")</li>
-                    <li>@Html.ActionLink("Informationen", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Impressum", "About", "Home")</li>
 
                     @if (User.Identity.IsAuthenticated && (bool?)Session["Guest"] != true)
                     {

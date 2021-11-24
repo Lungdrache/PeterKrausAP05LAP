@@ -27,12 +27,18 @@ namespace PeterKrausAP05LAP.Controllers
         {
             List<VM_ProductDetail> products = new List<VM_ProductDetail>();
 
-            if (Session["loggedInCustomer"] != null)
+            // ist der User eingeloggt
+            Customer customer = (Customer)Session["loggedInCustomer"];
+            Order openOrder = null;
+            if (customer != null)
             {
-                // ist der User eingeloggt
-                Customer customer = (Customer)Session["loggedInCustomer"];
-                // Suche seine noch nicht vollendete Bestellung raus
-                Order openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+
+            // Suche seine noch nicht vollendete Bestellung raus
+             openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+            }
+
+            if (Session["loggedInCustomer"] != null && openOrder != null)
+            {
                 // TODO: WHAT IF SHOPCART IS EMPTY!
                 List<OrderLine> orders = context.OrderLine.Where(x => x.OrderId == openOrder.Id).ToList();
 
@@ -287,11 +293,101 @@ namespace PeterKrausAP05LAP.Controllers
 
         [HttpGet]
         [ActionName("OrderPdf")]
-        public ActionResult OrderView(Customer customer)
+        public ActionResult OrderView()
         {
-            VM_OrderPdf order = new VM_OrderPdf();
-            
-            return View(order);
+
+            Customer customer = (Customer)Session["loggedInCustomer"];
+            Order openOrder = null;
+            if (customer != null)
+            {
+                // Suche seine noch nicht vollendete Bestellung raus
+                openOrder = context.Order.Where(x => x.CustomerId == customer.Id && x.PriceTotal == null).FirstOrDefault();
+
+            }
+
+            if (!User.Identity.IsAuthenticated || openOrder == null)
+            {
+                return RedirectToAction("Index","Home");
+            }
+
+
+            VM_OrderPdf fullOrder = new VM_OrderPdf();
+
+            // TODO: WHAT IF SHOPCART IS EMPTY!
+            List<OrderLine> orders = context.OrderLine.Where(x => x.OrderId == openOrder.Id).ToList();
+
+            #region GetProducts
+
+            fullOrder.OrderedProducts = new List<VM_ProductDetail>();
+            foreach (OrderLine order in orders)
+            {
+                // Finde die Produkt Daten
+                Product product = context.Product.Where(x => x.Id == order.ProductId).FirstOrDefault();
+                Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
+                Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
+
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                List<string> allimagePaths = new List<string>();
+                string headerImages = "";
+
+
+                foreach (ProductImages image in productImages)
+                {
+                    if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        headerImages = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                    }
+                    else
+                    {
+                        allimagePaths.Add("../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                    }
+
+                }
+                VM_ProductDetail orderedProduct = new VM_ProductDetail()
+                {
+                    Id = product.Id,
+                    categoryId = category.Id,
+                    productName = product.ProductName,
+                    price = product.NetUnitPrice,
+                    tax = category.TaxRate,
+                    manufactureName = manufacturer.Name,
+                    manufactureId = manufacturer.Id,
+                    categoryName = category.Name,
+                    description = product.Description,
+                    imagePaths = allimagePaths,
+                    imageHeaderPath = headerImages,
+                    videoPath = product.TrailerPath
+                };
+
+
+                fullOrder.OrderedProducts.Add(orderedProduct);
+
+            }
+            #endregion
+
+            #region GetPrices
+            decimal fullnetCost = 0m;
+            decimal fullbrutCost = 0m;
+            decimal fulltax = 0m;
+
+            foreach (VM_ProductDetail item in fullOrder.OrderedProducts)
+            {
+                fullnetCost += item.price;
+                decimal taxprice = (item.price / 100) * item.tax;
+                fulltax += taxprice;
+                fullbrutCost += item.price + taxprice;
+            }
+
+            fullOrder.FullBrutPrice = fullbrutCost;
+            fullOrder.FullNetPrice = fullnetCost;
+            fullOrder.SumTax = fulltax;
+
+            #endregion
+
+            fullOrder.Kunde = customer;
+            fullOrder.RechnungsNr = openOrder.Id;
+
+            return View(fullOrder);
         }
 
         public bool SendMail(string customerEmail, int? orderId)
