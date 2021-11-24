@@ -123,6 +123,82 @@
 
 </div>
 <!-- Body END -->
+<!-- Addition BEGINN -->
+<div class="row">
+    <div class="col-md-6">
+        <h2>
+            mehr @Model.categoryName-Games
+        </h2>
+    </div>
+    @if (Model.sameManufacturer.Count() == 0)
+    {
+        <div class="col-md-6">
+            <h2>
+                mehr Games von @Model.manufactureName
+            </h2>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-6">
+            <h2>
+                weitere beliebte Games
+            </h2>
+        </div>
+    }
+</div>
+<div class="row">
+
+    @foreach (VM_Product item in Model.sameManufacturer)
+    {
+        <div class="col-md-3">
+            <h3>@item.ProductName</h3>
+            <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.ShortDescription</p>
+            </div>
+            <div class="card-footer bottom">
+                <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
+            </div>
+        </div>
+    }
+    @foreach (VM_Product item in Model.sameCategory)
+    {
+        <div class="col-md-3" >
+            <h3>@item.ProductName</h3>
+            <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.ShortDescription</p>
+            </div>
+            <div class="card-footer bottom">
+                <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
+            </div>
+        </div>
+    }
+    @foreach (VM_Product item in Model.TopGames)
+    {
+        <div class="col-md-3" style="height:100%">
+            <h3>@item.ProductName</h3>
+            <img class="card-img-top" src="@item.HeaderImgPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.ShortDescription</p>
+            </div>
+            <div class="card-footer">
+                <a href="@Url.Action("ProductDetail", "Shop", new { id = item.Id })" class="btn btn-info">mehr..</a>
+            </div>
+        </div>
+    }
+
+
+
+</div>
+
+
+
+<!-- Addition END -->
 
 <script>
     // mute the video before autoplay

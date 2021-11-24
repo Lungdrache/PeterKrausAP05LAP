@@ -16,11 +16,6 @@ namespace PeterKrausAP05LAP.Controllers
     {
         StockGamesDatabaseEntities context = new StockGamesDatabaseEntities();
 
-        // GET: Shop
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         [ActionName("ShopCart")]
@@ -227,7 +222,7 @@ namespace PeterKrausAP05LAP.Controllers
         {
             List<VM_Product> someProducts = new List<VM_Product>();
 
-
+            // TODO: FILTER
             return View(someProducts);
         }
 
@@ -272,6 +267,57 @@ namespace PeterKrausAP05LAP.Controllers
             product.price = dBProduct.NetUnitPrice;
             product.tax = dBCategory.TaxRate;
             product.description = dBProduct.Description;
+
+            // suche alle mit dem Selben Manufacturer heraus
+            List<int> sameManufacturer = context.Product
+                .Where(x => x.ManufactureId == product.manufactureId && x.Id != product.Id)
+                .OrderByDescending(x => x.ProductName)
+                .Select(x => x.Id)
+                .Take(2)
+                .ToList();
+
+            product.sameManufacturer = GetProducts(sameManufacturer);
+
+            // suche alle mit der selben Category heraus
+            List<int> sameCategory = context.Product
+                .Where(x => x.CategoryId == product.categoryId && x.Id != product.Id)
+                .OrderByDescending(x => x.ProductName)
+                .Select(x => x.Id)
+                .Take(2)
+                .ToList();
+
+            product.sameCategory = GetProducts(sameCategory);
+
+            // sollten zuwenig Manufacturer games dabei sein dann sucht er nach
+            if (sameManufacturer.Count != 2)
+            {
+                // resete sameManufacturer
+                sameManufacturer = new List<int>();
+
+                // suche nach den zwei meistgekauften spielen
+                List<int> top2Products = context.OrderLine
+                    .Where(x => x.ProductId != product.Id)
+                    .GroupBy(x => x.ProductId)
+                    .Select(x => new { ProductId = x.Key, QuantitySum = x.Sum(a => a.Amount) })
+                    .OrderByDescending(x => x.QuantitySum)
+                    .Select(x => x.ProductId)
+                    .Take(2)
+                    .ToList();
+
+                // lege diese stattdessen hinein
+                product.TopGames = GetProducts(top2Products);
+            }
+            else
+            {
+                // stelle ein Leere liste zur verfügung
+                product.TopGames = new List<VM_Product>();
+            }
+
+
+
+
+
+
 
 
 
@@ -430,6 +476,94 @@ namespace PeterKrausAP05LAP.Controllers
 
             return true;
         }
+
+        public List<VM_ProductDetail> GetProductDetails(List<int> prodIds)
+        {
+
+            List<VM_ProductDetail> prodList = new List<VM_ProductDetail>();
+
+            foreach (int productId in prodIds)
+            {
+                // Finde die Produkt Daten
+                Product product = context.Product.Where(x => x.Id == productId).FirstOrDefault();
+                Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
+                Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
+
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                List<string> allimagePaths = new List<string>();
+                string headerImages = "";
+
+
+                foreach (ProductImages image in productImages)
+                {
+                    if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        headerImages = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                    }
+                    else
+                    {
+                        allimagePaths.Add("../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                    }
+
+                }
+                VM_ProductDetail orderedProduct = new VM_ProductDetail()
+                {
+                    Id = product.Id,
+                    categoryId = category.Id,
+                    productName = product.ProductName,
+                    price = product.NetUnitPrice,
+                    tax = category.TaxRate,
+                    manufactureName = manufacturer.Name,
+                    manufactureId = manufacturer.Id,
+                    categoryName = category.Name,
+                    description = product.Description,
+                    imagePaths = allimagePaths,
+                    imageHeaderPath = headerImages,
+                    videoPath = product.TrailerPath
+                };
+
+                prodList.Add(orderedProduct);
+
+            }
+            return prodList;
+        }
+        public List<VM_Product> GetProducts(List<int> prodIds)
+        {
+
+            List<VM_Product> prodList = new List<VM_Product>();
+
+            foreach (int productId in prodIds)
+            {
+                // Finde die Produkt Daten
+                Product product = context.Product.Where(x => x.Id == productId).FirstOrDefault();
+                
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                string headerImages = "";
+
+
+                foreach (ProductImages image in productImages)
+                {
+                    if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        headerImages = "../../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                        break;
+                    }
+
+                }
+                VM_Product orderedProduct = new VM_Product()
+                {
+                    Id = product.Id,
+                    ProductName = product.ProductName,
+                    ShortDescription = product.Description,
+                    HeaderImgPath = headerImages,
+                };
+
+                prodList.Add(orderedProduct);
+
+            }
+            return prodList;
+        }
+
 
         #region Authentication
 
