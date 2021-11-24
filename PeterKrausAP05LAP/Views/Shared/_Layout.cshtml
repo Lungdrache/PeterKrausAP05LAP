@@ -148,7 +148,17 @@ window.onload = function () {
         @RenderBody()
         <hr />
         <footer>
-            <p>@Html.ActionLink("Impressum", "About", "Home") @Html.ActionLink("AGB", "AGB", "Home") There once was a Fox sitting here.</p>
+            <p>
+                @Html.ActionLink("Impressum", "About", "Home") @Html.ActionLink("AGB", "AGB", "Home")
+                @if (ViewBag.Title == "ProductDetail")
+                {
+                    <img src="~/Assets/fox.png" alt="der vermisste fuchs" />
+                }
+                else
+                {
+                    <text>There once was a Fox sitting here.</text>
+                }
+            </p>
         </footer>
     </div>
 
