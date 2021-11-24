@@ -181,6 +181,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ToastMessage.cs" />
+    <Compile Include="ViewModels\VM_LandingPage.cs" />
     <Compile Include="ViewModels\VM_OrderPdf.cs" />
     <Compile Include="ViewModels\VM_Product.cs" />
     <Compile Include="ViewModels\VM_ProductDetail.cs" />
@@ -3106,6 +3107,7 @@
   <ItemGroup>
     <Folder Include="App_Data\AssetFiles\NoGame\" />
     <Folder Include="Images\NoGame\" />
+    <Folder Include="Rechnungen\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -22,8 +22,146 @@ namespace PeterKrausAP05LAP.Controllers
 
         public ActionResult Index()
         {
+            VM_LandingPage main = new VM_LandingPage();
 
-            return View();
+            // den Abschnitt finde ich nicht gut X3
+            // gibt mir die ersten 3 Product IDs der meist verkauftesten Produkte
+            List<int> Top3Products = new List<int>();
+
+            if (context.OrderLine.Count() > 3)
+            {
+                Top3Products = context.OrderLine
+                    .GroupBy(x => x.ProductId)
+                    .Select(x => new { ProductId = x.Key, QuantitySum = x.Sum(a => a.Amount) })
+                    .OrderByDescending(x => x.QuantitySum)
+                    .Select(x => x.ProductId)
+                    .Take(3)
+                    .ToList();
+            }
+            else
+            {
+                if (context.OrderLine.Count() == 3)
+                {
+                    Top3Products = context.OrderLine.Select(x => x.ProductId).Take(3).ToList();
+                }
+                else
+                {
+                    Top3Products = context.Product.Select(x => x.Id).Take(3).ToList();
+                }
+            }
+
+
+            List<int> Top3Recommends = new List<int>() { 15, 145, 130, 68, 57, 50 };
+
+
+
+
+
+
+
+
+            #region GET TOP3
+
+            main.TopSeller = new List<VM_ProductDetail>();
+
+            foreach (int productId in Top3Products)
+            {
+                // Finde die Produkt Daten
+                Product product = context.Product.Where(x => x.Id == productId).FirstOrDefault();
+                Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
+                Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
+
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                List<string> allimagePaths = new List<string>();
+                string headerImages = "";
+
+
+                foreach (ProductImages image in productImages)
+                {
+                    if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        headerImages = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                    }
+                    else
+                    {
+                        allimagePaths.Add("../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                    }
+
+                }
+                VM_ProductDetail orderedProduct = new VM_ProductDetail()
+                {
+                    Id = product.Id,
+                    categoryId = category.Id,
+                    productName = product.ProductName,
+                    price = product.NetUnitPrice,
+                    tax = category.TaxRate,
+                    manufactureName = manufacturer.Name,
+                    manufactureId = manufacturer.Id,
+                    categoryName = category.Name,
+                    description = product.Description,
+                    imagePaths = allimagePaths,
+                    imageHeaderPath = headerImages,
+                    videoPath = product.TrailerPath
+                };
+
+                main.TopSeller.Add(orderedProduct);
+
+            }
+            #endregion
+
+
+            #region GET RECOMENDED
+
+            main.OurRecommends = new List<VM_ProductDetail>();
+
+            foreach (int productId in Top3Recommends)
+            {
+                // Finde die Produkt Daten
+                Product product = context.Product.Where(x => x.Id == productId).FirstOrDefault();
+                Category category = context.Category.Where(x => x.Id == product.CategoryId).FirstOrDefault();
+                Manufacturer manufacturer = context.Manufacturer.Where(x => x.Id == product.ManufactureId).FirstOrDefault();
+
+                List<ProductImages> productImages = context.ProductImages.Where(x => x.ProductId == product.Id).ToList();
+                List<string> allimagePaths = new List<string>();
+                string headerImages = "";
+
+
+                foreach (ProductImages image in productImages)
+                {
+                    if (Path.GetFileNameWithoutExtension(image.ImagePath) == "headerimage")
+                    {
+                        headerImages = "../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", "");
+                    }
+                    else
+                    {
+                        allimagePaths.Add("../Images" + Regex.Replace(image.ImagePath, "[^A-Za-z^0-9^/^.]", ""));
+                    }
+
+                }
+                VM_ProductDetail orderedProduct = new VM_ProductDetail()
+                {
+                    Id = product.Id,
+                    categoryId = category.Id,
+                    productName = product.ProductName,
+                    price = product.NetUnitPrice,
+                    tax = category.TaxRate,
+                    manufactureName = manufacturer.Name,
+                    manufactureId = manufacturer.Id,
+                    categoryName = category.Name,
+                    description = product.Description,
+                    imagePaths = allimagePaths,
+                    imageHeaderPath = headerImages,
+                    videoPath = product.TrailerPath
+                };
+
+                main.OurRecommends.Add(orderedProduct);
+
+            }
+            #endregion
+
+
+
+            return View(main);
         }
 
         public ActionResult About()

@@ -1,5 +1,6 @@
 ﻿using PeterKrausAP05LAP.Tools;
 using PeterKrausAP05LAP.ViewModels;
+using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -293,7 +294,7 @@ namespace PeterKrausAP05LAP.Controllers
 
         [HttpGet]
         [ActionName("OrderPdf")]
-        public ActionResult OrderView()
+        public ActionResult OrderPdf()
         {
 
             Customer customer = (Customer)Session["loggedInCustomer"];
@@ -387,51 +388,26 @@ namespace PeterKrausAP05LAP.Controllers
             fullOrder.Kunde = customer;
             fullOrder.RechnungsNr = openOrder.Id;
 
+            SendMail(fullOrder);
+
+            context.Order.Where(x => x.Id == openOrder.Id).FirstOrDefault().PriceTotal = fullbrutCost;
+
             return View(fullOrder);
         }
 
-        public bool SendMail(string customerEmail, int? orderId)
+        public bool SendMail(VM_OrderPdf order)
         {
             //var customer = GetCustomerByEmail(customerEmail);
             //var tempCarttList = GetList();
 
 
-
-            #region otherwayofcreatingpdf
-
-
-
-            //var actionPDF = new Rotativa.ActionAsPdf("OrderPdf")
-            //{
-            // PageSize = Size.A4,
-            // PageOrientation = Rotativa.Options.Orientation.Portrait,
-            // PageMargins = { Left = 1, Right = 1 },
-            // FormsAuthenticationCookieName = FormsAuthentication.FormsCookieName
-            //};
-
-
-
-
-            //var partialPdf = new Rotativa.PartialViewAsPdf("_OrderPdf", tempCarttList)
-            //{
-            // PageSize = Size.A4,
-            // PageOrientation = Rotativa.Options.Orientation.Portrait,
-            // PageMargins = { Left = 1, Right = 1 },
-            // FormsAuthenticationCookieName = FormsAuthentication.FormsCookieName
-            //};
-
-
-
-            #endregion otherwayofcreatingpdf
-
-            
-
-            var partialPdf = new Rotativa.ActionAsPdf("OrderPdf");
-
+            var partialPdf = new Rotativa.ViewAsPdf();
+            partialPdf.ViewName = "OrderPdf";
+            partialPdf.Model = order;
 
 
             byte[] invoicePdfData = partialPdf.BuildFile(ControllerContext);
-            string path = Server.MapPath(@"~/InvoicePdf/Rechnung" + "-" + orderId + ".pdf");
+            string path = Server.MapPath(@"~/Rechnungen/Rechnung" + "-" + order.RechnungsNr + ".pdf");
             System.IO.File.WriteAllBytes(path, invoicePdfData);
 
 

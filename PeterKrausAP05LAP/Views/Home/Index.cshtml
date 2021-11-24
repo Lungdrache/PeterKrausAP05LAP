@@ -1,10 +1,135 @@
-﻿
+﻿@model PeterKrausAP05LAP.ViewModels.VM_LandingPage
 @{
     ViewBag.Title = "Home Page";
 }
 <div class="jumbotron">
-    <h1>TOP GAMES</h1>
+    <h1>StockGames</h1>
+    <h3>TOP GAMES</h3>
+    <div class="row">
+
+        <div id="myCarousel"
+             class="carousel slide"
+             data-interval="3000"
+             data-ride="carousel"
+             style="background-color:lightgray">
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="col-md-6">
+                        <div class="container text-right">
+
+                            <h2>
+                                @Model.TopSeller[0].productName
+                            </h2>
+                            <h4>
+                                @Model.TopSeller[0].description
+                            </h4>
+                            <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.TopSeller[0].Id })" class="btn btn-info right">more..</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@Model.TopSeller[0].imageHeaderPath" alt="@Model.TopSeller[0].productName TitleImage">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="col-md-6">
+                        <div class="container text-right">
+
+                            <h2>
+                                @Model.TopSeller[1].productName
+                            </h2>
+                            <h4>
+                                @Model.TopSeller[1].description
+                            </h4>
+                            <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.TopSeller[1].Id })" class="btn btn-info right">more..</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@Model.TopSeller[1].imageHeaderPath" alt="@Model.TopSeller[1].productName TitleImage">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="col-md-6">
+                        <div class="container text-right">
+
+                            <h2>
+                                @Model.TopSeller[2].productName
+                            </h2>
+                            <h4>
+                                @Model.TopSeller[2].description
+                            </h4>
+                            <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.TopSeller[2].Id })" class="btn btn-info right">more..</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@Model.TopSeller[2].imageHeaderPath" alt="@Model.TopSeller[2].productName TitleImage">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <h3>Unsere Empfehlungen</h3>
+    <div class="row">
+
+        <div id="myCarousel2"
+             class="carousel slide"
+             data-interval="3000"
+             data-ride="carousel"
+             style="background-color:lightgray">
+
+            <div class="carousel-inner">
+                @for (int i = 0; i < Model.OurRecommends.Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <div class="item active">
+                            <div class="col-md-6">
+                                <img src="@Model.OurRecommends[i].imageHeaderPath" alt="@Model.OurRecommends[i].productName TitleImage">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="container text-left">
+
+                                    <h2>
+                                        @Model.OurRecommends[i].productName
+                                    </h2>
+                                    <h4>
+                                        @Model.OurRecommends[i].description
+                                    </h4>
+                                    <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.OurRecommends[i].Id })" class="btn btn-info right">more..</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <div class="col-md-6">
+                                <img src="@Model.OurRecommends[i].imageHeaderPath" alt="@Model.OurRecommends[i].productName TitleImage">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="container text-left">
+
+                                    <h2>
+                                        @Model.OurRecommends[i].productName
+                                    </h2>
+                                    <h4>
+                                        @Model.OurRecommends[i].description
+                                    </h4>
+                                    <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.OurRecommends[i].Id })" class="btn btn-info right">more..</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+    </div>
+
 
 </div>
-
 
