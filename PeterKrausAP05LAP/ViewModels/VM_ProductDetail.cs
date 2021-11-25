@@ -22,6 +22,8 @@ namespace PeterKrausAP05LAP.ViewModels
         public int pageVisits { get; set; }
         public List<VM_Product> sameManufacturer { get; set; }
         public List<VM_Product> sameCategory { get; set; }
-        public List<VM_Product> TopGames { get; set; }
+        public List<VM_Product> topGames { get; set; }
+        public bool canUserRate { get; set; }
+        public Dictionary<string, Rating> ratings { get; set; }
     }
 }

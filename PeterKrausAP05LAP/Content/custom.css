@@ -64,3 +64,85 @@
     position: relative;
     border: 1px solid;
 }
+
+
+/* HIDE RADIO */
+.radio-hide {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.imageradio {
+    float: left;
+    height: 64px;
+    padding: 0 10px;
+}
+
+    .imageradio:not(:checked) > input {
+        position: absolute;
+        top: -9999px;
+        
+    }
+
+    /* if not Checked */
+    .imageradio:not(:checked) > label {
+        float: right;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 30px;
+        color: #ccc;
+        opacity: 0.2;
+    }
+
+    .imageradio:not(:checked) > label:before {
+        /* Not sure */
+    }
+
+    /* is Checked */
+    .imageradio > input:checked ~ label {
+        opacity: 1;
+        transform: rotate(20deg);
+    }
+
+    /* On Hover */
+    .imageradio:not(:checked) > label:hover,
+    .imageradio:not(:checked) > label:hover ~ label {
+        opacity: 0.5;
+        transform: rotate(20deg);
+    }
+
+    /* on hover behinde the checked */
+    .imageradio > label:checked + label:hover,
+    .imageradio > label:checked + label:hover ~ label,
+    .imageradio > label:checked ~ label:hover,
+    .imageradio > label:checked ~ label:hover ~ label,
+    .imageradio > label:hover ~ input:checked ~ label {
+        opacity: 0.8;
+        transform: rotate(10deg);
+    }
+
+.selected-Rate {
+    opacity: 1;
+    transform: rotate(20deg);
+    margin: auto;
+    vertical-align:central;
+}
+.Notselected-Rate {
+    opacity: 0.2;
+    transform: rotate(0deg);
+    margin: auto;
+    vertical-align: central;
+}
+.center-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 55px;  
+    text-align: center;
+    border:2px solid black;
+    margin-right:10px;
+    margin-left:-10px;
+}

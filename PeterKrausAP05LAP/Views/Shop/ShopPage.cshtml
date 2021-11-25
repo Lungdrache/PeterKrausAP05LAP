@@ -7,7 +7,56 @@
 
             <div class="col-md-4">
                 <div class="row">
-                    <h2 class="col-md-10" >@Model.AllProducts[i].ProductName</h2>
+                    <h3 class="col-md-6" >@Model.AllProducts[i].ProductName</h3>
+                    <div class="col-md-6 center-img-container">
+                        @switch (Model.AllProducts[i].Rate)
+                        {
+                            case (0):
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            case (1):
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            case (2):
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            case (3):
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            case (4):
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            case (5):
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                                break;
+                            default:
+                                break;
+                        }
+                    </div>
                 </div>
                 <img class="card-img-top" src="@Model.AllProducts[i].HeaderImgPath" alt="Card image cap">
                 <div class="card-body">
@@ -30,7 +79,56 @@
             {
         <div class="col-md-4">
             <div class="row">
-                <h2 class="col-md-10">@Model.AllProducts[i+1].ProductName</h2>
+                <h3 class="col-md-6">@Model.AllProducts[i + 1].ProductName</h3>
+                <div class="col-md-6 center-img-container">
+                    @switch (Model.AllProducts[i + 1].Rate)
+                    {
+                        case (0):
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (1):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (2):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (3):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (4):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (5):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        default:
+                            break;
+                    }
+                </div>
             </div>
             <img class="card-img-top" src="@Model.AllProducts[i + 1].HeaderImgPath" alt="Card image cap">
             <div class="card-body">
@@ -54,7 +152,56 @@
             {
         <div class="col-md-4">
             <div class="row">
-                <h2 class="col-md-10">@Model.AllProducts[i+3].ProductName</h2>
+                <h3 class="col-md-6">@Model.AllProducts[i + 3].ProductName</h3>
+                <div class="col-md-6 center-img-container">
+                    @switch (Model.AllProducts[i + 2].Rate)
+                    {
+                        case (0):
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (1):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (2):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (3):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (4):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="Notselected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        case (5):
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            <img class="selected-Rate" src="~/Assets/fox_head_small.png">
+                            break;
+                        default:
+                            break;
+                    }
+                </div>
             </div>
             <img class="card-img-top" src="@Model.AllProducts[i + 2].HeaderImgPath" alt="Card image cap">
             <div class="card-body">

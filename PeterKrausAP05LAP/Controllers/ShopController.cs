@@ -205,6 +205,21 @@ namespace PeterKrausAP05LAP.Controllers
                 }
                 toExport.PageVisits = product.PageVisits;
                 toExport.ShortDescription = product.Description;
+
+
+                if (context.Rating.Any(x => x.ProductId == product.Id))
+                {
+                    List<Rating> allratings = context.Rating.Where(x => x.ProductId == product.Id).ToList();
+                    int sumRatings = 0 ;
+                    foreach (Rating item in allratings)
+                    {
+                        sumRatings += item.Rate;
+                    }
+                    sumRatings = (int)Math.Round((decimal)sumRatings / allratings.Count(),0);
+                    toExport.Rate = sumRatings;
+                }
+
+
                 someProducts.Add(toExport);
             }
             VM_ShopView shopView = new VM_ShopView()
@@ -275,6 +290,7 @@ namespace PeterKrausAP05LAP.Controllers
             product.tax = dBCategory.TaxRate;
             product.description = dBProduct.Description;
             product.pageVisits = dBProduct.PageVisits;
+            
 
             // suche alle mit dem Selben Manufacturer heraus
             List<int> sameManufacturer = context.Product
@@ -312,34 +328,61 @@ namespace PeterKrausAP05LAP.Controllers
                     .ToList();
 
                 // lege diese stattdessen hinein
-                product.TopGames = GetProducts(top2Products);
+                product.topGames = GetProducts(top2Products);
             }
             else
             {
                 // stelle ein Leere liste zur verfügung
-                product.TopGames = new List<VM_Product>();
+                product.topGames = new List<VM_Product>();
             }
 
             product.sameManufacturer = GetProducts(sameManufacturer);
 
 
+            List<Rating> allproductRatings = context.Rating.Where(x => x.ProductId == dBProduct.Id).ToList();
+            Dictionary<string, Rating> rates = new Dictionary<string, Rating>();
 
+            foreach (var item in allproductRatings)
+            {
+                Customer user = context.Customer.SingleOrDefault(x => x.Id == item.CustomerId);
+                string name = user.Email;
 
+                rates.Add(name, item);
+            }
 
+            product.ratings = rates;
+            product.canUserRate = false;
 
-
+            Customer loggedinUser = (Customer)Session["loggedInCustomer"];
+            if (loggedinUser != null)
+            {
+                if (!context.Rating.Any(x => x.CustomerId == loggedinUser.Id && x.ProductId == dBProduct.Id))
+                {
+                    product.canUserRate = true;
+                }
+                
+            }
 
             return View(product);
         }
 
         [HttpPost]
         [ActionName("ProductDetail")]
-        public ActionResult ProductComment(int Rating, int comment)
+        public ActionResult ProductComment(int rating, string comment)
         {
+            
+            Customer customer = (Customer)Session["loggedInCustomer"];
+            int productId = (int)TempData["productId"];
 
+            Rating rate = new Rating();
 
+            rate.ProductId = productId;
+            rate.CustomerId = customer.Id;
+            rate.Rate = rating;
+            rate.Comment = comment;
 
-
+            context.Rating.Add(rate);
+            context.SaveChanges();
 
             return RedirectToAction("ProductDetail");
         }
