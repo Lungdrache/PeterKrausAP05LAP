@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -83,10 +85,6 @@ namespace PeterKrausAP05LAP.Controllers
 
             return View(products);
         }
-
-
-
-
 
         // User.Identity.IsAuthenticated
         [HttpGet]
@@ -518,19 +516,19 @@ namespace PeterKrausAP05LAP.Controllers
             string path = Server.MapPath(@"~/Rechnungen/Rechnung" + "-" + order.RechnungsNr + ".pdf");
             System.IO.File.WriteAllBytes(path, invoicePdfData);
 
+            
 
-
-            //var message = new MailMessage(@"ITN241552@qualifizierung.at", customerEmail);
-            //message.Subject = $"Deine Bestellung bei uhrenwelt.at (Nr. {orderId})";
-            //message.Body = $"Hallo {customer.FirstName} {customer.LastName}! " +
-            //"\nVielen Dank für deine Bestellung bei uhrenwelt.at." +
-            //"\nIm Anhang findest du deine Rechnung," +
-            //"\nbis zum nächsten mal!" +
-            //"\n" +
-            //"\nDein uhrenwelt.at Team :)";
-            //SmtpClient mailer = new SmtpClient("smtp.office365.com", 587);
+            //var message = new MailMessage(@"platz01@lap-itcc.net", order.Kunde.Email);
+            //message.Subject = $"StockGames-Rechnung (Nr. {order.RechnungsNr})";
+            //message.Body = 
+            //    $"Hallo {order.Kunde.FirstName} {order.Kunde.LastName}! " +
+            //    "\nVielen Dank für die Bestellung viel spaß und gute Unterhaltung" +
+            //    "\nIm Anhang findest du deine Rechnung," +
+            //    "\n" +
+            //    "\nGame On, StockGames";
+            //SmtpClient mailer = new SmtpClient("mail.your-server.de", 25);
             //message.Attachments.Add(new Attachment(path));
-            //mailer.Credentials = new NetworkCredential("ITN241552@qualifizierung.at", "pw");
+            //mailer.Credentials = new NetworkCredential("platz01@lap-itcc.net", "platz01IT-SYST");
             //mailer.EnableSsl = true;
             //mailer.Send(message);
 
