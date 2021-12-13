@@ -306,6 +306,7 @@ namespace PeterKrausAP05LAP.Controllers
 
             }
 
+            // das sorgt dafür das der User zum menü zurückgeschickt wird wenn er keine order hat
             if (!User.Identity.IsAuthenticated || openOrder == null)
             {
                 return RedirectToAction("Index","Home");
