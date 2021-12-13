@@ -3104,6 +3104,7 @@
     <Content Include="Views\Shop\ShopCart.cshtml" />
     <Content Include="Views\Home\AGB.cshtml" />
     <Content Include="Views\Shop\OrderPdf.cshtml" />
+    <Content Include="Views\Shop\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\AssetFiles\NoGame\" />

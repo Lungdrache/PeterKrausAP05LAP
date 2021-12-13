@@ -1,0 +1,165 @@
+﻿@model PeterKrausAP05LAP.ViewModels.VM_OrderPdf
+
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*ProductImage*@
+        </th>
+        <th>
+            Produkt Name
+        </th>
+        <th>
+            Netto Preis
+        </th>
+        <th>
+            Mwst
+        </th>
+        <th>
+            Brutto Preis
+        </th>
+        <th>
+            Hersteller
+        </th>
+        <th>
+            Kategory Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.OrderedProducts)
+    {
+        <tr>
+            <td height="100px">
+                <img style="height:100%;width:100%" src="@item.imageHeaderPath" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price) €
+            </td>
+            <td>
+                @(Math.Round(item.tax, 0)) %
+            </td>
+            <td>
+                @(Math.Round(item.price + ((item.price / 100) * item.tax), 2)) €
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.manufactureName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryName)
+            </td>
+            <td>
+                @Html.ActionLink("details", "ProductDetail", new { id = item.Id }) |
+                @Html.ActionLink("entfernen", "ProductDelete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            @*ProductImage*@
+        </td>
+        <td>
+            @*ProductName*@
+            Gesamt:
+        </td>
+        <td>
+            @*NettoPreis*@
+            @{decimal fullnettoCost = 0;
+                foreach (var item in Model.OrderedProducts)
+                {
+                    fullnettoCost += item.price;
+                }
+            }
+            @Math.Round(fullnettoCost, 2) €
+        </td>
+        <td>
+            @*Tax*@
+            @{decimal fullTaxCost = 0;
+                foreach (var item in Model.OrderedProducts)
+                {
+                    fullTaxCost += (item.price / 100) * item.tax;
+                }
+            }
+            @Math.Round(fullTaxCost, 2) €
+        </td>
+        <td>
+            @*BruttoPreis*@
+            @{decimal fullBruttoCost = 0;
+                foreach (var item in Model.OrderedProducts)
+                {
+                    fullBruttoCost += item.price + ((item.price / 100) * item.tax);
+                }
+            }
+            @Math.Round(fullBruttoCost, 2) €
+        </td>
+        <td>
+            @*Manufacturer*@
+        </td>
+        <td>
+            @*Category*@
+        </td>
+        <td>
+            @if (Model.OrderedProducts.Count() > 0)
+            {
+                <a href="@Url.Action("OrderPdf", "Shop")" class="btn btn-success">Checkout</a>
+            }
+            else
+            {
+                <a href="#" class="btn btn-success disabled">Checkout</a>
+            }
+        </td>
+    </tr>
+
+</table>
+<div class="jumbotron">
+    <form action="Shop/OrderPdf" method="post">
+        <label id="iban">IBAN:</label>
+        <input type="text" name="iban" id="iban" value="" placeholder="AT1234..." onchange="valueChanged()" />
+
+
+
+
+
+
+    </form>
+</div>
+
+<script>
+
+    function valueChanged() {
+
+        var msg = document.querySelector("#iban").value;
+        var toSwitch = msg.substring(0, 4);
+
+        toSwitch = toSwitch.replace(/AT/i, "1029");
+
+        msg = msg.substring(4);
+        msg = msg + toSwitch;
+
+        var bigNum = BigInt(msg);
+
+        var isValid = false;
+        if (bigNum % 97n == 1) {
+            isValid = true;
+        }
+
+        if (isValid) {
+            alert("Valid IBAN: " + msg);
+        } else {
+            alert("Invalid IBAN: " + msg);
+        }
+    }
+
+    
+
+</script>
+@* AT = 1029 15 *@
