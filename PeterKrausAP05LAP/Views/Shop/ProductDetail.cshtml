@@ -118,7 +118,8 @@
 
         </dl>
         <p>
-            @Html.ActionLink("Zurück zum Shop", "ShopPage")
+            <a href="@Url.Action("ShopPage", "Shop")" class="btn btn-info">zurück zum Shop</a>
+            <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.Id })" class="btn btn-success">zum Einkaufswagen hinzufügen</a>
         </p>
     </div>
 

@@ -13,8 +13,8 @@
                     <p class="card-text">@Model.AllProducts[i].ShortDescription</p>
                 </div>
                 <div class="card-footer">
-                    <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i].Id })" class="btn btn-info">more..</a>
-                    <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i].Id })" class="btn btn-info">addCart</a>
+                    <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i].Id })" class="btn btn-info">mehr..</a>
+                    <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i].Id })" class="btn btn-info">zum Einkaufswagen</a>
                 </div>
             </div>
             @if (i + 1 < Model.AllProducts.Count)
@@ -27,8 +27,8 @@
                         <p class="card-text">@Model.AllProducts[i + 1].ShortDescription</p>
                     </div>
                     <div class="card-footer">
-                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 1].Id })" class="btn btn-info">more..</a>
-                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 1].Id })" class="btn btn-info">addCart</a>
+                        <a href="@Url.Action("ProductDetail", "Shop", new { id = Model.AllProducts[i + 1].Id })" class="btn btn-info">mehr..</a>
+                        <a href="@Url.Action("ShopPage", "Shop", new { addCart = Model.AllProducts[i + 1].Id })" class="btn btn-info">zum Einkaufswagen</a>
                     </div>
                 </div>
             }

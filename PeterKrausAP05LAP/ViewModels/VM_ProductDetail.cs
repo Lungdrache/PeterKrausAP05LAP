@@ -19,5 +19,6 @@ namespace PeterKrausAP05LAP.ViewModels
         public List<string> imagePaths { get; set; }
         public string imageHeaderPath { get; set; }
         public string videoPath { get; set; }
+
     }
 }
